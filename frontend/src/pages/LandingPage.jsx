@@ -286,75 +286,42 @@ const CapabilitiesSection = () => {
   );
 };
 
-// Clients Section - Dark grid layout like PDF slide
+// Clients Section - Dark grid layout with real logos image
 const ClientsSection = () => {
-  const clients = [
-    { name: "Honda", style: "font-black text-2xl" },
-    { name: "Ford", style: "font-serif italic text-3xl" },
-    { name: "Peugeot", style: "font-bold text-xl" },
-    { name: "Mobil Super", style: "font-black text-lg" },
-    { name: "MAHLE", style: "font-black text-2xl tracking-wider" },
-    { name: "Motorola", style: "font-light text-xl" },
-    { name: "Lenovo", style: "font-bold text-2xl" },
-    { name: "Samsung", style: "font-bold text-xl tracking-widest" },
-    { name: "Eco de los Andes", style: "font-light text-sm" },
-    { name: "José Cuervo", style: "font-serif italic text-xl" },
-    { name: "Bayer", style: "font-black text-xl" },
-    { name: "Absolut", style: "font-black text-2xl tracking-wider" },
-    { name: "Beefeater", style: "font-serif text-xl" },
-    { name: "Chivas", style: "font-serif italic text-xl" },
-    { name: "Cafayate", style: "font-serif italic text-2xl" },
-    { name: "Havana Club", style: "font-black text-lg" },
-    { name: "Assy", style: "font-black text-2xl tracking-widest" },
-    { name: "Quilmes", style: "font-serif italic text-2xl" },
-    { name: "Mumm", style: "font-black text-2xl" },
-    { name: "Nestlé", style: "font-bold text-xl" },
-    { name: "Cinzano", style: "font-black text-xl tracking-wider" },
-    { name: "Buhero Negro", style: "font-black text-lg" },
-    { name: "Alto del Carmen", style: "font-light text-lg" },
-    { name: "Diablo", style: "font-black text-2xl" },
-  ];
+  const logosImage = "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/szya9zmc_Screenshot%202026-02-02%20at%2012.03.04%E2%80%AFPM.png";
 
   return (
     <section id="work" className="min-h-screen bg-black relative overflow-hidden" data-testid="work-section">
       <div className="container mx-auto px-6 md:px-12 py-20 md:py-32">
-        <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
           {/* Left side - Title */}
-          <motion.div {...fadeUp} className="md:col-span-4 md:sticky md:top-32">
+          <motion.div {...fadeUp} className="md:col-span-3 md:sticky md:top-32">
             <p className="font-light text-sm uppercase tracking-[0.3em] text-white/40 mb-4">
               Our Clients
             </p>
             <h2 className="text-white uppercase mb-6 leading-tight" data-testid="clients-title">
-              <span className="font-light text-5xl sm:text-6xl md:text-7xl block">Our</span>
-              <span className="font-black text-5xl sm:text-6xl md:text-7xl block">Clients</span>
+              <span className="font-light text-4xl sm:text-5xl md:text-6xl block">Our</span>
+              <span className="font-black text-4xl sm:text-5xl md:text-6xl block">Clients</span>
             </h2>
-            <p className="text-xl md:text-2xl text-white/50 font-light italic leading-relaxed">
+            <p className="text-lg md:text-xl text-white/50 font-light italic leading-relaxed">
               Los que entendieron<br />
               que no alcanza<br />
               con una idea.
             </p>
           </motion.div>
           
-          {/* Right side - Client logos grid */}
-          <div className="md:col-span-8">
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-px bg-white/10">
-              {clients.map((client, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.02, duration: 0.4 }}
-                  className="aspect-[4/3] bg-black flex items-center justify-center p-3 group cursor-pointer hover:bg-white/5 transition-colors"
-                  data-testid={`client-${client.name.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  <span className={`text-white/70 group-hover:text-white transition-colors text-center uppercase ${client.style}`}>
-                    {client.name}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          {/* Right side - Client logos image */}
+          <motion.div 
+            {...fadeUp}
+            className="md:col-span-9"
+          >
+            <img 
+              src={logosImage} 
+              alt="Nuestros Clientes - Honda, Ford, Peugeot, Motorola, Samsung, Absolut, Quilmes y más" 
+              className="w-full h-auto"
+              data-testid="clients-logos-image"
+            />
+          </motion.div>
         </div>
       </div>
     </section>
