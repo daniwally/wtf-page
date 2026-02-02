@@ -498,13 +498,13 @@ const ClosingSection = () => (
           <img 
             src={LOGOS.wtfBlack} 
             alt="WTF Logo" 
-            className="h-16 md:h-20 w-auto invert"
+            className="h-16 md:h-20 w-auto invert mix-blend-lighten"
           />
           <div className="w-px h-16 bg-white/30" />
           <img 
             src={LOGOS.briefDestroyersBlack} 
             alt="Brief Destroyers" 
-            className="h-10 md:h-12 w-auto invert"
+            className="h-10 md:h-12 w-auto invert mix-blend-lighten"
           />
         </div>
         
