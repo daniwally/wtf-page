@@ -102,7 +102,7 @@ const Navigation = () => {
         </div>
         <a
           href="mailto:hello@wtfagency.com"
-          className="btn-primary hidden md:block text-sm"
+          className="btn-primary hidden md:block text-xs px-4 py-2"
           data-testid="nav-cta"
         >
           Hablemos
