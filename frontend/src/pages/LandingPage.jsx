@@ -170,14 +170,14 @@ const HeroSection = () => {
             <img 
               src={LOGOS.wtfBlack} 
               alt="WTF Logo" 
-              className="h-24 md:h-32 lg:h-40 w-auto invert"
+              className="h-24 md:h-32 lg:h-40 w-auto invert mix-blend-lighten"
               data-testid="hero-wtf-logo"
             />
             <div className="w-px h-24 md:h-32 bg-white/30" />
             <img 
               src={LOGOS.briefDestroyersBlack} 
               alt="Brief Destroyers" 
-              className="h-16 md:h-20 lg:h-24 w-auto invert"
+              className="h-16 md:h-20 lg:h-24 w-auto invert mix-blend-lighten"
               data-testid="hero-bd-logo"
             />
           </div>
