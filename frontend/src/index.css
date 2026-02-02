@@ -5,12 +5,13 @@
 @tailwind utilities;
 
 :root {
-    --wtf-bg: #050505;
+    --wtf-bg: #000000;
     --wtf-fg: #FFFFFF;
-    --wtf-red: #FF3B30;
-    --wtf-muted: #1A1A1A;
+    --wtf-accent: #FFFFFF;
+    --wtf-muted: #111111;
     --wtf-border: #333333;
-    --wtf-light-bg: #F0F0F0;
+    --wtf-light-bg: #FFFFFF;
+    --wtf-gray: #888888;
 }
 
 * {
@@ -61,25 +62,25 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer base {
     :root {
-        --background: 0 0% 2%;
+        --background: 0 0% 0%;
         --foreground: 0 0% 100%;
         --card: 0 0% 5%;
         --card-foreground: 0 0% 100%;
         --popover: 0 0% 5%;
         --popover-foreground: 0 0% 100%;
-        --primary: 4 100% 59%;
-        --primary-foreground: 0 0% 100%;
+        --primary: 0 0% 100%;
+        --primary-foreground: 0 0% 0%;
         --secondary: 0 0% 10%;
         --secondary-foreground: 0 0% 100%;
         --muted: 0 0% 10%;
         --muted-foreground: 0 0% 60%;
-        --accent: 0 0% 10%;
-        --accent-foreground: 0 0% 100%;
-        --destructive: 0 84.2% 60.2%;
+        --accent: 0 0% 100%;
+        --accent-foreground: 0 0% 0%;
+        --destructive: 0 0% 30%;
         --destructive-foreground: 0 0% 100%;
         --border: 0 0% 20%;
         --input: 0 0% 20%;
-        --ring: 4 100% 59%;
+        --ring: 0 0% 100%;
         --radius: 0;
     }
 }
