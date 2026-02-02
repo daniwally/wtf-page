@@ -191,7 +191,8 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-lg text-white/50 max-w-lg mb-12 font-light italic" data-testid="hero-description">
-            No hacemos lo correcto. Hacemos lo que funciona.
+            No hacemos piezas. Hacemos que las ideas se muevan.<br />
+            15 años entrenando en el mundo real.
           </p>
           
           <div className="flex flex-wrap gap-4">
