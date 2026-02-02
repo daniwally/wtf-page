@@ -195,11 +195,11 @@ const HeroSection = () => {
             15 años entrenando en el mundo real.
           </p>
           
-          <div className="flex flex-wrap gap-4">
-            <a href="mailto:hello@wtfagency.com" className="btn-primary inline-flex items-center gap-3" data-testid="hero-cta-primary">
-              Iniciar un Proyecto <ArrowRight size={20} />
+          <div className="flex flex-wrap gap-3">
+            <a href="mailto:hello@wtfagency.com" className="inline-flex items-center gap-2 bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-gray-200 transition-colors" data-testid="hero-cta-primary">
+              Iniciar un Proyecto <ArrowRight size={14} />
             </a>
-            <a href="#process" className="btn-outline inline-flex items-center gap-3" data-testid="hero-cta-secondary">
+            <a href="#process" className="inline-flex items-center gap-2 border border-white text-white px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors" data-testid="hero-cta-secondary">
               Cómo Trabajamos
             </a>
           </div>
