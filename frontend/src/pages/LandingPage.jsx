@@ -497,9 +497,17 @@ const ClosingSection = () => (
       <motion.div {...fadeUp} className="max-w-4xl mx-auto text-center">
         {/* Logos */}
         <div className="flex items-center justify-center gap-6 mb-12">
-          <WTFLogo size="lg" />
-          <div className="w-px h-16 bg-white/30" />
-          <BriefDestroyersLogo size="lg" />
+          <img 
+            src={LOGOS.wtfWhite} 
+            alt="WTF Logo" 
+            className="h-14 md:h-18 w-auto"
+          />
+          <div className="w-px h-14 bg-white/30" />
+          <img 
+            src={LOGOS.briefWhite} 
+            alt="Brief Destroyers" 
+            className="h-12 md:h-14 w-auto"
+          />
         </div>
         
         <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase mb-4 leading-tight" data-testid="contact-title">
