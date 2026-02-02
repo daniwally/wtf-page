@@ -131,17 +131,11 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         <a href="#hero" className="flex items-center gap-4" data-testid="nav-logo">
-          <img 
-            src={LOGOS.wtfBlack} 
-            alt="WTF Logo" 
-            className="h-12 md:h-14 w-auto brightness-0 invert"
-          />
+          <WTFLogo size="sm" />
           <span className="hidden md:block text-white/30">|</span>
-          <img 
-            src={LOGOS.briefDestroyersBlack} 
-            alt="Brief Destroyers" 
-            className="h-7 md:h-10 w-auto brightness-0 invert hidden md:block"
-          />
+          <span className="hidden md:inline font-serif italic text-white text-lg leading-tight">
+            Brief<br className="hidden" />Destroyers
+          </span>
         </a>
         <div className="hidden md:flex gap-8 items-center">
           {[
