@@ -28,72 +28,12 @@ const HERO_IMAGES = [
   "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/byq9vwvw_u2462154512_POV_first-person_view_high-fashion_Vogue_editoria_68a56ba2-daad-477d-bad2-2c3a5b5c204a_0.png", // Red heels
 ];
 
-// Logo URLs - PNG logos from user
+// Logo URLs - PNG logos with transparent backgrounds
 const LOGOS = {
-  wtfBlack: "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/shnu5ych_Screenshot%202026-02-02%20at%2011.16.51%E2%80%AFAM.png",
-  briefDestroyersBlack: "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/yio49cyf_Screenshot%202026-02-02%20at%2011.16.52%E2%80%AFAM.png",
-};
-
-// WTF Logo Component - Recreated in code for transparency
-const WTFLogo = ({ size = "md", className = "" }) => {
-  const sizes = {
-    sm: { circle: 22, font: 10, gap: 2 },
-    md: { circle: 32, font: 14, gap: 3 },
-    lg: { circle: 48, font: 20, gap: 4 },
-    xl: { circle: 64, font: 28, gap: 5 },
-  };
-  const s = sizes[size];
-  
-  return (
-    <div className={`relative ${className}`} style={{ width: s.circle * 2.2, height: s.circle * 2.2 }}>
-      {/* W */}
-      <div 
-        className="absolute bg-white rounded-full flex items-center justify-center text-black font-black"
-        style={{ width: s.circle, height: s.circle, fontSize: s.font, top: 0, left: 0 }}
-      >
-        W
-      </div>
-      {/* T */}
-      <div 
-        className="absolute bg-white rounded-full flex items-center justify-center text-black font-black"
-        style={{ width: s.circle, height: s.circle, fontSize: s.font, top: s.circle * 0.55, left: s.circle * 0.4 }}
-      >
-        T
-      </div>
-      {/* F */}
-      <div 
-        className="absolute bg-white rounded-full flex items-center justify-center text-black font-black"
-        style={{ width: s.circle, height: s.circle, fontSize: s.font, top: s.circle * 0.25, left: s.circle * 0.95 }}
-      >
-        F
-      </div>
-      {/* ? */}
-      <div 
-        className="absolute bg-white rounded-full flex items-center justify-center text-black font-black"
-        style={{ width: s.circle, height: s.circle, fontSize: s.font, top: s.circle * 1.1, left: s.circle * 0.6 }}
-      >
-        ?
-      </div>
-    </div>
-  );
-};
-
-// Brief Destroyers Text Logo Component
-const BriefDestroyersLogo = ({ size = "md", className = "" }) => {
-  const sizes = {
-    sm: "text-sm",
-    md: "text-xl",
-    lg: "text-3xl",
-    xl: "text-4xl",
-  };
-  
-  return (
-    <div className={`${className}`}>
-      <span className={`font-serif italic text-white ${sizes[size]} leading-none tracking-tight`} style={{ fontStyle: 'italic' }}>
-        Brief<br />Destro-<br />yers
-      </span>
-    </div>
-  );
+  wtfWhite: "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/b0iuqv4h_logo-wtf-blanco.png",
+  wtfBlack: "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/jwy9zj0g_logo%20negro-wtf.png",
+  briefWhite: "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/yt4gadue_logo-brief-blanco.png",
+  briefBlack: "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/04yys6au_log-brief-negro.png",
 };
 
 // Full Screen Section with Background Image
