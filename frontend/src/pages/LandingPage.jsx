@@ -318,7 +318,7 @@ const ClientsSection = () => {
             <img 
               src={logosImage} 
               alt="Nuestros Clientes - Honda, Ford, Peugeot, Motorola, Samsung, Absolut, Quilmes y más" 
-              className="w-full h-auto"
+              className="w-[85%] h-auto"
               data-testid="clients-logos-image"
             />
           </motion.div>
