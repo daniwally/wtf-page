@@ -286,45 +286,66 @@ const CapabilitiesSection = () => {
   );
 };
 
-// Case Studies Section
-const CaseStudiesSection = () => {
-  const clients = ["Motorola", "Absolut", "Honda", "Ford", "Samsung", "Havana Club", "Bayer", "Quilmes"];
+// Clients Section - Grid layout like PDF
+const ClientsSection = () => {
+  const clients = [
+    "Honda", "Ford", "Peugeot", "Mobil", 
+    "Motorola", "Lenovo", "Samsung", "Eco de los Andes",
+    "José Cuervo", "Bayer", "Absolut", "Beefeater",
+    "Chivas", "Cafayate", "Havana Club", "Assy",
+    "Quilmes", "Mumm", "Nestlé", "Cinzano",
+    "Buhero Negro", "Alto del Carmen", "Sensus", "Diablo"
+  ];
 
   return (
-    <FullScreenSection 
-      image={IMAGES.heels} 
-      overlay="bg-gradient-to-l from-black/90 via-black/60 to-transparent"
-    >
-      <div id="work" className="container mx-auto px-6 md:px-12 py-32" data-testid="work-section">
-        <motion.div {...fadeUp} className="max-w-3xl ml-auto text-right">
-          <p className="font-light text-sm uppercase tracking-[0.3em] text-white/60 mb-8" data-testid="work-label">
-            Trabajo Seleccionado
-          </p>
-          <h2 className="font-black text-4xl sm:text-5xl md:text-6xl text-white uppercase mb-4 leading-tight" data-testid="work-title">
-            Marcas Que<br />Hemos Movido
-          </h2>
-          <p className="text-white/50 italic mb-12 text-lg font-light">
-            Reinterpretar es romper el brief hasta que funcione.
-          </p>
-          
-          <div className="flex flex-wrap justify-end gap-x-8 gap-y-4">
+    <section id="work" className="min-h-screen relative overflow-hidden" data-testid="work-section">
+      {/* Two-column layout */}
+      <div className="flex flex-col md:flex-row min-h-screen">
+        {/* Left side - Image with text */}
+        <div 
+          className="w-full md:w-1/2 min-h-[50vh] md:min-h-screen relative flex items-center"
+          style={{ 
+            backgroundImage: `url(${IMAGES.hero})`, 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center' 
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/80" />
+          <motion.div {...fadeUp} className="relative z-10 p-8 md:p-16">
+            <p className="font-light text-sm uppercase tracking-[0.3em] text-white/60 mb-6" data-testid="clients-label">
+              Our Clients
+            </p>
+            <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase mb-6 leading-tight" data-testid="clients-title">
+              Nuestros<br />Clientes
+            </h2>
+            <p className="text-lg md:text-xl text-white/60 font-light max-w-md leading-relaxed">
+              Los que entendieron que no alcanza con una idea.
+            </p>
+          </motion.div>
+        </div>
+        
+        {/* Right side - Client logos grid */}
+        <div className="w-full md:w-1/2 bg-white p-6 md:p-12 flex items-center">
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 md:gap-6 w-full">
             {clients.map((client, i) => (
-              <motion.span
+              <motion.div
                 key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="font-black text-2xl md:text-3xl text-white/30 hover:text-white transition-colors cursor-pointer uppercase"
-                data-testid={`client-${client.toLowerCase()}`}
+                transition={{ delay: i * 0.03, duration: 0.4 }}
+                className="aspect-[3/2] bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center p-4 group cursor-pointer"
+                data-testid={`client-${client.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                {client}
-              </motion.span>
+                <span className="font-bold text-xs sm:text-sm md:text-base text-black/60 group-hover:text-black transition-colors text-center uppercase tracking-wide">
+                  {client}
+                </span>
+              </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
-    </FullScreenSection>
+    </section>
   );
 };
 
