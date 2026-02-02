@@ -110,67 +110,125 @@ const Navigation = () => {
   );
 };
 
-// Hero Section
-const HeroSection = () => (
-  <FullScreenSection 
-    image={IMAGES.hero} 
-    overlay="bg-gradient-to-r from-black/80 via-black/40 to-transparent"
-    className="min-h-screen"
-  >
-    <div id="hero" className="container mx-auto px-6 md:px-12 py-32" data-testid="hero-section">
-      <motion.div {...fadeUp} className="max-w-4xl">
-        {/* Tagline en inglés como el PDF */}
-        <p className="text-white/60 font-light text-sm md:text-base uppercase tracking-[0.3em] mb-8" data-testid="hero-tagline">
-          Battle Tested Creativity Since 2010
-        </p>
-        
-        {/* Logos */}
-        <div className="flex items-center gap-6 md:gap-10 mb-10">
-          <img 
-            src={LOGOS.wtfBlack} 
-            alt="WTF Logo" 
-            className="h-24 md:h-32 lg:h-40 w-auto invert"
-            data-testid="hero-wtf-logo"
-          />
-          <div className="w-px h-24 md:h-32 bg-white/30" />
-          <img 
-            src={LOGOS.briefDestroyersBlack} 
-            alt="Brief Destroyers" 
-            className="h-16 md:h-20 lg:h-24 w-auto invert"
-            data-testid="hero-bd-logo"
-          />
-        </div>
-        
-        {/* Main tagline en español */}
-        <h1 className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight mb-8" data-testid="hero-title">
-          La Creatividad Entrenada<br />
-          <span className="font-light text-white/60">Para Reinterpretar</span>
-        </h1>
-        
-        <p className="text-lg text-white/50 max-w-lg mb-12 font-light italic" data-testid="hero-description">
-          No hacemos lo correcto. Hacemos lo que funciona.
-        </p>
-        
-        <div className="flex flex-wrap gap-4">
-          <a href="mailto:hello@wtfagency.com" className="btn-primary inline-flex items-center gap-3" data-testid="hero-cta-primary">
-            Iniciar un Proyecto <ArrowRight size={20} />
-          </a>
-          <a href="#process" className="btn-outline inline-flex items-center gap-3" data-testid="hero-cta-secondary">
-            Cómo Trabajamos
-          </a>
-        </div>
-      </motion.div>
-    </div>
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1, duration: 1 }}
-      className="absolute bottom-10 left-1/2 -translate-x-1/2"
+// Hero Section with rotating background images
+const HeroSection = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentImage((prev) => {
+          let next;
+          do {
+            next = Math.floor(Math.random() * HERO_IMAGES.length);
+          } while (next === prev && HERO_IMAGES.length > 1);
+          return next;
+        });
+        setIsTransitioning(false);
+      }, 500);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section 
+      id="hero" 
+      className="min-h-screen relative flex items-center justify-center overflow-hidden"
+      data-testid="hero-section"
     >
-      <ChevronDown className="text-white/50 animate-bounce" size={32} />
-    </motion.div>
-  </FullScreenSection>
-);
+      {/* Background images with crossfade */}
+      {HERO_IMAGES.map((img, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            index === currentImage ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{ 
+            backgroundImage: `url(${img})`, 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center' 
+          }}
+        />
+      ))}
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
+      
+      {/* Content */}
+      <div className="container mx-auto px-6 md:px-12 py-32 relative z-20">
+        <motion.div {...fadeUp} className="max-w-4xl">
+          {/* Tagline en inglés como el PDF */}
+          <p className="text-white/60 font-light text-sm md:text-base uppercase tracking-[0.3em] mb-8" data-testid="hero-tagline">
+            Battle Tested Creativity Since 2010
+          </p>
+          
+          {/* Logos */}
+          <div className="flex items-center gap-6 md:gap-10 mb-10">
+            <img 
+              src={LOGOS.wtfBlack} 
+              alt="WTF Logo" 
+              className="h-24 md:h-32 lg:h-40 w-auto invert"
+              data-testid="hero-wtf-logo"
+            />
+            <div className="w-px h-24 md:h-32 bg-white/30" />
+            <img 
+              src={LOGOS.briefDestroyersBlack} 
+              alt="Brief Destroyers" 
+              className="h-16 md:h-20 lg:h-24 w-auto invert"
+              data-testid="hero-bd-logo"
+            />
+          </div>
+          
+          {/* Main tagline en español */}
+          <h1 className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight mb-8" data-testid="hero-title">
+            La Creatividad Entrenada<br />
+            <span className="font-light text-white/60">Para Reinterpretar</span>
+          </h1>
+          
+          <p className="text-lg text-white/50 max-w-lg mb-12 font-light italic" data-testid="hero-description">
+            No hacemos lo correcto. Hacemos lo que funciona.
+          </p>
+          
+          <div className="flex flex-wrap gap-4">
+            <a href="mailto:hello@wtfagency.com" className="btn-primary inline-flex items-center gap-3" data-testid="hero-cta-primary">
+              Iniciar un Proyecto <ArrowRight size={20} />
+            </a>
+            <a href="#process" className="btn-outline inline-flex items-center gap-3" data-testid="hero-cta-secondary">
+              Cómo Trabajamos
+            </a>
+          </div>
+        </motion.div>
+      </div>
+      
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
+      >
+        <ChevronDown className="text-white/50 animate-bounce" size={32} />
+      </motion.div>
+      
+      {/* Image indicator dots */}
+      <div className="absolute bottom-10 right-10 z-20 flex gap-2">
+        {HERO_IMAGES.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImage(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === currentImage ? 'bg-white w-6' : 'bg-white/30'
+            }`}
+            data-testid={`hero-dot-${index}`}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
 
 // Philosophy Section
 const PhilosophySection = () => (
