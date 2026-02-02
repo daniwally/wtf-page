@@ -1,0 +1,139 @@
+{
+  "design_system": {
+    "typography": {
+      "font_family": {
+        "heading": "Anton, sans-serif",
+        "body": "Manrope, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "scale": {
+        "hero": "text-7xl md:text-9xl tracking-tighter uppercase leading-[0.8]",
+        "h1": "text-5xl md:text-7xl tracking-tight uppercase leading-none",
+        "h2": "text-4xl md:text-6xl tracking-tight uppercase",
+        "h3": "text-2xl md:text-4xl font-bold",
+        "body_lg": "text-xl md:text-2xl leading-relaxed font-light",
+        "body": "text-base md:text-lg leading-relaxed text-muted-foreground",
+        "caption": "text-sm font-mono uppercase tracking-widest"
+      }
+    },
+    "colors": {
+      "palette": {
+        "background": "#050505",
+        "foreground": "#FFFFFF",
+        "primary": "#FF3B30",
+        "secondary": "#FFFFFF",
+        "muted": "#1A1A1A",
+        "border": "#333333",
+        "accent": "#CCFF00"
+      },
+      "usage": {
+        "hero_bg": "bg-[#050505]",
+        "section_light": "bg-[#F0F0F0] text-[#050505]",
+        "section_dark": "bg-[#050505] text-white",
+        "accent_text": "text-[#FF3B30]",
+        "border_color": "border-[#333333]"
+      }
+    },
+    "layout": {
+      "grid_system": "grid grid-cols-4 md:grid-cols-12 gap-4 md:gap-8",
+      "container": "container mx-auto px-4 md:px-8 max-w-screen-2xl",
+      "spacing": {
+        "section_py": "py-24 md:py-32",
+        "element_gap": "gap-6"
+      }
+    },
+    "visual_enhancers": {
+      "borders": "border border-white/10",
+      "shadows": "shadow-[0_0_30px_-10px_rgba(255,59,48,0.3)]",
+      "glass": "backdrop-blur-xl bg-black/50 border-white/10",
+      "noise": "bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"
+    },
+    "animation": {
+      "library": "framer-motion",
+      "defaults": {
+        "duration": 0.6,
+        "ease": [0.22, 1, 0.36, 1]
+      },
+      "types": {
+        "fade_up": {
+          "initial": { "opacity": 0, "y": 40 },
+          "whileInView": { "opacity": 1, "y": 0 }
+        },
+        "stagger_children": {
+          "visible": { "transition": { "staggerChildren": 0.1 } }
+        },
+        "hover_scale": {
+          "whileHover": { "scale": 0.98 }
+        }
+      }
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#FF3B30] text-white hover:bg-[#FF3B30]/90 rounded-none px-8 py-6 text-lg uppercase font-bold tracking-wider transition-all hover:scale-105",
+      "outline": "border-2 border-white text-white hover:bg-white hover:text-black rounded-none px-8 py-6 text-lg uppercase font-bold tracking-wider transition-all",
+      "ghost": "text-white hover:text-[#FF3B30] uppercase tracking-widest text-sm font-mono"
+    },
+    "cards": {
+      "feature": "bg-[#111] border border-white/10 p-8 hover:border-[#FF3B30] transition-colors group relative overflow-hidden",
+      "case_study": "aspect-[4/5] relative group overflow-hidden bg-neutral-900"
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.unsplash.com/photo-1764258559785-6229d5f9e50e?q=80&w=2000&auto=format&fit=crop",
+      "office_1": "https://images.unsplash.com/photo-1763306934305-39de4bbf19d9?q=80&w=1000&auto=format&fit=crop",
+      "office_2": "https://images.unsplash.com/photo-1661475765552-9a0c80c8b44e?q=80&w=1000&auto=format&fit=crop",
+      "team_1": "https://images.unsplash.com/photo-1632835223280-8ef429ec3eba?q=80&w=1000&auto=format&fit=crop",
+      "team_2": "https://images.unsplash.com/photo-1622675363311-3e1904dc1885?q=80&w=1000&auto=format&fit=crop",
+      "case_study_1": "https://images.unsplash.com/photo-1669209504029-2a1ae05eca15?q=80&w=800&auto=format&fit=crop",
+      "case_study_2": "https://images.unsplash.com/photo-1668712841504-d392ff984d9d?q=80&w=800&auto=format&fit=crop",
+      "case_study_3": "https://images.unsplash.com/photo-1669351004430-8a5c1455e45f?q=80&w=800&auto=format&fit=crop"
+    },
+    "logos": {
+      "placeholder_style": "text-2xl font-bold uppercase tracking-tighter opacity-50 hover:opacity-100 transition-opacity"
+    }
+  },
+  "content_strategy": {
+    "tone": "Confident, Aggressive, Strategic. 'We don't do what's right. We do what works.'",
+    "sections": [
+      {
+        "id": "hero",
+        "type": "dark",
+        "content": "BRIEF DESTROYERS. A CREATIVE SYSTEM IN MOTION."
+      },
+      {
+        "id": "philosophy",
+        "type": "light",
+        "content": "WE'RE NOT AN AGENCY. WE'RE A SYSTEM."
+      },
+      {
+        "id": "process",
+        "type": "dark",
+        "content": "THINK -> MAKE -> MOVE -> LEARN -> SCALE"
+      },
+      {
+        "id": "work",
+        "type": "mixed",
+        "content": "CASE STUDIES"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "1. INSTALL FONTS: Add 'Anton' and 'Manrope' from Google Fonts in index.css or index.html immediately.",
+    "2. THEME: Implement a 'Mixed' theme. Hero is strictly DARK. Philosophy section is STRICTLY LIGHT (White bg, Black text). Process is DARK. This contrast is key.",
+    "3. TYPOGRAPHY: Use 'Anton' for all H1-H3. It must be HUGE. Use 'Manrope' for body.",
+    "4. LAYOUT: Do not use standard centered containers. Use asymmetric grids. Align text left mostly, but use massive centered text for impact statements.",
+    "5. INTERACTION: Use framer-motion for everything. Text should slide up. Images should scale on hover.",
+    "6. COMPONENTS: Use Shadcn for the 'Contact' form or modal, but style it to match the brutalist theme (square corners, thick borders).",
+    "7. IMAGES: Use the provided Unsplash URLs. Do not use placeholders.",
+    "8. LOGOS: Since we don't have real logo SVGs, render the client names (Motorola, Absolut, etc.) in a 'Ticker' or 'Grid' using the 'Anton' font with low opacity (50%) that goes to 100% on hover. This looks intentional and stylish."
+  ],
+  "universal_guidelines": [
+    "Avoid generic AI designs.",
+    "Use 2-3x more spacing than usual.",
+    "Dark colors must be solid, no gradients.",
+    "Use glassmorphism sparingly, prefer solid contrast.",
+    "All interactive elements must have data-testid."
+  ]
+}
