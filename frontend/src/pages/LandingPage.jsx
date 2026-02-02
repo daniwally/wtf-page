@@ -169,9 +169,19 @@ const HeroSection = () => {
           
           {/* Logos */}
           <div className="flex items-center gap-6 md:gap-10 mb-10">
-            <WTFLogo size="xl" />
-            <div className="w-px h-24 md:h-32 bg-white/30" />
-            <BriefDestroyersLogo size="xl" />
+            <img 
+              src={LOGOS.wtfWhite} 
+              alt="WTF Logo" 
+              className="h-20 md:h-28 lg:h-36 w-auto"
+              data-testid="hero-wtf-logo"
+            />
+            <div className="w-px h-20 md:h-28 bg-white/30" />
+            <img 
+              src={LOGOS.briefWhite} 
+              alt="Brief Destroyers" 
+              className="h-16 md:h-24 lg:h-28 w-auto"
+              data-testid="hero-bd-logo"
+            />
           </div>
           
           {/* Main tagline en español */}
