@@ -1,17 +1,17 @@
 /* WTF Agency - Brief Destroyers Landing Page */
 
 .section-dark {
-    background-color: #050505;
+    background-color: #000000;
     color: #FFFFFF;
 }
 
 .section-light {
-    background-color: #F0F0F0;
-    color: #050505;
+    background-color: #FFFFFF;
+    color: #000000;
 }
 
 .section-muted {
-    background-color: #1A1A1A;
+    background-color: #111111;
     color: #FFFFFF;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .capability-card:hover {
-    border-color: #FF3B30;
+    border-color: #FFFFFF;
     transform: translateY(-4px);
 }
 
@@ -50,7 +50,7 @@
 
 .client-logo:hover {
     opacity: 1;
-    color: #FF3B30;
+    color: #FFFFFF;
 }
 
 /* Case study card */
@@ -87,7 +87,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #FF3B30;
+    background: #FFFFFF;
     transition: width 0.3s ease;
 }
 
@@ -97,8 +97,8 @@
 
 /* Button styles */
 .btn-primary {
-    background: #FF3B30;
-    color: white;
+    background: #FFFFFF;
+    color: #000000;
     padding: 1rem 2rem;
     font-family: 'Anton', sans-serif;
     font-size: 1rem;
@@ -110,7 +110,7 @@
 }
 
 .btn-primary:hover {
-    background: #e0352b;
+    background: #E5E5E5;
     transform: scale(1.02);
 }
 
@@ -129,7 +129,7 @@
 
 .btn-outline:hover {
     background: white;
-    color: #050505;
+    color: #000000;
 }
 
 /* Noise overlay */
