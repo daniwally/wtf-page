@@ -517,7 +517,7 @@ const LandingPage = () => {
       <PhilosophySection />
       <ProcessSection />
       <CapabilitiesSection />
-      <CaseStudiesSection />
+      <ClientsSection />
       <TeamSection />
       <OfficesSection />
       <ClosingSection />
