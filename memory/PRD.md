@@ -5,68 +5,43 @@ Build an institutional landing page for WTF Agency / Brief Destroyers - a creati
 
 ## User Choices
 - **Language**: English
-- **Design**: Mixed/hybrid approach (dark hero, transitioning light/dark sections)
+- **Design**: Full-screen background images similar to PDF credentials
 - **Color Scheme**: Black and white only
 - **CTA**: Simple mailto link (hello@wtfagency.com)
 - **Logo**: Original WTF logo with 4 circles (W, T, F, ¿)
-- **Additional Sections**: Client logos, case studies, office locations, team section
-- **No video embeds**
+- **Background Images**: User-provided cinematic images
 
 ## User Personas
 1. **CMO / Brand Director** - Needs to understand agency capabilities and differentiation
 2. **Head of Marketing** - Looking for creative partners who deliver systems, not just campaigns
 3. **Startup Founder** - Seeking bold, fast-moving creative teams
 
-## Core Requirements (Static)
-- Modern, strategic landing page
-- Clear positioning as "creative system in motion"
-- Process showcase: Think → Make → Move → Learn → Scale
-- Business problems focus, not just services
-- Bold typography with Anton + Manrope fonts
-- Black and white color palette
-- Responsive design
-- Smooth scroll navigation
-
 ## What's Been Implemented (Feb 2, 2026)
-- ✅ Hero section with WTF logo (4 circles) and "Brief Destroyers" title
-- ✅ Philosophy section: "We're not an agency. We're a system"
-- ✅ Process section: 5-step creative system flow
-- ✅ What We Solve: 6 business problem cards
-- ✅ Capabilities: 5 service blocks
-- ✅ Who This Is For: Audience targeting section
-- ✅ Client Logos: Marquee with 10 brand names
-- ✅ Case Studies: 6 project cards with grayscale images
-- ✅ Team Section: Autonomous cells with stats grid
-- ✅ Offices: 6 global locations
-- ✅ Contact/CTA: Manifesto-style closing with mailto
-- ✅ Sticky navigation with smooth scroll
+- ✅ **Hero Section**: Full-screen VR dog image + WTF logo + "Brief Destroyers" title
+- ✅ **Philosophy Section**: White horses background + "We're not an agency. We're a system."
+- ✅ **Process Section**: F1 racer background + 5-step creative system (Think→Make→Move→Learn→Scale)
+- ✅ **Capabilities Section**: Goggles woman background + 5 service items
+- ✅ **Case Studies Section**: Red heels background + 8 client logos as typography
+- ✅ **Team Section**: Stats grid (15+ years, 6 offices, 50+ cells, ∞ briefs)
+- ✅ **Offices Section**: 6 global locations
+- ✅ **Contact Section**: CTA with mailto links
+- ✅ Smooth scroll navigation
 - ✅ Framer Motion animations
 - ✅ Responsive design
 
+## Background Images Used
+1. Hero: VR Dog (pmv3waqd_00001.png)
+2. Philosophy: White Horses (q6jin7h4_06060606.png)
+3. Process: F1 Racer (jw0yxiwb_...d0d9364b...)
+4. Capabilities: Goggles Woman (ll4n1ljh_...a782b713...)
+5. Work: Red Heels on Swing (qppcfbqj_...68a56ba2...)
+
 ## Tech Stack
 - **Frontend**: React 19 + Tailwind CSS + Framer Motion
-- **Components**: Shadcn UI
 - **Fonts**: Anton (headings) + Manrope (body)
-- **Backend**: FastAPI (minimal, no API needed for landing page)
-
-## Prioritized Backlog
-### P0 (Critical)
-- All implemented ✅
-
-### P1 (High)
-- Real client logo images/SVGs
-- Actual case study content and links
-- Contact form integration (optional)
-
-### P2 (Medium)
-- Blog/News section
-- Careers page
-- Multi-language support (Spanish)
-- Analytics integration
 
 ## Next Tasks
-1. Add actual client logo SVGs/images when available
+1. Add actual client logo SVGs when available
 2. Link case studies to full project pages
-3. Consider adding a simple contact form
-4. Add meta tags and OpenGraph for SEO
-5. Integrate analytics (Google Analytics, etc.)
+3. Add meta tags and OpenGraph for SEO
+4. Consider contact form integration
