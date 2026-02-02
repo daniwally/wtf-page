@@ -72,13 +72,13 @@ const Navigation = () => {
           <img 
             src={LOGOS.wtfBlack} 
             alt="WTF Logo" 
-            className="h-12 md:h-14 w-auto invert"
+            className="h-12 md:h-14 w-auto invert mix-blend-lighten"
           />
           <span className="hidden md:block text-white/30">|</span>
           <img 
             src={LOGOS.briefDestroyersBlack} 
             alt="Brief Destroyers" 
-            className="h-7 md:h-10 w-auto invert hidden md:block"
+            className="h-7 md:h-10 w-auto invert mix-blend-lighten hidden md:block"
           />
         </a>
         <div className="hidden md:flex gap-8 items-center">
