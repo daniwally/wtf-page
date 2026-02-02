@@ -542,9 +542,9 @@ const Footer = () => (
     <div className="container mx-auto px-6 md:px-12">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-4">
-          <WTFLogo size="sm" />
+          <img src={LOGOS.wtfWhite} alt="WTF" className="h-8 w-auto" />
           <span className="text-white/30">|</span>
-          <span className="font-serif italic text-white/50 text-sm">Brief Destroyers</span>
+          <img src={LOGOS.briefWhite} alt="Brief Destroyers" className="h-6 w-auto" />
         </div>
         <p className="text-white/30 text-sm font-light">
           Battle Tested Creativity Since 2010
