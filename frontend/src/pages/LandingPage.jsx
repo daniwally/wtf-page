@@ -286,62 +286,74 @@ const CapabilitiesSection = () => {
   );
 };
 
-// Clients Section - Grid layout like PDF
+// Clients Section - Dark grid layout like PDF slide
 const ClientsSection = () => {
   const clients = [
-    "Honda", "Ford", "Peugeot", "Mobil", 
-    "Motorola", "Lenovo", "Samsung", "Eco de los Andes",
-    "José Cuervo", "Bayer", "Absolut", "Beefeater",
-    "Chivas", "Cafayate", "Havana Club", "Assy",
-    "Quilmes", "Mumm", "Nestlé", "Cinzano",
-    "Buhero Negro", "Alto del Carmen", "Sensus", "Diablo"
+    { name: "Honda", style: "font-black text-2xl" },
+    { name: "Ford", style: "font-serif italic text-3xl" },
+    { name: "Peugeot", style: "font-bold text-xl" },
+    { name: "Mobil Super", style: "font-black text-lg" },
+    { name: "MAHLE", style: "font-black text-2xl tracking-wider" },
+    { name: "Motorola", style: "font-light text-xl" },
+    { name: "Lenovo", style: "font-bold text-2xl" },
+    { name: "Samsung", style: "font-bold text-xl tracking-widest" },
+    { name: "Eco de los Andes", style: "font-light text-sm" },
+    { name: "José Cuervo", style: "font-serif italic text-xl" },
+    { name: "Bayer", style: "font-black text-xl" },
+    { name: "Absolut", style: "font-black text-2xl tracking-wider" },
+    { name: "Beefeater", style: "font-serif text-xl" },
+    { name: "Chivas", style: "font-serif italic text-xl" },
+    { name: "Cafayate", style: "font-serif italic text-2xl" },
+    { name: "Havana Club", style: "font-black text-lg" },
+    { name: "Assy", style: "font-black text-2xl tracking-widest" },
+    { name: "Quilmes", style: "font-serif italic text-2xl" },
+    { name: "Mumm", style: "font-black text-2xl" },
+    { name: "Nestlé", style: "font-bold text-xl" },
+    { name: "Cinzano", style: "font-black text-xl tracking-wider" },
+    { name: "Buhero Negro", style: "font-black text-lg" },
+    { name: "Alto del Carmen", style: "font-light text-lg" },
+    { name: "Diablo", style: "font-black text-2xl" },
   ];
 
   return (
-    <section id="work" className="min-h-screen relative overflow-hidden" data-testid="work-section">
-      {/* Two-column layout */}
-      <div className="flex flex-col md:flex-row min-h-screen">
-        {/* Left side - Image with text */}
-        <div 
-          className="w-full md:w-1/2 min-h-[50vh] md:min-h-screen relative flex items-center"
-          style={{ 
-            backgroundImage: `url(${IMAGES.hero})`, 
-            backgroundSize: 'cover', 
-            backgroundPosition: 'center' 
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/80" />
-          <motion.div {...fadeUp} className="relative z-10 p-8 md:p-16">
-            <p className="font-light text-sm uppercase tracking-[0.3em] text-white/60 mb-6" data-testid="clients-label">
+    <section id="work" className="min-h-screen bg-black relative overflow-hidden" data-testid="work-section">
+      <div className="container mx-auto px-6 md:px-12 py-20 md:py-32">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start">
+          {/* Left side - Title */}
+          <motion.div {...fadeUp} className="md:col-span-4 md:sticky md:top-32">
+            <p className="font-light text-sm uppercase tracking-[0.3em] text-white/40 mb-4">
               Our Clients
             </p>
-            <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase mb-6 leading-tight" data-testid="clients-title">
-              Nuestros<br />Clientes
+            <h2 className="text-white uppercase mb-6 leading-tight" data-testid="clients-title">
+              <span className="font-light text-5xl sm:text-6xl md:text-7xl block">Our</span>
+              <span className="font-black text-5xl sm:text-6xl md:text-7xl block">Clients</span>
             </h2>
-            <p className="text-lg md:text-xl text-white/60 font-light max-w-md leading-relaxed">
-              Los que entendieron que no alcanza con una idea.
+            <p className="text-xl md:text-2xl text-white/50 font-light italic leading-relaxed">
+              Los que entendieron<br />
+              que no alcanza<br />
+              con una idea.
             </p>
           </motion.div>
-        </div>
-        
-        {/* Right side - Client logos grid */}
-        <div className="w-full md:w-1/2 bg-white p-6 md:p-12 flex items-center">
-          <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 md:gap-6 w-full">
-            {clients.map((client, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.03, duration: 0.4 }}
-                className="aspect-[3/2] bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center p-4 group cursor-pointer"
-                data-testid={`client-${client.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                <span className="font-bold text-xs sm:text-sm md:text-base text-black/60 group-hover:text-black transition-colors text-center uppercase tracking-wide">
-                  {client}
-                </span>
-              </motion.div>
-            ))}
+          
+          {/* Right side - Client logos grid */}
+          <div className="md:col-span-8">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-px bg-white/10">
+              {clients.map((client, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.02, duration: 0.4 }}
+                  className="aspect-[4/3] bg-black flex items-center justify-center p-3 group cursor-pointer hover:bg-white/5 transition-colors"
+                  data-testid={`client-${client.name.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <span className={`text-white/70 group-hover:text-white transition-colors text-center uppercase ${client.style}`}>
+                    {client.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
