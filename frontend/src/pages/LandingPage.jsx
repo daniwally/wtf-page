@@ -18,6 +18,16 @@ const IMAGES = {
   heels: "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/qppcfbqj_u2462154512_POV_first-person_view_high-fashion_Vogue_editoria_68a56ba2-daad-477d-bad2-2c3a5b5c204a_0.png",
 };
 
+// Hero slideshow images (all images for random rotation)
+const HERO_IMAGES = [
+  "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/pmv3waqd_00001.png", // VR dog
+  "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/uzvk7l9t_u2462154512_A_american_framed_is_featured_on_an_aesthetic_adv_a782b713-0b85-4f85-aedf-612944e40328_3.png", // Goggles woman
+  "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/5towsi97_u2462154512_A_single_luxury_armchair_inspired_by_Chaise_Loung_65c6e0e1-d597-4f17-b5dd-e827ce7d5ec7_2.png", // Armchair desert
+  "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/fph5s6bf_u2462154512_Cinematic_atmosphere_in_the_style_of_F1_The_Movie_c8eae6cc-3df1-4a3e-9628-44a0e81a73e5_3%20%281%29.png", // Motorcycle racer
+  "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/lpm33i3o_u2462154512_On_the_endless_expanse_of_grassland_a_dense_flock_a3b5c8a4-96ab-41f6-aad1-394024854bea_0.png", // Black sheep
+  "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/byq9vwvw_u2462154512_POV_first-person_view_high-fashion_Vogue_editoria_68a56ba2-daad-477d-bad2-2c3a5b5c204a_0.png", // Red heels
+];
+
 // Logo URLs - PNG logos from user
 const LOGOS = {
   wtfBlack: "https://customer-assets.emergentagent.com/job_agency-reimagined/artifacts/shnu5ych_Screenshot%202026-02-02%20at%2011.16.51%E2%80%AFAM.png",
