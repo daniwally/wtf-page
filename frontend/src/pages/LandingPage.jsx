@@ -578,9 +578,9 @@ const Footer = () => (
     <div className="container mx-auto px-6 md:px-12">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-4">
-          <img src={LOGOS.wtfBlack} alt="WTF" className="h-8 w-auto brightness-0 invert" />
+          <WTFLogo size="sm" />
           <span className="text-white/30">|</span>
-          <img src={LOGOS.briefDestroyersBlack} alt="Brief Destroyers" className="h-5 w-auto brightness-0 invert" />
+          <span className="font-serif italic text-white/50 text-sm">Brief Destroyers</span>
         </div>
         <p className="text-white/30 text-sm font-light">
           Battle Tested Creativity Since 2010
