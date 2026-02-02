@@ -540,9 +540,9 @@ const Footer = () => (
     <div className="container mx-auto px-6 md:px-12">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-4">
-          <img src={LOGOS.wtfBlack} alt="WTF" className="h-8 w-auto invert" />
+          <img src={LOGOS.wtfBlack} alt="WTF" className="h-8 w-auto invert mix-blend-lighten" />
           <span className="text-white/30">|</span>
-          <img src={LOGOS.briefDestroyersBlack} alt="Brief Destroyers" className="h-5 w-auto invert" />
+          <img src={LOGOS.briefDestroyersBlack} alt="Brief Destroyers" className="h-5 w-auto invert mix-blend-lighten" />
         </div>
         <p className="text-white/30 text-sm font-light">
           Battle Tested Creativity Since 2010
