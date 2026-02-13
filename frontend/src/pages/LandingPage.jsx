@@ -278,9 +278,13 @@ const ProcessSection = () => {
           <p className="font-light text-sm uppercase tracking-[0.3em] text-white/60 mb-8" data-testid="process-label">
             Cómo Trabajamos
           </p>
-          <h2 className="font-black text-4xl sm:text-5xl md:text-6xl text-white uppercase" data-testid="process-title">
+          <h2 className="font-black text-4xl sm:text-5xl md:text-6xl text-white uppercase mb-8" data-testid="process-title">
             El Sistema Creativo
           </h2>
+          <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed max-w-2xl mx-auto">
+            En WTF evolucionamos, dejamos de ser una agencia que hace campañas para convertirnos en un sistema creativo.<br /><br />
+            Estrategia que ordena. Creatividad con oficio. Producción con velocidad. IA para multiplicar.
+          </p>
         </motion.div>
         
         <div className="flex flex-wrap justify-center gap-4 md:gap-8">
