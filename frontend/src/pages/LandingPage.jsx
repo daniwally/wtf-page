@@ -247,7 +247,7 @@ const PhilosophySection = () => (
         <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase mb-6 leading-tight" data-testid="philosophy-title">
           No somos<br />una agencia.
         </h2>
-        <h2 className="font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/40 uppercase mb-12 leading-tight">
+        <h2 className="font-thin text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/60 uppercase mb-12 leading-tight">
           Somos un<br />sistema.
         </h2>
         <p className="text-xl md:text-2xl text-white/70 leading-relaxed font-light max-w-xl ml-auto" data-testid="philosophy-text">
