@@ -453,7 +453,6 @@ const OfficesSection = () => {
     { city: "Santiago", country: "Chile" },
     { city: "Asunción", country: "Paraguay" },
     { city: "Lima", country: "Perú" },
-    { city: "CDMX", country: "México" },
   ];
 
   return (
