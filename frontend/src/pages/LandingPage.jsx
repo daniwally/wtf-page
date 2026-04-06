@@ -187,7 +187,7 @@ const HeroSection = () => {
           {/* Main tagline en español */}
           <h1 className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight mb-8" data-testid="hero-title">
             La Creatividad Entrenada<br />
-            <span className="font-light text-white/60">Para Reinterpretar</span>
+            <span className="font-thin text-white">Para Reinterpretar</span>
           </h1>
           
           <p className="text-lg text-white/50 max-w-lg mb-12 font-light italic" data-testid="hero-description">
