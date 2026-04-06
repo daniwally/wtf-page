@@ -518,7 +518,7 @@ const ClosingSection = () => (
         <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase mb-4 leading-tight" data-testid="contact-title">
           ¿Listos para destruir
         </h2>
-        <h2 className="font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/40 uppercase mb-12 leading-tight">
+        <h2 className="font-thin text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/60 uppercase mb-12 leading-tight">
           algunos briefs?
         </h2>
         <p className="text-xl text-white/50 mb-4 leading-relaxed max-w-2xl mx-auto font-light" data-testid="contact-description">
