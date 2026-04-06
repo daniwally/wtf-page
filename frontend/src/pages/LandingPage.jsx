@@ -187,7 +187,7 @@ const HeroSection = () => {
           {/* Main tagline en español */}
           <h1 className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight mb-8" data-testid="hero-title">
             La Creatividad Entrenada<br />
-            <span className="font-thin text-white/60">Para Reinterpretar</span>
+            <span className="text-white/60" style={{ fontWeight: 100 }}>Para Reinterpretar</span>
           </h1>
           
           <p className="text-lg text-white/50 max-w-lg mb-12 font-light italic" data-testid="hero-description">
@@ -247,7 +247,7 @@ const PhilosophySection = () => (
         <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase mb-6 leading-tight" data-testid="philosophy-title">
           No somos<br />una agencia.
         </h2>
-        <h2 className="font-thin text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/60 uppercase mb-12 leading-tight">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/60 uppercase mb-12 leading-tight" style={{ fontWeight: 100 }}>
           Somos un<br />sistema.
         </h2>
         <p className="text-xl md:text-2xl text-white/70 leading-relaxed font-light max-w-xl ml-auto" data-testid="philosophy-text">
@@ -518,7 +518,7 @@ const ClosingSection = () => (
         <h2 className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase mb-4 leading-tight" data-testid="contact-title">
           ¿Listos para destruir
         </h2>
-        <h2 className="font-thin text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/60 uppercase mb-12 leading-tight">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/60 uppercase mb-12 leading-tight" style={{ fontWeight: 100 }}>
           algunos briefs?
         </h2>
         <p className="text-xl text-white/50 mb-4 leading-relaxed max-w-2xl mx-auto font-light" data-testid="contact-description">
