@@ -1,0 +1,91 @@
+import { createContext, useContext, useEffect, useRef, useState, useCallback } from "react";
+import { useReducedMotion } from "framer-motion";
+import { THEMES } from "./palette";
+
+// Mecanismo-firma de Monks: el fondo y el texto se animan en el <main> mismo
+// (cubre todo el documento → color correcto a cualquier scroll, sin
+// position:fixed ni artefactos). El cross-fade se hace con TRANSICIÓN CSS, no
+// con framer: maneja interrupciones de scroll rápidas y SIEMPRE asienta en el
+// valor final (framer se trababa en gris al re-disparar el tween). La sección
+// que cruza el centro del viewport define el tema.
+const ThemeContext = createContext({ register: () => {} });
+
+export const ThemeRoot = ({ initial = THEMES.bone, children }) => {
+  const [theme, setTheme] = useState(initial);
+  const reduced = useReducedMotion();
+  const observerRef = useRef(null);
+  const map = useRef(new Map()); // el -> theme (Map para poder iterar)
+
+  // Selección determinística: la sección cuyo box cruza el centro del viewport
+  // gana (independiente del orden de entries del observer). Robusto en scroll
+  // humano y en saltos programáticos.
+  const recompute = useCallback(() => {
+    const centerY = window.innerHeight / 2;
+    let best = null;
+    let bestDist = Infinity;
+    map.current.forEach((themeObj, el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top <= centerY && r.bottom >= centerY) {
+        const dist = Math.abs((r.top + r.bottom) / 2 - centerY);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = themeObj;
+        }
+      }
+    });
+    if (best) setTheme(best);
+  }, []);
+
+  useEffect(() => {
+    // rAF-throttle: a lo sumo un recompute por frame (9 rects, barato)
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        recompute();
+        ticking = false;
+      });
+    };
+    observerRef.current = new IntersectionObserver(onScroll, {
+      rootMargin: "-45% 0px -45% 0px",
+      threshold: 0,
+    });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    recompute();
+    return () => {
+      observerRef.current?.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [recompute]);
+
+  const register = useCallback((el, themeObj) => {
+    if (el && observerRef.current) {
+      map.current.set(el, themeObj);
+      observerRef.current.observe(el);
+    }
+  }, []);
+
+  return (
+    <ThemeContext.Provider value={{ register }}>
+      <main
+        className="monks-root relative min-h-screen"
+        data-active-bg={theme.bg}
+        data-testid="monks-page"
+        style={{
+          backgroundColor: theme.bg,
+          color: theme.fg,
+          transition: reduced
+            ? "none"
+            : "background-color 0.55s cubic-bezier(0.22,1,0.36,1), color 0.55s cubic-bezier(0.22,1,0.36,1)",
+        }}
+      >
+        {children}
+      </main>
+    </ThemeContext.Provider>
+  );
+};
+
+export const useThemeRegister = () => useContext(ThemeContext).register;

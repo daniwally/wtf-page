@@ -1,17 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --wtf-bg: #000000;
-    --wtf-fg: #FFFFFF;
+    /* Paleta del deck engine.wtf-agency.works */
+    --wtf-bg: #0A0A0C;        /* bg-deep */
+    --wtf-night: #14141A;
+    --wtf-mid: #1E1E26;
+    --wtf-fg: #F4F1E8;        /* bone */
     --wtf-accent: #FFFFFF;
-    --wtf-muted: #111111;
-    --wtf-border: #333333;
-    --wtf-light-bg: #FFFFFF;
-    --wtf-gray: #888888;
+    --wtf-muted: #14141A;
+    --wtf-border: #2C2C36;    /* line */
+    --wtf-light-bg: #F4F1E8;
+    --wtf-gray: #7A7A85;      /* mute */
+    --wtf-volt: #CCFF00;
+    --wtf-signal: #FF3B30;    /* rojo señal del deck */
 }
 
 * {
@@ -24,23 +29,68 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Clipping horizontal sin crear scroll-container (no rompe position:sticky) */
+html, body {
+    overflow-x: clip;
+}
+
+/* /v3 — scroll tipo slides: cada sección snapea a su inicio (clase agregada por
+   V3Page, scopeada a esa ruta). Las secciones más altas que el viewport se
+   scrollean libres (Chrome no atrapa snap-areas > viewport → el riel y el
+   contenido largo siguen andando). El nav fijo queda cubierto por el py de cada
+   sección, así que snapeamos flush (scroll-margin-top: 0). */
+html.v3-snap {
+    scroll-snap-type: y mandatory;
+}
+html.v3-snap [data-theme-section] {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin-top: 0;
+    min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    html.v3-snap {
+        scroll-snap-type: none;
+    }
+    .kenburns,
+    .animate-marquee,
+    .animate-marquee-reverse,
+    .cursor-blink {
+        animation: none;
+    }
+}
+
 body {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--wtf-bg);
     color: var(--wtf-fg);
 }
 
+/* Sistema del deck: Inter hairline como base, el énfasis vive ADENTRO del título */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.06em;
+    line-height: 0.95;
+}
+
+h1 b, h2 b, h3 b, h4 b,
+h1 strong, h2 strong, h3 strong, h4 strong,
+h1 em, h2 em, h3 em, h4 em {
+    font-weight: 700;
+    font-style: normal;
 }
 
 ::selection {
-    background: var(--wtf-red);
-    color: white;
+    background: var(--wtf-volt);
+    color: #000000;
 }
 
 /* Custom scrollbar */
@@ -57,7 +107,131 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--wtf-red);
+    background: var(--wtf-volt);
+}
+
+/* WTF type & system utilities (estilo deck engine.wtf-agency.works) */
+.font-display {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.font-display b,
+.font-display strong,
+.font-display em {
+    font-weight: 700;
+    font-style: normal;
+}
+
+.font-hud {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Tamaños display del deck (clamp) */
+.size-display-0 { font-size: clamp(44px, 10.5vw, 190px); }
+.size-display-1 { font-size: clamp(48px, 7vw, 110px); }
+.size-display-2 { font-size: clamp(40px, 6vw, 94px); }
+.size-display-3 { font-size: clamp(30px, 4vw, 56px); }
+.size-gracias  { font-size: clamp(64px, 18vw, 340px); }
+
+.text-volt { color: var(--wtf-volt); }
+.bg-volt { background-color: var(--wtf-volt); }
+.border-volt { border-color: var(--wtf-volt); }
+.text-signal { color: var(--wtf-signal); }
+.bg-signal { background-color: var(--wtf-signal); }
+
+/* /v2 (Monks) usa NARANJA #FF3B30 (del deck engine) en vez del volt verde.
+   Scopear la variable acá flipea todas las utilidades .*-volt dentro de /v2
+   sin tocar la película (/) que mantiene el verde. */
+.monks-root {
+    --wtf-volt: #FF3B30;
+}
+.monks-root .volt-glow {
+    text-shadow: 0 0 28px rgba(255, 59, 48, 0.4);
+}
+/* Juego del deck en /v2: el <b>/<strong>/<em> dentro de headlines hairline
+   mantiene el peso bold (700) — contraste light/bold. */
+.monks-root [role="heading"] b,
+.monks-root [role="heading"] strong,
+.monks-root [role="heading"] em {
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Section label: "01 — CONTEXTO" */
+.hud-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--wtf-volt);
+}
+
+/* Blinking terminal cursor */
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+
+/* Volt glow for system elements */
+.volt-glow {
+    text-shadow: 0 0 24px rgba(204, 255, 0, 0.35);
+}
+
+/* Film grain — textura cinematográfica global */
+.grain {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+/* Ken Burns — zoom lento sobre las imágenes del hero */
+@keyframes kenburns {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.1) translate(-1.5%, 1%); }
+}
+.kenburns {
+    animation: kenburns 14s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+/* Scanlines — para la terminal wtf/os */
+.scanlines {
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.025) 0px,
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+}
+
+/* Numerales fantasma — outline gigante detrás de cada sección */
+.ghost-num {
+    position: absolute;
+    top: 0.5rem;
+    right: -0.5rem;
+    z-index: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(140px, 24vw, 360px);
+    line-height: 0.8;
+    letter-spacing: -0.04em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+    user-select: none;
+}
+.ghost-num--dark {
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.08);
 }
 
 @layer base {
@@ -100,10 +274,20 @@ h1, h2, h3, h4, h5, h6 {
     100% { transform: translateX(-50%); }
 }
 
+@keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
 .animate-marquee {
     animation: marquee 30s linear infinite;
 }
 
-.animate-marquee:hover {
+.animate-marquee-reverse {
+    animation: marquee-reverse 36s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
     animation-play-state: paused;
 }
