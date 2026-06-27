@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+/* Fuentes: se cargan vía <link> en public/index.html (no @import, que es
+   render-blocking). Aquí solo se usan por nombre. */
 
 @tailwind base;
 @tailwind components;
@@ -91,6 +92,14 @@ h1 em, h2 em, h3 em, h4 em {
 ::selection {
     background: var(--wtf-volt);
     color: #000000;
+}
+
+/* Foco visible para navegación por teclado (WCAG 2.4.7). Se usa el rojo señal
+   de marca; :focus-visible no molesta al uso con mouse. */
+:focus-visible {
+    outline: 2px solid var(--wtf-signal);
+    outline-offset: 2px;
+    border-radius: 2px;
 }
 
 /* Custom scrollbar */

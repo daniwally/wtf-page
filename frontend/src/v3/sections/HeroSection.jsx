@@ -4,16 +4,55 @@ import { ChevronDown } from "lucide-react";
 import { useThemeRegister } from "../theme/ThemeContext";
 import { THEMES } from "../theme/palette";
 import ParticleText from "../ui/ParticleText";
+import { useLang } from "../i18n/LangContext";
 
-const WORDS = ["NO SOMOS UNA AGENCIA", "SOMOS UN SISTEMA"];
 const HERO_VIDEO = "/assets/hero/moto.mp4"; // motociclista neón (video del deck)
 const HERO_POSTER = "/assets/hero/moto-poster.jpg";
 const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png"; // lockup WTF+Brief Destroyers (deck)
 const EASE = [0.22, 1, 0.36, 1];
 
+// Copy bilingüe (es | en): se consume con useLang(). El eyebrow del lockup
+// ("Battle Tested Creativity Since 2010") queda igual en ambos idiomas (línea de marca).
+const COPY = {
+  es: {
+    words: ["NO SOMOS UNA AGENCIA", "SOMOS UN SISTEMA"],
+    eyebrow: "Battle Tested Creativity Since 2010",
+    titleA: "La creatividad entrenada",
+    titleB: "para reinterpretar.",
+    subLeadA: "La IA no reemplaza 15 años de experiencia,",
+    subLeadB: "los multiplica.",
+    subStrategy: "Estrategia",
+    subStrategyTail: " para enfocar,",
+    subCreativity: "creatividad",
+    subCreativityTail: " para diferenciar,",
+    subJudgment: "criterio",
+    subJudgmentTail: " para no volverse ruido,",
+    subAi: "IA",
+    subAiTail: " para acelerar.",
+  },
+  en: {
+    words: ["WE ARE NOT AN AGENCY", "WE ARE A SYSTEM"],
+    eyebrow: "Battle Tested Creativity Since 2010",
+    titleA: "Creativity trained",
+    titleB: "to reinterpret.",
+    subLeadA: "AI doesn't replace 15 years of experience,",
+    subLeadB: "it multiplies them.",
+    subStrategy: "Strategy",
+    subStrategyTail: " to focus,",
+    subCreativity: "creativity",
+    subCreativityTail: " to stand apart,",
+    subJudgment: "judgment",
+    subJudgmentTail: " to not become noise,",
+    subAi: "AI",
+    subAiTail: " to accelerate.",
+  },
+};
+
 // v3 Opening: ParticleTextEffect fiel (Kain0127) re-skineado a WTF — el texto se
 // forma con partículas, ciclando las palabras, sobre fondo oscuro (como la demo).
 const HeroSection = () => {
+  const { lang } = useLang();
+  const c = COPY[lang];
   const ref = useRef(null);
   const register = useThemeRegister();
   // La intro de partículas corre UNA vez y al terminar se disuelve revelando el
@@ -47,13 +86,13 @@ const HeroSection = () => {
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(180deg, rgba(10,10,14,0.65) 0%, rgba(10,10,14,0.85) 100%)" }}
+          style={{ background: "linear-gradient(180deg, rgba(10,10,14,0.45) 0%, rgba(10,10,14,0.70) 100%)" }}
         />
       </div>
 
       {/* Intro de partículas (corre 1 vez), se desvanece al terminar */}
       <ParticleText
-        words={WORDS}
+        words={c.words}
         align="center"
         holdFrames={[450, 360]} // ~7.5s "NO SOMOS UNA AGENCIA" · ~6s "SOMOS UN SISTEMA"
         loop={false}
@@ -64,19 +103,16 @@ const HeroSection = () => {
       />
 
       {/* Headline tipográfico real — aparece cuando la intro se disuelve */}
-      <div className="pointer-events-none absolute left-[6%] top-1/2 -translate-y-1/2 z-[2] max-w-[64%] text-left">
-        <motion.p
-          role="heading"
-          aria-level={1}
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 z-[2] px-[6%] text-center">
+        <motion.h1
           initial={false}
           animate={{ opacity: introDone ? 1 : 0, y: introDone ? 0 : 14 }}
           transition={{ duration: 1.1, ease: EASE }}
-          aria-hidden={!introDone}
-          className="uppercase tracking-tight leading-[1.05] text-[clamp(30px,4vw,58px)] text-white"
+          className="uppercase tracking-tight leading-[1.05] text-[clamp(23px,3.56vw,59px)] text-white"
         >
-          <span className="block whitespace-nowrap font-thin">La creatividad entrenada para</span>
-          <span className="block font-bold">reinterpretar.</span>
-        </motion.p>
+          <span className="block whitespace-nowrap font-bold">{c.titleA}</span>
+          <span className="block font-thin">{c.titleB}</span>
+        </motion.h1>
       </div>
 
       {/* Logo lockup completo (imagen del deck: WTF + divisoria + Brief Destroyers) */}
@@ -84,27 +120,30 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: EASE }}
-        className="absolute left-[6%] top-[12%] z-10"
+        className="absolute inset-x-0 top-[calc(22%_-_25px)] z-10 flex flex-col items-center text-center"
       >
+        <p className="mb-3 md:mb-4 text-xs md:text-[15px] tracking-[0.42em] uppercase text-white/50 font-light">
+          {c.eyebrow}
+        </p>
         <img
           src={LOGO_LOCKUP}
           alt="WTF · Brief Destroyers"
-          className="h-24 md:h-[7.65rem] w-auto opacity-90"
+          className="h-[7.95rem] md:h-[10.1rem] w-auto opacity-90"
           style={{ filter: "brightness(1.1)" }}
         />
       </motion.div>
 
       {/* Sub: el concepto IA + experiencia, aparece CON el headline (introDone) */}
-      <div className="absolute left-[6%] top-[63%] z-10 max-w-[640px] text-left">
+      <div className="absolute left-1/2 -translate-x-1/2 top-[63%] z-10 max-w-[640px] text-center">
         <motion.p
           initial={false}
           animate={{ opacity: introDone ? 1 : 0, y: introDone ? 0 : 18 }}
           transition={{ duration: 0.9, ease: EASE, delay: introDone ? 0.4 : 0 }}
           className="text-[clamp(18px,2.3vw,27px)] font-light italic leading-[1.4] text-white"
         >
-          La IA no reemplaza 15 años de experiencia,
+          {c.subLeadA}
           <br />
-          los multiplica.
+          {c.subLeadB}
         </motion.p>
         <motion.p
           initial={false}
@@ -112,13 +151,10 @@ const HeroSection = () => {
           transition={{ duration: 0.9, ease: EASE, delay: introDone ? 0.6 : 0 }}
           className="mt-5 text-[clamp(14px,1.5vw,17px)] font-light leading-[1.7] text-white/55"
         >
-          <span className="text-white/90">IA</span> para acelerar.
-          <br />
-          <span className="text-white/90">Estrategia</span> para enfocar.
-          <br />
-          <span className="text-white/90">Creatividad</span> para diferenciar.
-          <br />
-          <span className="text-white/90">Criterio</span> para no volverse ruido.
+          <span className="text-white/90">{c.subStrategy}</span>{c.subStrategyTail}{" "}
+          <span className="text-white/90">{c.subCreativity}</span>{c.subCreativityTail}{" "}
+          <span className="text-white/90">{c.subJudgment}</span>{c.subJudgmentTail}{" "}
+          <span className="text-white/90">{c.subAi}</span>{c.subAiTail}
         </motion.p>
       </div>
 

@@ -1,16 +1,19 @@
 import { useEffect } from "react";
 import { ThemeRoot } from "./theme/ThemeContext";
 import { THEMES } from "./theme/palette";
+import { LangProvider } from "./i18n/LangContext";
 import MonksNav from "./ui/MonksNav";
 import HeroSection from "./sections/HeroSection";
-import ThesisSection from "./sections/ThesisSection";
-import BreakSection from "./sections/BreakSection";
-import OrchestrateSection from "./sections/OrchestrateSection";
-import SystemSection from "./sections/SystemSection";
-import SolutionsSection from "./sections/SolutionsSection";
-import WorkSection from "./sections/WorkSection";
-import GallerySection from "./sections/GallerySection";
-import ContactSection from "./sections/ContactSection";
+import ThesisSection from "./sections/ThesisSection"; // The shift
+import SystemSection from "./sections/SystemSection"; // Infinity Engine
+import ClientsSection from "./sections/ClientsSection"; // Nuestros clientes
+import OrchestrateSection from "./sections/OrchestrateSection"; // The model
+import SolutionsSection from "./sections/SolutionsSection"; // What we do
+import WhySection from "./sections/WhySection"; // Why WTF
+import StatementSection from "./sections/StatementSection"; // Slide manifiesto
+import WorkSection from "./sections/WorkSection"; // Proof · Then
+import GallerySection from "./sections/GallerySection"; // Proof · Now
+import ContactSection from "./sections/ContactSection"; // Closing
 
 // Versión B "Monks" — estructura Monks (bloques de color que rotan, aire,
 // píldoras, cards) con ADN WTF (crema/negro/volt, Inter en registro bold).
@@ -23,18 +26,23 @@ const V3Page = () => {
   }, []);
 
   return (
+    <LangProvider>
     <ThemeRoot initial={THEMES.night}>
       <MonksNav />
+      {/* Arco: Hero · The shift · Why WTF · Statement · Infinity Engine · The model · What we do · Proof Then/Now · Closing */}
       <HeroSection />
       <ThesisSection />
-      <BreakSection />
-      <OrchestrateSection />
+      <WhySection />
+      <StatementSection />
       <SystemSection />
+      <ClientsSection />
+      <OrchestrateSection />
       <SolutionsSection />
-      <WorkSection />
       <GallerySection />
+      <WorkSection />
       <ContactSection />
     </ThemeRoot>
+    </LangProvider>
   );
 };
 

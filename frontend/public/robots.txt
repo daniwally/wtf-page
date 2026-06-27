@@ -1,0 +1,8 @@
+# WTF Agency — robots
+User-agent: *
+Allow: /
+# Rutas internas (respaldos / comparativas): no indexar
+Disallow: /v2
+Disallow: /pelicula
+
+Sitemap: https://testwebsite.wtf-agency.works/sitemap.xml

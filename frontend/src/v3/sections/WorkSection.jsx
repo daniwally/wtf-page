@@ -1,98 +1,141 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, galeria } from "../../sections/shared";
-import Parallax from "../../components/motion/Parallax";
+import Counter from "../../components/motion/Counter";
 import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
 import Headline from "../ui/Headline";
-import LogoMarquee from "../ui/LogoMarquee";
+import WorkModal from "../ui/WorkModal";
+import { WORKS } from "../data/works";
+import { useLang } from "../i18n/LangContext";
 
-const FEATURED = [
-  { file: "legacy-motorola-thumb.jpg", brand: "Motorola", title: "Construimos parte del ADN global de Motorola", meta: "Tech · Global" },
-  { file: "legacy-diablo-thumb.jpg", brand: "Pisco Diablo", title: "Cambiamos la marca más importante de Pisco", meta: "Spirits · Chile" },
-  { file: "legacy-absolut-nothing-thumb.jpg", brand: "Absolut", title: "Resolvimos un brief literalmente imposible", meta: "Spirits · Argentina" },
-  { file: "legacy-ford-lobo-thumb.jpg", brand: "Ford F-150 Lobo", title: "Lanzamos una leyenda en USA y México", meta: "Auto · Norteamérica" },
-];
+// Sección 7 — PROOF · THEN. Réplica de la slide "NUESTROS TRABAJOS" del deck
+// (engine.wtf-agency.works): la ficha de cada comercial (thumbnail + categoría +
+// nombre + descripción) y, al click, el modal de detalle (video + galería).
+// Thumbnails locales; assets del modal del deck en vivo. El poder de fuego no se recorta.
+// Copy bilingüe (es | en): se consume con useLang().
+const COPY = {
+  es: {
+    kickerPre: "La prueba · ",
+    headline: [<>No es portfolio.</>, <b key="e">Es evidencia.</b>],
+    intro:
+      "No hablamos de lo que podemos hacer. Mostramos 15 años destruyendo briefs y construyendo marcas.",
+    metrics: [
+      { value: 15, suffix: "", label: "años" },
+      { value: 300, suffix: "+", label: "campañas" },
+      { value: 30, suffix: "+", label: "marcas" },
+      { value: 10, suffix: "+", label: "países" },
+      { value: 6, suffix: "", label: "categorías" },
+      { static: "#1", label: "marcas líderes" },
+    ],
+    cta: "Ver caso →",
+  },
+  en: {
+    kickerPre: "The proof · ",
+    headline: [<>It is not a portfolio.</>, <b key="e">It is evidence.</b>],
+    intro:
+      "We don't talk about what we can do. We show 15 years destroying briefs and building brands.",
+    metrics: [
+      { value: 15, suffix: "", label: "years" },
+      { value: 300, suffix: "+", label: "campaigns" },
+      { value: 30, suffix: "+", label: "brands" },
+      { value: 10, suffix: "+", label: "countries" },
+      { value: 6, suffix: "", label: "categories" },
+      { static: "#1", label: "leading brands" },
+    ],
+    cta: "View case →",
+  },
+};
 
-const LEGACY = [
-  "legacy-motorola-razr-thumb.jpg", "legacy-absolut-thumb.jpg", "legacy-honda-hrv-thumb.jpg",
-  "legacy-samsung-thumb.jpg", "legacy-quilmes-thumb.jpg", "legacy-havana-thumb.jpg",
-  "legacy-cinzano-thumb.jpg", "legacy-cafayate-thumb.jpg", "legacy-altodelcarmen-thumb.jpg",
-  "legacy-kross-thumb.jpg", "legacy-honda-xr-thumb.jpg", "legacy-hacienda-thumb.jpg",
-  "legacy-bayerempecid-thumb.jpg", "legacy-honda-fit-thumb.jpg", "legacy-honda-accord-thumb.jpg",
-  "legacy-ridgeline-thumb.jpg", "legacy-montefraile-thumb.jpg", "legacy-absgrapefruit-thumb.jpg",
-];
+const WorkSection = () => {
+  const [active, setActive] = useState(null);
+  const { lang } = useLang();
+  const c = COPY[lang];
 
-const LOGOS_WALL = [
-  "honda.png", "ford.png", "peugeot.png", "motorola.png", "samsung.png", "lenovo.png",
-  "absolut.png", "beefeater.png", "chivas.png", "havana-club.png", "jose-cuervo.png", "quilmes.png",
-  "mumm.png", "cinzano.png", "nestle-waters.png", "eco-de-los-andes.png", "bayer.png", "arcor.png",
-  "mobil-super.png", "mahle.png", "starter.png", "shaq.png", "diablo-pisco.png", "fernet-buhero-negro.png",
-  "alto-del-carmen.png", "cafayate.png", "hacienda-la-torre.png", "kross.png", "sensus.png", "assy.png", "bear-beer.png",
-];
-
-const WorkSection = () => (
-  <ThemeSection theme={THEMES.bone} id="v3-trabajo">
-    <div className="container mx-auto px-6 md:px-12">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-        <Headline size="section" lines={[<>No es portfolio.</>, <b key="e">Es evidencia.</b>]} />
-        <motion.p {...fadeUp} className="text-lg font-normal max-w-sm opacity-60 md:text-right">
-          15 años rompiendo el brief. 200+ campañas. Ningún manual quedó en pie.
+  return (
+    <ThemeSection theme={THEMES.bone} id="v3-trabajo">
+      <div className="container mx-auto px-6 md:px-12">
+        {/* Kicker Proof · Then */}
+        <motion.p
+          {...fadeUp}
+          className="font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase opacity-50 mb-6"
+        >
+          {c.kickerPre}<span className="text-volt">Then</span>
         </motion.p>
-      </div>
 
-      {/* Featured bento */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4 mb-4">
-        {FEATURED.map((w, i) => (
-          <motion.div
-            key={w.file}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ delay: (i % 2) * 0.08, duration: 0.5 }}
-            className={`group relative h-[300px] md:h-[420px] rounded-2xl md:rounded-3xl overflow-hidden ${
-              i === 0 || i === 3 ? "md:col-span-7" : "md:col-span-5"
-            }`}
-          >
-            <Parallax range={6} className="absolute inset-0">
-              <img src={galeria(w.file)} alt={w.brand} loading="lazy" className="w-full h-full object-cover" />
-            </Parallax>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-            <div className="absolute bottom-0 inset-x-0 p-6 text-[#F4F1E8]">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-volt">{w.brand} · {w.meta}</span>
-              <h3 className="text-xl md:text-2xl font-black normal-case tracking-tight mt-1">{w.title}</h3>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+          <Headline size="section" lines={c.headline} />
+          <motion.p {...fadeUp} className="text-base md:text-lg font-light max-w-md opacity-60 md:text-right">
+            {c.intro}
+          </motion.p>
+        </div>
+
+        {/* Barra de métricas */}
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-y-8 border-y border-current/15 py-8 mb-12">
+          {c.metrics.map((m) => (
+            <div key={m.label} className="text-center px-1">
+              <Counter
+                value={m.value}
+                suffix={m.suffix}
+                static={m.static}
+                className="font-black text-3xl md:text-5xl leading-none tabular-nums block"
+              />
+              <p className="mt-2 text-[10px] md:text-xs uppercase tracking-[0.14em] opacity-50">{m.label}</p>
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
+
+        {/* Grilla de fichas (formato deck): thumbnail + categoría + nombre + descripción.
+            Al click abre el modal de detalle. */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-9 [grid-auto-flow:dense]">
+          {WORKS.map((w, i) => (
+            <motion.button
+              type="button"
+              key={w.key}
+              onClick={() => setActive(w)}
+              aria-label={`${c.cta.replace(" →", "")}: ${w.name}`}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: (i % 4) * 0.06, duration: 0.5 }}
+              className={`group text-left ${w.feat ? "col-span-2" : ""}`}
+            >
+              <div
+                className={`relative overflow-hidden rounded-xl md:rounded-2xl bg-black/5 ${
+                  w.feat ? "aspect-[32/10]" : "aspect-[16/10]"
+                }`}
+              >
+                <img
+                  src={galeria(w.file)}
+                  alt={w.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Cue de click */}
+                <div className="absolute inset-0 flex items-end justify-start bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <span className="m-3 font-hud text-[10px] uppercase tracking-[0.18em] text-[#F4F1E8]">
+                    {c.cta}
+                  </span>
+                </div>
+              </div>
+              <div className="mt-3">
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-volt">{lang === "en" ? w.catEn : w.cat}</span>
+                <h3 className={`font-black uppercase tracking-tight leading-tight mt-1 ${w.feat ? "text-lg md:text-2xl" : "text-base md:text-lg"}`}>
+                  {w.name}
+                </h3>
+                <p className="text-xs md:text-sm font-normal opacity-55 leading-snug mt-1">{lang === "en" ? w.capEn : w.cap}</p>
+              </div>
+            </motion.button>
+          ))}
+        </div>
       </div>
 
-      {/* Legacy thumbs */}
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4 mb-20">
-        {LEGACY.map((file, i) => (
-          <motion.div
-            key={file}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ delay: (i % 6) * 0.04, duration: 0.4 }}
-            className="aspect-square rounded-xl md:rounded-2xl overflow-hidden bg-black/5"
-          >
-            <img
-              src={galeria(file)}
-              alt="Campaña WTF"
-              loading="lazy"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 hover:scale-105"
-            />
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Logo wall — marquee infinito (patrón 21st re-skineado) */}
-      <motion.p {...fadeUp} className="text-sm font-bold uppercase tracking-[0.2em] opacity-40 mb-8">
-        Los que entendieron que no alcanza con una idea
-      </motion.p>
-      <LogoMarquee files={LOGOS_WALL} />
-    </div>
-  </ThemeSection>
-);
+      {/* Modal de detalle */}
+      <AnimatePresence>
+        {active && <WorkModal work={active} onClose={() => setActive(null)} />}
+      </AnimatePresence>
+    </ThemeSection>
+  );
+};
 
 export default WorkSection;

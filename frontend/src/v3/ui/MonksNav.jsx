@@ -2,15 +2,18 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { CONTACT_EMAIL } from "../../sections/shared";
 import { useActiveTheme } from "../theme/ThemeContext";
+import { useLang } from "../i18n/LangContext";
 
 const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png"; // lockup WTF+Brief (igual al home)
 
 const NAV_ITEMS = [
-  { label: "Sistema", href: "v3-sistema" },
-  { label: "Trabajo", href: "v3-trabajo" },
-  { label: "Soluciones", href: "v3-soluciones" },
-  { label: "Contacto", href: "v3-contacto" },
+  { es: "Engine", en: "Engine", href: "v3-engine" },
+  { es: "Servicios", en: "Services", href: "v3-soluciones" },
+  { es: "Trabajo", en: "Work", href: "v3-trabajo" },
+  { es: "Contacto", en: "Contact", href: "v3-contacto" },
 ];
+
+const CTA = { es: "Activemos el sistema.", en: "Let's activate the system." };
 
 // luminancia simple (0 negro → 1 blanco) para decidir oscuro/claro
 const lum = (hex) => {
@@ -26,6 +29,7 @@ const lum = (hex) => {
 const MonksNav = () => {
   const [scrolled, setScrolled] = useState(false);
   const theme = useActiveTheme();
+  const { lang, setLang } = useLang();
   const darkBg = lum(theme.bg) < 0.55; // fondo oscuro → logo/letras claras
 
   useEffect(() => {
@@ -57,28 +61,56 @@ const MonksNav = () => {
           <img
             src={LOGO_LOCKUP}
             alt="WTF · Brief Destroyers"
-            className="h-10 md:h-12 w-auto"
+            className="h-12 md:h-14 w-auto"
             style={{ filter: darkBg ? "none" : "brightness(0)" }}
           />
         </a>
-        <div className="hidden md:flex items-center gap-8">
+        <div
+          className={`hidden md:flex items-center gap-8 transition-opacity duration-300 ${
+            scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
               href={`#${item.href}`}
-              className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity"
+              className="text-sm font-semibold uppercase tracking-wide rounded-full px-3 py-1.5 opacity-80 transition-all hover:opacity-100 hover:bg-[#FF3B30] hover:text-[#F4F1E8]"
             >
-              {item.label}
+              {item[lang]}
             </a>
           ))}
         </div>
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="inline-flex items-center rounded-full px-5 py-2 text-xs font-bold transition-colors hover:!bg-[#FF3B30] hover:!text-[#F4F1E8]"
-          style={{ backgroundColor: theme.fg, color: theme.bg }}
-        >
-          Hablemos
-        </a>
+        <div className="flex items-center gap-4 md:gap-6">
+          {/* Selector de idioma (funcional) */}
+          <div className="flex items-center gap-1.5 text-xs md:text-sm font-bold uppercase tracking-wide select-none">
+            <button
+              type="button"
+              onClick={() => setLang("es")}
+              aria-pressed={lang === "es"}
+              aria-label="Ver el sitio en español"
+              className={`uppercase transition-opacity ${lang === "es" ? "opacity-100" : "opacity-40 hover:opacity-100"}`}
+            >
+              ES
+            </button>
+            <span aria-hidden="true" className="opacity-30">/</span>
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              aria-pressed={lang === "en"}
+              aria-label="View the site in English"
+              className={`uppercase transition-opacity ${lang === "en" ? "opacity-100" : "opacity-40 hover:opacity-100"}`}
+            >
+              EN
+            </button>
+          </div>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="inline-flex items-center rounded-full px-5 py-2 text-xs font-bold transition-colors hover:!bg-[#FF3B30] hover:!text-[#F4F1E8]"
+            style={{ backgroundColor: theme.fg, color: theme.bg }}
+          >
+            {CTA[lang]}
+          </a>
+        </div>
       </div>
     </motion.nav>
   );

@@ -1,85 +1,160 @@
 import { motion } from "framer-motion";
-import { fadeUp, CONTACT_EMAIL, LOGOS } from "../../sections/shared";
+import { fadeUp, CONTACT_EMAIL } from "../../sections/shared";
 import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
 import Headline from "../ui/Headline";
-import PillButton from "../ui/PillButton";
+import { useLang } from "../i18n/LangContext";
+
+// Copy bilingüe (es | en): se consume con useLang(). El statement de cierre cambia
+// por idioma; el GRACIAS, la firma, los países y el email quedan iguales en ambos.
+const COPY = {
+  es: {
+    statement: [
+      <>El problema no es hacer más campañas.</>,
+      <b key="s" className="text-volt">
+        Es no tener un sistema detrás.
+      </b>,
+    ],
+  },
+  en: {
+    statement: [
+      <>The problem is not making more campaigns.</>,
+      <b key="s" className="text-volt">
+        It is not having a system behind it.
+      </b>,
+    ],
+  },
+};
 
 const PAISES = [
   { pais: "Argentina", hq: true },
-  { pais: "Paraguay" },
+  { pais: "Chile" },
   { pais: "Perú" },
-  { pais: "México" },
+  { pais: "Ecuador" },
+  { pais: "Paraguay" },
+  { pais: "USA" },
   { pais: "España" },
 ];
 
-const ContactSection = () => (
-  <ThemeSection theme={THEMES.bone} id="v3-contacto" pad="pt-24 md:pt-36 pb-0">
-    <div className="container mx-auto px-6 md:px-12">
-      {/* Países */}
-      <div className="text-center mb-20">
+const WAVE = "/assets/hero/closing-wave.jpg"; // ola oceánica (cierre)
+const DOOR_VIDEO = "/assets/hero/statement-door.mp4"; // puerta en el mar (gracias)
+const DOOR_POSTER = "/assets/hero/statement-door-poster.jpg";
+
+// Sección 8 — CLOSING. Cierre cinematográfico en DOS slides oscuros: (1) statement
+// + países + CTA sobre las olas; (2) el GRACIAS estilo deck sobre el video de la
+// puerta en el mar (eyebrow + GRAC·IA·S + firma + contacto).
+const ContactSection = () => {
+  const { lang } = useLang();
+  const c = COPY[lang];
+  return (
+  <>
+    {/* Slide cierre: olas de fondo */}
+    <ThemeSection
+      theme={THEMES.night}
+      id="v3-contacto"
+      className="overflow-hidden flex flex-col justify-center"
+    >
+      <div className="absolute inset-0 z-0">
+        <img src={WAVE} alt="" aria-hidden className="h-full w-full object-cover object-center" />
+        <div className="absolute inset-0 bg-[#0A0A0C]/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/55 via-transparent to-[#0A0A0C]/70" />
+      </div>
+
+      {/* Statement de cierre (centrado) */}
+      <div className="relative z-10 container mx-auto px-6 md:px-12 text-center max-w-4xl">
         <Headline
           size="sub"
-          className="justify-center"
-          lines={[<>Cuando todo cambia, <b>la decisión es entrar.</b></>]}
+          className="justify-center text-white !text-[clamp(28px,4.03vw,51px)] !leading-[1.2]"
+          lines={c.statement}
         />
-        <motion.div {...fadeUp} className="mt-8 flex flex-wrap justify-center gap-3">
+        <motion.p
+          {...fadeUp}
+          className="mt-8 font-hud text-xs md:text-sm tracking-[0.32em] text-white/55"
+        >
+          #wtfrules
+        </motion.p>
+      </div>
+
+      {/* Países distribuidos en el piso */}
+      <motion.div {...fadeUp} className="absolute bottom-0 inset-x-0 z-10">
+        <div className="container mx-auto px-6 md:px-12 pb-10 md:pb-14 flex flex-wrap items-center justify-center md:justify-between gap-3">
           {PAISES.map((p) => (
             <span
               key={p.pais}
               className={`inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold ${
-                p.hq ? "bg-[#0A0A0C] text-volt" : "border border-current/30"
+                p.hq ? "bg-volt text-[#0A0A0C]" : "border border-white/30 text-white"
               }`}
             >
               {p.pais}
               {p.hq && <span className="text-[10px] font-bold">HQ</span>}
             </span>
           ))}
-        </motion.div>
-      </div>
-
-      {/* CTA */}
-      <div className="text-center max-w-3xl mx-auto">
-        <div className="flex items-center justify-center gap-5 mb-10">
-          <img src={LOGOS.wtfBlack} alt="WTF" className="h-12 w-auto" />
-          <span className="w-px h-10 bg-current/20" />
-          <img src={LOGOS.briefBlack} alt="Brief Destroyers" className="h-10 w-auto" />
         </div>
-        <Headline
-          size="section"
-          className="justify-center"
-          lines={[<>¿Listos para destruir</>, <>algunos briefs?</>]}
+      </motion.div>
+    </ThemeSection>
+
+    {/* Slide GRACIAS: video puerta en el mar + layout deck */}
+    <ThemeSection
+      theme={THEMES.night}
+      id="v3-gracias"
+      pad="py-0"
+      className="overflow-hidden flex flex-col justify-center relative"
+    >
+      <div className="absolute inset-0 z-0">
+        <video
+          src={DOOR_VIDEO}
+          poster={DOOR_POSTER}
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden
+          className="h-full w-full object-cover object-center"
         />
-        <motion.div {...fadeUp} className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-          <PillButton href={`mailto:${CONTACT_EMAIL}`} variant="primary">
-            {CONTACT_EMAIL}
-          </PillButton>
-          <PillButton href={`mailto:${CONTACT_EMAIL}?subject=Destruyamos%20un%20brief`} variant="outline" arrow>
-            Iniciar proyecto
-          </PillButton>
-        </motion.div>
+        <div className="absolute inset-0 bg-[#0A0A0C]/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/40 via-transparent to-[#0A0A0C]/55" />
       </div>
 
-      {/* GRAC·IA·S */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 1 }}
-        className="mt-24 select-none"
+        className="relative z-10 container mx-auto px-6 md:px-12 text-center select-none"
       >
-        <p className="font-thin uppercase tracking-[0.02em] text-center leading-[0.9] text-[clamp(64px,18vw,300px)]">
-          GRAC<b className="text-volt">IA</b>S.
+        {/* Eyebrow con líneas (deck) */}
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <span className="h-px w-10 md:w-16 bg-white/40" />
+          <span className="font-hud text-[11px] md:text-xs tracking-[0.35em] uppercase text-white">WTF Agency</span>
+          <span className="h-px w-10 md:w-16 bg-white/40" />
+        </div>
+
+        {/* GRAC·IA·S */}
+        <p className="font-thin uppercase tracking-[0.01em] leading-[0.9] text-[clamp(64px,16vw,260px)] text-white">
+          GRAC<b className="italic text-volt">IA</b>S.
+        </p>
+
+        {/* Firma */}
+        <p className="mt-6 text-lg md:text-2xl font-light italic text-white/70">
+          Battle tested creativity. AI first. Human always.
+        </p>
+
+        {/* Firma · since */}
+        <p className="mt-8 font-hud text-[10px] md:text-xs tracking-[0.22em] uppercase text-white/40">
+          Battle Tested Creativity · Since 2010
         </p>
       </motion.div>
 
-      {/* Footer mínimo */}
-      <div className="border-t border-current/15 mt-8 py-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs opacity-50">
-        <span className="font-semibold uppercase tracking-[0.15em]">Battle Tested Creativity · Since 2010</span>
-        <span>© {new Date().getFullYear()} WTF Agency</span>
-      </div>
-    </div>
-  </ThemeSection>
-);
+      {/* hello@ al pie */}
+      <a
+        href={`mailto:${CONTACT_EMAIL}`}
+        className="absolute bottom-0 inset-x-0 z-10 pb-8 md:pb-10 text-center font-hud text-[11px] md:text-sm tracking-[0.24em] uppercase text-white transition-colors hover:text-volt"
+      >
+        {CONTACT_EMAIL}
+      </a>
+    </ThemeSection>
+  </>
+  );
+};
 
 export default ContactSection;

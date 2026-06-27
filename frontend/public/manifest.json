@@ -1,0 +1,25 @@
+{
+  "short_name": "WTF Agency",
+  "name": "WTF Agency — The Brief Destroyers",
+  "description": "Battle Tested Creativity since 2010. Operamos marcas regionales con Infinity Engine, nuestro sistema operativo creativo AI-first.",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0A0A0C",
+  "background_color": "#0A0A0C",
+  "lang": "es"
+}
