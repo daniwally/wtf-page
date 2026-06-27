@@ -15,6 +15,7 @@ const COPY = {
         necesitan mejores sistemas.
       </b>,
     ],
+    cta: "Hablemos",
   },
   en: {
     statement: [
@@ -23,6 +24,7 @@ const COPY = {
         need better systems.
       </b>,
     ],
+    cta: "Let's talk",
   },
 };
 
@@ -143,6 +145,14 @@ const ContactSection = () => {
         <p className="mt-8 font-hud text-[10px] md:text-xs tracking-[0.22em] uppercase text-white/40">
           Battle Tested Creativity · Since 2010
         </p>
+
+        {/* CTA Hablemos */}
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="mt-10 inline-flex items-center rounded-full bg-[#F4F1E8] px-8 py-3 text-sm font-bold text-[#0A0A0C] transition-colors hover:bg-volt hover:text-[#F4F1E8]"
+        >
+          {c.cta}
+        </a>
       </motion.div>
 
       {/* hello@ al pie */}
