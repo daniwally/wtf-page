@@ -13,52 +13,52 @@ const FALL_POSTER = "/assets/hero/dog-loop.jpg";
 // estructura, solo cambian las palabras. "Eso es WTF Agency" queda igual (marca).
 const COPY = {
   es: {
-    kicker: "The shift",
+    kicker: "El problema",
     before: (
       <>
-        El mundo no necesita
+        El mundo ya no
         <br />
-        <span className="font-bold">más campañas.</span>
+        <span className="font-bold">espera campañas.</span>
       </>
     ),
     after: (
       <>
         <span className="font-thin">
-          Necesita marcas
+          Las marcas necesitan
           <br />
-          que se muevan a la
+          sistemas que
         </span>
         <br />
-        <span className="font-bold">velocidad de la cultura.</span>
+        <span className="font-bold">piensen, produzcan y aprendan.</span>
       </>
     ),
     insight:
-      "Hoy no gana quien hace más campañas, gana quien aprende antes, se mueve mejor y escala sin perder criterio.",
-    sign: "Eso es WTF Agency",
+      "Las marcas ya no pueden depender de campañas aisladas, procesos lentos y estructuras pensadas para otro ritmo. Hoy necesitan sistemas capaces de pensar, producir, adaptar, mover y aprender todos los días.",
+    sign: "No se trata de hacer más. Se trata de operar mejor.",
   },
   en: {
-    kicker: "The shift",
+    kicker: "The problem",
     before: (
       <>
-        The world doesn’t need
+        The world no longer
         <br />
-        <span className="font-bold">more campaigns.</span>
+        <span className="font-bold">waits for campaigns.</span>
       </>
     ),
     after: (
       <>
         <span className="font-thin">
-          It needs brands
+          Brands need
           <br />
-          that move at the
+          systems that
         </span>
         <br />
-        <span className="font-bold">speed of culture.</span>
+        <span className="font-bold">think, produce and learn.</span>
       </>
     ),
     insight:
-      "Today the winner isn’t who makes more campaigns, it’s who learns sooner, moves better and scales without losing judgment.",
-    sign: "Eso es WTF Agency",
+      "Brands can no longer rely on isolated campaigns, slow processes and structures built for another pace. Today they need systems that think, produce, adapt, move and learn every day.",
+    sign: "It is not about doing more. It is about operating better.",
   },
 };
 

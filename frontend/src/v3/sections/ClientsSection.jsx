@@ -10,12 +10,12 @@ const BG = "/assets/hero/salto.jpg"; // skydiver (como el deck), bien atenuado
 // Copy bilingüe (es | en): se consume con useLang().
 const COPY = {
   es: {
-    headline: [<>Nuestros <b key="c">clientes.</b></>],
-    subline: "Los que entendieron que no alcanza con una idea.",
+    headline: [<>15 años operando marcas.</>, <b key="c">Ahora convertidos en sistema.</b>],
+    subline: "WTF nació como agencia creativa y evolucionó hacia un modelo operativo: estrategia, creatividad, producción y velocidad en un mismo lugar.",
   },
   en: {
-    headline: [<>Our <b key="c">clients.</b></>],
-    subline: "The ones who understood that one idea is not enough.",
+    headline: [<>15 years operating brands.</>, <b key="c">Now turned into a system.</b>],
+    subline: "WTF started as a creative agency and evolved into an operating model: strategy, creativity, production and speed in one place.",
   },
 };
 
@@ -79,7 +79,7 @@ const ClientsSection = () => {
     </div>
 
     <div className="container mx-auto px-6 md:px-12 relative z-10">
-      <Headline size="section" lines={c.headline} />
+      <Headline size="section" className="!text-[clamp(27px,4.25vw,61px)]" lines={c.headline} />
       <motion.p {...fadeUp} className="mt-6 text-lg md:text-xl font-light opacity-65">
         {c.subline}
       </motion.p>

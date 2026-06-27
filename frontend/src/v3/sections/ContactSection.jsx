@@ -10,17 +10,17 @@ import { useLang } from "../i18n/LangContext";
 const COPY = {
   es: {
     statement: [
-      <>El problema no es hacer más campañas.</>,
+      <>Las marcas modernas</>,
       <b key="s" className="text-volt">
-        Es no tener un sistema detrás.
+        necesitan mejores sistemas.
       </b>,
     ],
   },
   en: {
     statement: [
-      <>The problem is not making more campaigns.</>,
+      <>Modern brands</>,
       <b key="s" className="text-volt">
-        It is not having a system behind it.
+        need better systems.
       </b>,
     ],
   },

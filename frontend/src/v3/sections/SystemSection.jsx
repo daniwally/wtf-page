@@ -14,16 +14,16 @@ const EASE = [0.22, 1, 0.36, 1];
 // y la firma EN se mantienen idénticos en ambos idiomas.
 const COPY = {
   es: {
-    kicker: "El sistema operativo",
+    kicker: "No es una herramienta. Es el sistema.",
     definition:
-      "15 años de estrategia, oficio y producción convertidos en nuestro propio sistema operativo creativo: un modelo AI-first que piensa, produce, mueve, aprende y crece. Con una velocidad, calidad y cantidad que antes ni soñábamos.",
-    verbs: ["Piensa", "Produce", "Mueve", "Aprende", "Crece"],
+      "WTF integra estrategia, creatividad, producción, tecnología, data e inteligencia artificial en un modelo operativo diseñado para acelerar la comunicación de las marcas sin perder profundidad, criterio ni consistencia.",
+    verbs: ["Pensar", "Crear", "Producir", "Mover", "Aprender"],
   },
   en: {
-    kicker: "The operating system",
+    kicker: "Not a tool. The system.",
     definition:
-      "15 years of strategy, craft and production turned into our own creative operating system: an AI-first model that thinks, produces, moves, learns and grows. With a speed, quality and volume we once only dreamed of.",
-    verbs: ["Think", "Produce", "Move", "Learn", "Grow"],
+      "WTF integrates strategy, creativity, production, technology, data and artificial intelligence into one operating model built to accelerate brand communication without losing depth, judgment or consistency.",
+    verbs: ["Think", "Create", "Produce", "Move", "Learn"],
   },
 };
 

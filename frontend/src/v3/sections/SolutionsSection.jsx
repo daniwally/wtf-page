@@ -17,46 +17,40 @@ const SOL_BG = "/assets/hero/movement-jump.jpg"; // figura en salto + swirl rosa
 const COPY = {
   es: {
     headline: [
-      <>Qué hace</>,
+      <>No vendemos servicios.</>,
       <b key="s" className="inline-block bg-volt text-[#0A0A0C] px-3 py-1 leading-[1.0]">
-        nuestro sistema.
+        Operamos sistemas.
       </b>,
     ],
     intro:
-      "Diez capacidades. Un sistema operativo creativo propio, construido con 15 años de oficio, estrategia y producción; impulsado por IA y operado por un equipo senior para pensar mejor, moverse más rápido y hacer crecer marcas sin perder criterio.",
+      "Siete sistemas que se activan según lo que la marca necesita: construir, sostener, producir, lanzar, escalar, vender y conversar.",
     services: [
-      { name: "Brand Platforms", outcome: "El sistema operativo de la marca." },
-      { name: "Contenido AI-first", outcome: "Volumen nativo, sin perder marca." },
-      { name: "Creative Pods always-on", outcome: "Equipo dedicado, siempre encendido." },
-      { name: "Contenido regional", outcome: "Una marca, varios mercados." },
-      { name: "Campañas 360", outcome: "Del concepto al spot." },
-      { name: "Social & Creators", outcome: "Operados como sistema, no posteo suelto." },
-      { name: "Performance creativo", outcome: "Iteración guiada por data, no por ego." },
-      { name: "Retail & E-commerce", outcome: "Contenido que vende en la conversión." },
-      { name: "Brand Design Systems", outcome: "Diseño vivo que escala a cualquier mercado." },
-      { name: "Adaptación regional", outcome: "Una idea, adaptada a cada mercado." },
+      { name: "Brand Platform System", outcome: "Posicionamiento, narrativa, identidad, tono y plataforma de marca." },
+      { name: "Always-on Content System", outcome: "Ecosistemas de contenido para marcas con presencia constante." },
+      { name: "AI Production System", outcome: "Producción acelerada de imagen, video, key visuals y adaptaciones con IA." },
+      { name: "Launch System", outcome: "Lanzamientos de productos, campañas y plataformas comerciales." },
+      { name: "Regional Rollout System", outcome: "Adaptación y ejecución para marcas que operan en varios mercados." },
+      { name: "Retail & E-commerce System", outcome: "Creatividad para punto de venta, e-commerce y conversión." },
+      { name: "Social & Culture System", outcome: "Contenido, conversación, social media, influencers y cultura." },
     ],
   },
   en: {
     headline: [
-      <>What our</>,
+      <>We don't sell services.</>,
       <b key="s" className="inline-block bg-volt text-[#0A0A0C] px-3 py-1 leading-[1.0]">
-        system does.
+        We operate systems.
       </b>,
     ],
     intro:
-      "Ten capabilities. Our own creative operating system, built on 15 years of craft, strategy and production; powered by AI and run by a senior team to think better, move faster and grow brands without losing judgment.",
+      "Seven systems that activate based on what the brand needs: build, sustain, produce, launch, scale, sell and converse.",
     services: [
-      { name: "Brand Platforms", outcome: "The brand's operating system." },
-      { name: "AI-first Content", outcome: "Native volume, without losing the brand." },
-      { name: "Always-on Creative Pods", outcome: "Dedicated team, always switched on." },
-      { name: "Regional Content", outcome: "One brand, many markets." },
-      { name: "360 Campaigns", outcome: "From concept to spot." },
-      { name: "Social & Creators", outcome: "Run as a system, not loose posts." },
-      { name: "Creative Performance", outcome: "Iteration guided by data, not ego." },
-      { name: "Retail & E-commerce", outcome: "Content that sells at conversion." },
-      { name: "Brand Design Systems", outcome: "Living design that scales to any market." },
-      { name: "Regional Adaptation", outcome: "One idea, adapted to each market." },
+      { name: "Brand Platform System", outcome: "Positioning, narrative, identity, tone and brand platform." },
+      { name: "Always-on Content System", outcome: "Content ecosystems for brands that need constant presence." },
+      { name: "AI Production System", outcome: "Accelerated production of image, video, key visuals and adaptations with AI." },
+      { name: "Launch System", outcome: "Launches of products, campaigns and commercial platforms." },
+      { name: "Regional Rollout System", outcome: "Adaptation and execution for brands operating across markets." },
+      { name: "Retail & E-commerce System", outcome: "Creative for retail, e-commerce and conversion." },
+      { name: "Social & Culture System", outcome: "Content, conversation, social media, influencers and culture." },
     ],
   },
 };

@@ -29,14 +29,16 @@ const V3Page = () => {
     <LangProvider>
     <ThemeRoot initial={THEMES.night}>
       <MonksNav />
-      {/* Arco: Hero · The shift · Why WTF · Statement · Infinity Engine · The model · What we do · Proof Then/Now · Closing */}
+      {/* Arco narrativo "sistema operativo creativo": Hero · Problema · Solución ·
+          Cómo funciona · Qué resuelve · Diferencial humano · Credenciales ·
+          Sistemas/servicios · Outputs AI · Casos · Cierre */}
       <HeroSection />
       <ThesisSection />
+      <SystemSection />
+      <OrchestrateSection />
       <WhySection />
       <StatementSection />
-      <SystemSection />
       <ClientsSection />
-      <OrchestrateSection />
       <SolutionsSection />
       <GallerySection />
       <WorkSection />

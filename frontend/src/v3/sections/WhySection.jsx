@@ -11,31 +11,33 @@ import { useLang } from "../i18n/LangContext";
 // ambos idiomas (línea de marca).
 const COPY = {
   es: {
-    kicker: "Por qué WTF",
-    headline: [<>We don’t scale teams.</>, <b key="o">We scale thinking.</b>],
+    kicker: "Qué resuelve",
+    headline: [<>Lo que las marcas ganan</>, <b key="o">cuando operan como sistema.</b>],
     subPre:
-      "Un equipo senior, compacto y conectado, diseñado para pensar mejor, moverse más rápido, con criterio, autonomía y una forma de trabajo capaz de convertir estrategia, creatividad e IA en ",
-    subEmph: "impacto real",
+      "Operar como sistema no es una mejora incremental. Es ",
+    subEmph: "otra forma de construir marca",
     points: [
-      { label: "Independientes", desc: "Menos estructura, más decisión." },
-      { label: "AI-first", desc: "IA integrada desde el brief, no agregada al final." },
-      { label: "Regional by design", desc: "Marcas hechas para moverse entre mercados." },
-      { label: "Human always", desc: "La máquina acelera, el talento decide." },
-      { label: "Battle-tested", desc: "15 años, marcas reales, problemas reales." },
+      { label: "Más velocidad", desc: "Del brief a la primera entrega con mayor agilidad." },
+      { label: "Más consistencia", desc: "Una marca más clara en todos sus canales, mercados y formatos." },
+      { label: "Más adaptación", desc: "Creatividad que se ajusta a audiencias, contextos y necesidades." },
+      { label: "Menos fricción", desc: "Un modelo integrado entre estrategia, creatividad, producción y ejecución." },
+      { label: "Mejor presupuesto", desc: "Más inteligencia aplicada a cada output." },
+      { label: "Más aprendizaje", desc: "Un sistema que mejora con cada ciclo, no que termina en la entrega." },
     ],
   },
   en: {
-    kicker: "Why WTF",
-    headline: [<>We don’t scale teams.</>, <b key="o">We scale thinking.</b>],
+    kicker: "What it solves",
+    headline: [<>What brands gain</>, <b key="o">when they operate as a system.</b>],
     subPre:
-      "A senior team, compact and connected, built to think better and move faster, with judgment, autonomy and a way of working that turns strategy, creativity and AI into ",
-    subEmph: "real impact",
+      "Operating as a system is not an incremental upgrade. It is ",
+    subEmph: "another way to build a brand",
     points: [
-      { label: "Independent", desc: "Less structure, more decision." },
-      { label: "AI-first", desc: "AI built in from the brief, not bolted on at the end." },
-      { label: "Regional by design", desc: "Brands made to move across markets." },
-      { label: "Human always", desc: "The machine accelerates, the talent decides." },
-      { label: "Battle-tested", desc: "15 years, real brands, real problems." },
+      { label: "More speed", desc: "From brief to first delivery with more agility." },
+      { label: "More consistency", desc: "A clearer brand across every channel, market and format." },
+      { label: "More adaptability", desc: "Creative that adjusts to audiences, contexts and needs." },
+      { label: "Less friction", desc: "An integrated model across strategy, creativity, production and execution." },
+      { label: "Better budget", desc: "More intelligence applied to every output." },
+      { label: "More learning", desc: "A system that improves every cycle, it doesn't end at delivery." },
     ],
   },
 };
@@ -62,7 +64,7 @@ const WhySection = () => {
           {c.kicker}
         </motion.p>
 
-        <Headline size="section" className="max-w-6xl" lines={c.headline} />
+        <Headline size="section" className="max-w-6xl !text-[clamp(27px,4.25vw,61px)]" lines={c.headline} />
 
         <motion.p
           {...fadeUp}

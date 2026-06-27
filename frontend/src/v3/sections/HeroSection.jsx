@@ -17,10 +17,10 @@ const COPY = {
   es: {
     words: ["NO SOMOS UNA AGENCIA", "SOMOS UN SISTEMA"],
     eyebrow: "Battle Tested Creativity Since 2010",
-    titleA: "La creatividad entrenada",
-    titleB: "para reinterpretar.",
-    subLeadA: "La IA no reemplaza 15 años de experiencia,",
-    subLeadB: "los multiplica.",
+    titleA: "El sistema operativo creativo",
+    titleB: "con IA para marcas modernas.",
+    subLeadA: "No somos una agencia que usa IA.",
+    subLeadB: "Somos el sistema operativo de las marcas modernas.",
     subStrategy: "Estrategia",
     subStrategyTail: " para enfocar,",
     subCreativity: "creatividad",
@@ -33,10 +33,10 @@ const COPY = {
   en: {
     words: ["WE ARE NOT AN AGENCY", "WE ARE A SYSTEM"],
     eyebrow: "Battle Tested Creativity Since 2010",
-    titleA: "Creativity trained",
-    titleB: "to reinterpret.",
-    subLeadA: "AI doesn't replace 15 years of experience,",
-    subLeadB: "it multiplies them.",
+    titleA: "The AI creative operating system",
+    titleB: "for modern brands.",
+    subLeadA: "We're not an agency that uses AI.",
+    subLeadB: "We're the operating system of modern brands.",
     subStrategy: "Strategy",
     subStrategyTail: " to focus,",
     subCreativity: "creativity",
@@ -108,9 +108,9 @@ const HeroSection = () => {
           initial={false}
           animate={{ opacity: introDone ? 1 : 0, y: introDone ? 0 : 14 }}
           transition={{ duration: 1.1, ease: EASE }}
-          className="uppercase tracking-tight leading-[1.05] text-[clamp(23px,3.56vw,59px)] text-white"
+          className="uppercase tracking-tight leading-[1.08] text-[clamp(21px,3vw,48px)] text-white"
         >
-          <span className="block whitespace-nowrap font-bold">{c.titleA}</span>
+          <span className="block font-bold">{c.titleA}</span>
           <span className="block font-thin">{c.titleB}</span>
         </motion.h1>
       </div>
