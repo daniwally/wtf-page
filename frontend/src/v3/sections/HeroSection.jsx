@@ -17,34 +17,20 @@ const COPY = {
   es: {
     words: ["NO SOMOS UNA AGENCIA", "SOMOS UN SISTEMA"],
     eyebrow: "Battle Tested Creativity Since 2010",
-    titleA: "El sistema operativo creativo",
-    titleB: "con IA para marcas modernas.",
-    subLeadA: "No hacemos campañas.",
-    subLeadB: "Construimos sistemas.",
-    subStrategy: "Estrategia",
-    subStrategyTail: " para enfocar,",
-    subCreativity: "creatividad",
-    subCreativityTail: " para diferenciar,",
-    subJudgment: "criterio",
-    subJudgmentTail: " para no volverse ruido,",
-    subAi: "IA",
-    subAiTail: " para acelerar.",
+    titleA: "No hacemos campañas.",
+    titleB: "Construimos sistemas para mover marcas.",
+    bajadaPre: "Combinamos estrategia senior, creatividad, producción, data e IA para ",
+    bajadaEmph: "pensar, crear, mover y aprender",
+    bajadaPost: " más rápido.",
   },
   en: {
     words: ["WE ARE NOT AN AGENCY", "WE ARE A SYSTEM"],
     eyebrow: "Battle Tested Creativity Since 2010",
-    titleA: "The AI creative operating system",
-    titleB: "for modern brands.",
-    subLeadA: "We don't make campaigns.",
-    subLeadB: "We build systems.",
-    subStrategy: "Strategy",
-    subStrategyTail: " to focus,",
-    subCreativity: "creativity",
-    subCreativityTail: " to stand apart,",
-    subJudgment: "judgment",
-    subJudgmentTail: " to not become noise,",
-    subAi: "AI",
-    subAiTail: " to accelerate.",
+    titleA: "We don't make campaigns.",
+    titleB: "We build systems to move brands.",
+    bajadaPre: "We combine senior strategy, creativity, production, data and AI to ",
+    bajadaEmph: "think, create, move and learn",
+    bajadaPost: " faster.",
   },
 };
 
@@ -139,22 +125,11 @@ const HeroSection = () => {
           initial={false}
           animate={{ opacity: introDone ? 1 : 0, y: introDone ? 0 : 18 }}
           transition={{ duration: 0.9, ease: EASE, delay: introDone ? 0.4 : 0 }}
-          className="text-[clamp(18px,2.3vw,27px)] font-light italic leading-[1.4] text-white"
+          className="text-[clamp(16.5px,1.76vw,21px)] font-light leading-[1.7] text-white/60"
         >
-          {c.subLeadA}
-          <br />
-          {c.subLeadB}
-        </motion.p>
-        <motion.p
-          initial={false}
-          animate={{ opacity: introDone ? 1 : 0, y: introDone ? 0 : 18 }}
-          transition={{ duration: 0.9, ease: EASE, delay: introDone ? 0.6 : 0 }}
-          className="mt-5 text-[clamp(14px,1.5vw,17px)] font-light leading-[1.7] text-white/55"
-        >
-          <span className="text-white/90">{c.subStrategy}</span>{c.subStrategyTail}{" "}
-          <span className="text-white/90">{c.subCreativity}</span>{c.subCreativityTail}{" "}
-          <span className="text-white/90">{c.subJudgment}</span>{c.subJudgmentTail}{" "}
-          <span className="text-white/90">{c.subAi}</span>{c.subAiTail}
+          {c.bajadaPre}
+          <span className="text-white/90">{c.bajadaEmph}</span>
+          {c.bajadaPost}
         </motion.p>
       </div>
 
