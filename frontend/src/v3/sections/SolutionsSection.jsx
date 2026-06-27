@@ -25,13 +25,13 @@ const COPY = {
     intro:
       "Siete sistemas que se activan según lo que la marca necesita: construir, sostener, producir, lanzar, escalar, vender y conversar.",
     services: [
-      { name: "Brand Platform System", outcome: "Posicionamiento, narrativa, identidad, tono y plataforma de marca." },
-      { name: "Always-on Content System", outcome: "Ecosistemas de contenido para marcas con presencia constante." },
-      { name: "AI Production System", outcome: "Producción acelerada de imagen, video, key visuals y adaptaciones con IA." },
-      { name: "Launch System", outcome: "Lanzamientos de productos, campañas y plataformas comerciales." },
-      { name: "Regional Rollout System", outcome: "Adaptación y ejecución para marcas que operan en varios mercados." },
-      { name: "Retail & E-commerce System", outcome: "Creatividad para punto de venta, e-commerce y conversión." },
-      { name: "Social & Culture System", outcome: "Contenido, conversación, social media, influencers y cultura." },
+      { name: "Brand Platform System", outcome: "Para marcas que necesitan posicionamiento, narrativa y tono que conecte con la cultura." },
+      { name: "Always-on Content System", outcome: "Para marcas que necesitan presencia constante sin perder consistencia." },
+      { name: "Launch System", outcome: "Para productos, campañas o plataformas que necesitan salir fuerte al mercado." },
+      { name: "AI Production System", outcome: "Para producir más rápido, adaptar más y bajar fricción sin perder dirección creativa." },
+      { name: "Regional Rollout System", outcome: "Para marcas que necesitan operar en varios países con coherencia y velocidad." },
+      { name: "Retail & E-commerce System", outcome: "Para conectar marca, conversión, canales comerciales y contenido." },
+      { name: "Social & Culture System", outcome: "Para marcas que necesitan estar en la conversación, lo social y la cultura." },
     ],
   },
   en: {
@@ -44,13 +44,13 @@ const COPY = {
     intro:
       "Seven systems that activate based on what the brand needs: build, sustain, produce, launch, scale, sell and converse.",
     services: [
-      { name: "Brand Platform System", outcome: "Positioning, narrative, identity, tone and brand platform." },
-      { name: "Always-on Content System", outcome: "Content ecosystems for brands that need constant presence." },
-      { name: "AI Production System", outcome: "Accelerated production of image, video, key visuals and adaptations with AI." },
-      { name: "Launch System", outcome: "Launches of products, campaigns and commercial platforms." },
-      { name: "Regional Rollout System", outcome: "Adaptation and execution for brands operating across markets." },
-      { name: "Retail & E-commerce System", outcome: "Creative for retail, e-commerce and conversion." },
-      { name: "Social & Culture System", outcome: "Content, conversation, social media, influencers and culture." },
+      { name: "Brand Platform System", outcome: "For brands that need positioning, narrative and tone that connects with culture." },
+      { name: "Always-on Content System", outcome: "For brands that need constant presence without losing consistency." },
+      { name: "Launch System", outcome: "For products, campaigns or platforms that need to launch strong." },
+      { name: "AI Production System", outcome: "To produce faster, adapt more and reduce friction without losing creative direction." },
+      { name: "Regional Rollout System", outcome: "For brands that need to operate across countries with coherence and speed." },
+      { name: "Retail & E-commerce System", outcome: "To connect brand, conversion, commercial channels and content." },
+      { name: "Social & Culture System", outcome: "For brands that need to be in the conversation, social and culture." },
     ],
   },
 };
@@ -83,7 +83,7 @@ const SolutionsSection = () => {
               key={s.name}
               tone="dark"
               index={i}
-              className="!p-5 min-h-[150px] flex flex-col justify-between !bg-white/[0.07] !border-white/15"
+              className="!p-5 min-h-[150px] flex flex-col justify-between !bg-[#0A0A0C]/85 !border-white/15"
             >
               <span className="font-mono text-xs text-white/40">{String(i + 1).padStart(2, "0")}</span>
               <div>

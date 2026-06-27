@@ -19,11 +19,11 @@ const COPY = {
     subPre: "Un sistema modular que conecta pensamiento estratégico, creatividad aplicada,",
     subPost: "producción acelerada, distribución inteligente y aprendizaje continuo.",
     steps: [
-      { n: "01", title: "Pensar", en: "Think", desc: "Estrategia, negocio, marca, audiencia, posicionamiento." },
-      { n: "02", title: "Crear", en: "Create", desc: "Ideas, conceptos, plataformas creativas, storytelling, identidad verbal y visual." },
-      { n: "03", title: "Producir", en: "Produce", desc: "Contenido, campañas, piezas, assets, producción tradicional e IA aplicada." },
-      { n: "04", title: "Mover", en: "Move", desc: "Social, medios, retail, CRM, e-commerce, influencers, distribución y adaptación por canal." },
-      { n: "05", title: "Aprender", en: "Learn", desc: "Data, performance, optimización, aprendizajes, iteración y mejora continua." },
+      { n: "01", title: "Pensar", en: "Think", desc: "Del caos a la dirección. Leemos el brief, el negocio, la cultura y el contexto para encontrar el punto exacto desde donde una marca puede moverse." },
+      { n: "02", title: "Crear", en: "Create", desc: "De la idea a la plataforma. Creamos conceptos que no mueren en una pieza: nacen para expandirse, adaptarse y construir valor en el tiempo." },
+      { n: "03", title: "Producir", en: "Produce", desc: "De la pieza al ecosistema. Diseñamos y producimos contenido modular, escalable y consistente, combinando oficio creativo, producción real e inteligencia artificial." },
+      { n: "04", title: "Mover", en: "Move", desc: "Del contenido al impacto. Activamos canales, audiencias y momentos para que la creatividad no solo exista, sino que circule, conecte y empuje la marca." },
+      { n: "05", title: "Aprender", en: "Learn", desc: "De la entrega a la evolución. Cada output deja información, cada campaña deja señales y cada señal mejora el sistema que construye lo próximo." },
     ],
   },
   en: {
@@ -31,11 +31,11 @@ const COPY = {
     subPre: "A modular system that connects strategic thinking, applied creativity,",
     subPost: "accelerated production, intelligent distribution and continuous learning.",
     steps: [
-      { n: "01", title: "Think", en: "Think", desc: "Strategy, business, brand, audience, positioning." },
-      { n: "02", title: "Create", en: "Create", desc: "Ideas, concepts, creative platforms, storytelling, verbal and visual identity." },
-      { n: "03", title: "Produce", en: "Produce", desc: "Content, campaigns, pieces, assets, traditional production and applied AI." },
-      { n: "04", title: "Move", en: "Move", desc: "Social, media, retail, CRM, e-commerce, influencers, distribution and per-channel adaptation." },
-      { n: "05", title: "Learn", en: "Learn", desc: "Data, performance, optimization, learnings, iteration and continuous improvement." },
+      { n: "01", title: "Think", en: "Think", desc: "From chaos to direction. We read the brief, the business, the culture and the context to find the exact point from where a brand can move." },
+      { n: "02", title: "Create", en: "Create", desc: "From idea to platform. We create concepts that don't die in a single piece: they're born to expand, adapt and build value over time." },
+      { n: "03", title: "Produce", en: "Produce", desc: "From piece to ecosystem. We design and produce modular, scalable and consistent content, combining creative craft, real production and artificial intelligence." },
+      { n: "04", title: "Move", en: "Move", desc: "From content to impact. We activate channels, audiences and moments so creativity doesn't just exist, but circulates, connects and pushes the brand." },
+      { n: "05", title: "Learn", en: "Learn", desc: "From delivery to evolution. Every output leaves information, every campaign leaves signals, and every signal improves the system that builds what's next." },
     ],
   },
 };

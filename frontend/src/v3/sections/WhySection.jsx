@@ -20,7 +20,7 @@ const COPY = {
       { label: "Más velocidad", desc: "Del brief a la primera entrega con mayor agilidad." },
       { label: "Más consistencia", desc: "Una marca más clara en todos sus canales, mercados y formatos." },
       { label: "Más adaptación", desc: "Creatividad que se ajusta a audiencias, contextos y necesidades." },
-      { label: "Menos fricción", desc: "Un modelo integrado entre estrategia, creatividad, producción y ejecución." },
+      { label: "Menos fricción", desc: "Un modelo integrado de estrategia, creatividad, producción y ejecución." },
       { label: "Mejor presupuesto", desc: "Más inteligencia aplicada a cada output." },
       { label: "Más aprendizaje", desc: "Un sistema que mejora con cada ciclo, no que termina en la entrega." },
     ],
@@ -35,7 +35,7 @@ const COPY = {
       { label: "More speed", desc: "From brief to first delivery with more agility." },
       { label: "More consistency", desc: "A clearer brand across every channel, market and format." },
       { label: "More adaptability", desc: "Creative that adjusts to audiences, contexts and needs." },
-      { label: "Less friction", desc: "An integrated model across strategy, creativity, production and execution." },
+      { label: "Less friction", desc: "An integrated model of strategy, creativity, production and execution." },
       { label: "Better budget", desc: "More intelligence applied to every output." },
       { label: "More learning", desc: "A system that improves every cycle, it doesn't end at delivery." },
     ],
@@ -74,7 +74,7 @@ const WhySection = () => {
           <span className="text-volt font-bold">{c.subEmph}</span>.
         </motion.p>
 
-        <div className="mt-8 max-w-4xl">
+        <div className="mt-8 max-w-5xl">
           {c.points.map((p, i) => (
             <motion.div
               key={p.label}
