@@ -84,7 +84,7 @@ const OrchestrateSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.5 }}
-            className="group relative flex min-h-[200px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A0A0C]/64 p-5 text-[#F4F1E8] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#FF3B30]/65 hover:bg-[#0A0A0C]/78 hover:shadow-[0_24px_80px_rgba(0,0,0,0.45)] md:rounded-3xl md:p-6"
+            className="group relative flex min-h-[200px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#050507]/76 p-5 text-[#F4F1E8] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#FF3B30]/65 hover:bg-[#050507]/88 hover:shadow-[0_24px_80px_rgba(0,0,0,0.45)] md:rounded-3xl md:p-6"
           >
             <span
               aria-hidden="true"
@@ -94,7 +94,7 @@ const OrchestrateSection = () => {
               aria-hidden="true"
               className="absolute bottom-0 right-0 h-px w-full origin-right scale-x-0 bg-[#FF3B30]/80 transition-transform duration-500 ease-out group-hover:scale-x-100"
             />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,59,48,0.18),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,59,48,0.13),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             <div className="relative flex items-center justify-between">
               <span className="font-mono text-base opacity-50 transition-colors duration-300 group-hover:text-[#FF3B30] group-hover:opacity-100 md:text-lg">
                 {s.n}
