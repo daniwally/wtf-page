@@ -81,7 +81,7 @@ const HeroSection = () => {
       <ParticleText
         words={c.words}
         align="center"
-        holdFrames={[450, 360]} // ~7.5s "NO SOMOS UNA AGENCIA" · ~6s "SOMOS UN SISTEMA"
+        holdFrames={[210, 180]} // ~3.5s "NO SOMOS UNA AGENCIA" · ~3s "SOMOS UN SISTEMA"
         loop={false}
         onComplete={handleIntroDone}
         className={`absolute inset-0 z-[1] h-full w-full transition-opacity [transition-duration:1200ms] ${

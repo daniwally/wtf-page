@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { CONTACT_EMAIL } from "../../sections/shared";
 import { useActiveTheme } from "../theme/ThemeContext";
 import { useLang } from "../i18n/LangContext";
@@ -28,6 +28,7 @@ const lum = (hex) => {
 // oscuro, negro sobre fondo claro. Cross-fade en sync con el color-swap.
 const MonksNav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const navigationCleanup = useRef(null);
   const theme = useActiveTheme();
   const { lang, setLang } = useLang();
   const darkBg = lum(theme.bg) < 0.55; // fondo oscuro → logo/letras claras
@@ -36,6 +37,40 @@ const MonksNav = () => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => () => navigationCleanup.current?.(), []);
+
+  // La galería carga medios de forma diferida y puede crecer después de un
+  // salto. Mientras el layout se estabiliza, mantenemos el destino elegido en
+  // el borde superior para que "Trabajo" llegue realmente a los casos.
+  const navigateToSection = useCallback((event, id) => {
+    event.preventDefault();
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    navigationCleanup.current?.();
+    window.history.pushState(null, "", `#${id}`);
+
+    let maxTimer;
+    const align = () => {
+      const top = window.scrollY + target.getBoundingClientRect().top;
+      window.scrollTo({ top, behavior: "auto" });
+    };
+    const finish = () => {
+      observer.disconnect();
+      window.clearTimeout(maxTimer);
+      if (navigationCleanup.current === finish) navigationCleanup.current = null;
+    };
+    const observer = new ResizeObserver(() => {
+      align();
+    });
+
+    observer.observe(document.body);
+    navigationCleanup.current = finish;
+    align();
+    window.requestAnimationFrame(align);
+    maxTimer = window.setTimeout(finish, 5000);
   }, []);
 
   return (
@@ -54,6 +89,7 @@ const MonksNav = () => {
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <a
           href="#v3-hero"
+          onClick={(event) => navigateToSection(event, "v3-hero")}
           className={`flex items-center gap-3 transition-opacity duration-300 ${
             scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
@@ -76,6 +112,7 @@ const MonksNav = () => {
             <a
               key={item.href}
               href={`#${item.href}`}
+              onClick={(event) => navigateToSection(event, item.href)}
               className="text-sm font-semibold uppercase tracking-wide rounded-full px-3 py-1.5 opacity-80 transition-all hover:opacity-100 hover:bg-[#FF3B30] hover:text-[#F4F1E8]"
             >
               {item[lang]}

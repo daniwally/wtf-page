@@ -79,6 +79,13 @@ const ContactSection = () => {
         >
           #wtfrules
         </motion.p>
+        <motion.a
+          {...fadeUp}
+          href={contactHref}
+          className="mt-8 inline-flex items-center rounded-full border border-white/35 bg-black/15 px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-[#F4F1E8] hover:text-[#0A0A0C]"
+        >
+          {c.cta}
+        </motion.a>
       </div>
 
       {/* Países distribuidos en el piso */}
