@@ -10,21 +10,23 @@ import { useLang } from "../i18n/LangContext";
 const COPY = {
   es: {
     statement: [
-      <>Las marcas modernas</>,
+      <>¿Qué viene para tu marca?</>,
       <b key="s" className="text-volt">
-        necesitan mejores sistemas.
+        Pongámoslo en movimiento.
       </b>,
     ],
     cta: "Hablemos",
+    subject: "Quiero conversar sobre mi marca",
   },
   en: {
     statement: [
-      <>Modern brands</>,
+      <>What comes next for your brand?</>,
       <b key="s" className="text-volt">
-        need better systems.
+        Let's put it in motion.
       </b>,
     ],
     cta: "Let's talk",
+    subject: "I want to talk about my brand",
   },
 };
 
@@ -48,6 +50,7 @@ const DOOR_POSTER = "/assets/hero/statement-door-poster.jpg";
 const ContactSection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
+  const contactHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(c.subject)}`;
   return (
   <>
     {/* Slide cierre: olas de fondo */}
@@ -148,7 +151,7 @@ const ContactSection = () => {
 
         {/* CTA Hablemos */}
         <a
-          href={`mailto:${CONTACT_EMAIL}`}
+          href={contactHref}
           className="mt-10 inline-flex items-center rounded-full bg-[#F4F1E8] px-8 py-3 text-sm font-bold text-[#0A0A0C] transition-colors hover:bg-volt hover:text-[#F4F1E8]"
         >
           {c.cta}
