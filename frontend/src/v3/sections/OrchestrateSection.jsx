@@ -84,15 +84,30 @@ const OrchestrateSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.5 }}
-            className="rounded-2xl md:rounded-3xl p-5 md:p-6 bg-[#0A0A0C]/70 backdrop-blur-md border border-white/10 text-[#F4F1E8] min-h-[200px] flex flex-col"
+            className="group relative flex min-h-[200px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A0A0C]/64 p-5 text-[#F4F1E8] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#FF3B30]/65 hover:bg-[#0A0A0C]/78 hover:shadow-[0_24px_80px_rgba(0,0,0,0.45)] md:rounded-3xl md:p-6"
           >
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-base md:text-lg opacity-50">{s.n}</span>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-volt">{s.en}</span>
+            <span
+              aria-hidden="true"
+              className="absolute left-0 top-0 h-px w-full origin-left scale-x-0 bg-[#FF3B30] transition-transform duration-500 ease-out group-hover:scale-x-100"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute bottom-0 right-0 h-px w-full origin-right scale-x-0 bg-[#FF3B30]/80 transition-transform duration-500 ease-out group-hover:scale-x-100"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,59,48,0.18),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="relative flex items-center justify-between">
+              <span className="font-mono text-base opacity-50 transition-colors duration-300 group-hover:text-[#FF3B30] group-hover:opacity-100 md:text-lg">
+                {s.n}
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-volt transition-colors duration-300 group-hover:text-[#FF3B30]">
+                {s.en}
+              </span>
             </div>
-            <div className="mt-10">
-              <p className="text-xl md:text-2xl font-black tracking-tight">{s.title}</p>
-              <p className="text-xs md:text-sm font-normal opacity-60 mt-1.5 leading-snug">{s.desc}</p>
+            <div className="relative mt-10 transition-transform duration-300 group-hover:translate-y-[-2px]">
+              <p className="text-xl font-black tracking-tight md:text-2xl">{s.title}</p>
+              <p className="mt-1.5 text-xs font-normal leading-snug opacity-60 transition-opacity duration-300 group-hover:opacity-85 md:text-sm">
+                {s.desc}
+              </p>
             </div>
           </motion.div>
         ))}
