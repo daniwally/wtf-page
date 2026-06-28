@@ -11,13 +11,12 @@ const NAV_ITEMS = [
   { es: "Engine", en: "Engine", pt: "Engine", href: "v3-engine" },
   { es: "Servicios", en: "Services", pt: "Serviços", href: "v3-soluciones" },
   { es: "Trabajo", en: "Work", pt: "Trabalho", href: "v3-trabajo" },
-  { es: "Contacto", en: "Contact", pt: "Contato", href: "v3-contacto" },
 ];
 
 const CTA = {
-  es: "Activemos el sistema.",
-  en: "Let's activate the system.",
-  pt: "Ativar o sistema.",
+  es: "Hablemos",
+  en: "Let's talk",
+  pt: "Vamos conversar",
 };
 const IG_LABEL = {
   es: "WTF Agency en Instagram",
