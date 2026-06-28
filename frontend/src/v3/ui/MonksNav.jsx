@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Instagram } from "lucide-react";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { CONTACT_EMAIL } from "../../sections/shared";
 import { useActiveTheme } from "../theme/ThemeContext";
@@ -17,6 +18,11 @@ const CTA = {
   es: "Activemos el sistema.",
   en: "Let's activate the system.",
   pt: "Ativar o sistema.",
+};
+const IG_LABEL = {
+  es: "WTF Agency en Instagram",
+  en: "WTF Agency on Instagram",
+  pt: "WTF Agency no Instagram",
 };
 
 // luminancia simple (0 negro → 1 blanco) para decidir oscuro/claro
@@ -123,7 +129,7 @@ const MonksNav = () => {
             </a>
           ))}
         </div>
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="flex items-center gap-2 md:gap-4">
           {/* Selector de idioma (funcional) */}
           <div className="flex items-center gap-1.5 text-xs md:text-sm font-bold uppercase tracking-wide select-none">
             <button
@@ -158,10 +164,20 @@ const MonksNav = () => {
           </div>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="inline-flex items-center rounded-full px-5 py-2 text-xs font-bold transition-colors hover:!bg-[#FF3B30] hover:!text-[#F4F1E8]"
+            className="inline-flex items-center whitespace-nowrap rounded-full px-3 md:px-5 py-2 text-[10px] md:text-xs font-bold transition-colors hover:!bg-[#FF3B30] hover:!text-[#F4F1E8]"
             style={{ backgroundColor: theme.fg, color: theme.bg }}
           >
             {CTA[lang]}
+          </a>
+          <a
+            href="https://www.instagram.com/wtf.agency/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label={IG_LABEL[lang]}
+            title={IG_LABEL[lang]}
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-current/30 transition-colors hover:border-[#FF3B30] hover:bg-[#FF3B30] hover:text-[#F4F1E8]"
+          >
+            <Instagram size={17} strokeWidth={1.8} aria-hidden="true" />
           </a>
         </div>
       </div>
