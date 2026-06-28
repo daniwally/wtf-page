@@ -55,6 +55,26 @@ const COPY = {
       { name: "Social & Culture System", outcome: "For brands that need to be in the conversation, social and culture." },
     ],
   },
+  pt: {
+    headline: [
+      <>Não vendemos serviços.</>,
+      <b key="s" className="inline-block bg-volt text-[#0A0A0C] px-3 py-1 leading-[1.0]">
+        Operamos sistemas.
+      </b>,
+    ],
+    intro:
+      "Sete sistemas ativados de acordo com o que a marca precisa: construir, sustentar, produzir, lançar, escalar, vender e conversar.",
+    principle: "A necessidade define o sistema. Não o contrário.",
+    services: [
+      { name: "Brand Platform System", outcome: "Para marcas que precisam de posicionamento, narrativa e tom conectados à cultura." },
+      { name: "Always-on Content System", outcome: "Para marcas que precisam de presença constante sem perder consistência." },
+      { name: "Launch System", outcome: "Para produtos, campanhas ou plataformas que precisam chegar fortes ao mercado." },
+      { name: "AI Production System", outcome: "Para produzir mais rápido, adaptar mais e reduzir atrito sem perder direção criativa." },
+      { name: "Regional Rollout System", outcome: "Para marcas que precisam operar em vários países com coerência e velocidade." },
+      { name: "Retail & E-commerce System", outcome: "Para conectar marca, conversão, canais comerciais e conteúdo." },
+      { name: "Social & Culture System", outcome: "Para marcas que precisam participar da conversa, do social e da cultura." },
+    ],
+  },
 };
 
 const SolutionsSection = () => {

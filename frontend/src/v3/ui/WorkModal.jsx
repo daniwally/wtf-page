@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useLang } from "../i18n/LangContext";
+import { getWorkText } from "../data/workPt";
 
 // Modal de detalle de cada comercial — REPLICA EXACTA del deck
 // (engine.wtf-agency.works): overlay sobre foto de pared + gradiente; card glass
@@ -14,6 +15,7 @@ const imgStyle = { width: "100%", height: "100%", objectFit: "cover", display: "
 const COPY = {
   es: { close: "Cerrar" },
   en: { close: "Close" },
+  pt: { close: "Fechar" },
 };
 
 const WorkModal = ({ work, onClose }) => {
@@ -36,6 +38,7 @@ const WorkModal = ({ work, onClose }) => {
   }, [onClose]);
 
   if (!work) return null;
+  const localized = getWorkText(work, lang);
   const imgs = work.images || [];
   const poster = work.video ? work.video.replace(/\.mp4$/, "-poster.jpg") : null;
 
@@ -106,13 +109,19 @@ const WorkModal = ({ work, onClose }) => {
             )}
             <div style={{ flex: 1 }}>
               <h2 style={{ fontSize: "clamp(1.6rem,3vw,2.5rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: ".8rem" }}>
-                {work.thin && <span style={{ fontWeight: 100, opacity: 0.7 }}>{work.thin} </span>}
-                <span style={{ fontWeight: 900 }}>{work.bold}</span>
+                {lang === "pt" ? (
+                  <span style={{ fontWeight: 900 }}>{work.name}</span>
+                ) : (
+                  <>
+                    {work.thin && <span style={{ fontWeight: 100, opacity: 0.7 }}>{work.thin} </span>}
+                    <span style={{ fontWeight: 900 }}>{work.bold}</span>
+                  </>
+                )}
               </h2>
               <p
                 style={{ fontSize: ".9rem", color: "rgba(255,255,255,.7)", lineHeight: 1.7, maxWidth: 650 }}
                 className="[&_strong]:font-bold [&_strong]:text-white"
-                dangerouslySetInnerHTML={{ __html: lang === "en" ? work.descEn : work.desc }}
+                dangerouslySetInnerHTML={{ __html: localized.desc }}
               />
             </div>
           </div>

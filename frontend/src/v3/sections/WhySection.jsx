@@ -40,6 +40,21 @@ const COPY = {
       { label: "More learning", desc: "A system that improves every cycle, it doesn't end at delivery." },
     ],
   },
+  pt: {
+    kicker: "O que resolve",
+    headline: [<>O que as marcas ganham</>, <b key="o">quando operam como sistema.</b>],
+    subPre:
+      "Operar como sistema não é uma melhoria incremental. É ",
+    subEmph: "outra forma de construir marca",
+    points: [
+      { label: "Mais velocidade", desc: "Do brief à primeira entrega com mais agilidade." },
+      { label: "Mais consistência", desc: "Uma marca mais clara em todos os canais, mercados e formatos." },
+      { label: "Mais adaptação", desc: "Criatividade que se ajusta a audiências, contextos e necessidades." },
+      { label: "Menos atrito", desc: "Um modelo integrado de estratégia, criatividade, produção e execução." },
+      { label: "Melhor orçamento", desc: "Mais inteligência aplicada a cada output." },
+      { label: "Mais aprendizado", desc: "Um sistema que melhora a cada ciclo, não termina na entrega." },
+    ],
+  },
 };
 
 const SHEEP = "/assets/hero/why-sheep.jpg"; // oveja negra entre las blancas (los distintos)

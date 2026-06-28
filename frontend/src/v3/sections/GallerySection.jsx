@@ -30,6 +30,16 @@ const COPY = {
     subline: "Intelligence, craft and speed operating brands as a single system.",
     metrics: ["AI tools", "faster", "to first delivery", "no creative limits"],
   },
+  pt: {
+    kicker: (
+      <>
+        A prova · <span className="text-volt">Now</span>
+      </>
+    ),
+    headline: [<>Não adicionamos uma ferramenta.</>, <b key="a">Construímos nosso próprio sistema operacional.</b>],
+    subline: "Inteligência, craft e velocidade operando marcas como um único sistema.",
+    metrics: ["ferramentas de IA", "mais rápido", "até a primeira entrega", "sem limites criativos"],
+  },
 };
 
 // Video lazy: no asigna el src hasta entrar al viewport y pausa al salir. Así la
@@ -80,6 +90,24 @@ const METRICS = [
   { value: 48, suffix: "H", key: "delivery" },
   { static: "∞", key: "limits" },
 ];
+
+const galleryLabel = (item, lang) => {
+  if (lang === "en") return item.labelEn;
+  if (lang !== "pt") return item.label;
+  return item.label
+    .replace("Lanzamiento", "Lançamento")
+    .replace("Otoño", "Outono")
+    .replace("El Brindis", "O Brinde")
+    .replace("Actitud", "Atitude")
+    .replace("Mirada", "Olhar")
+    .replace("Colección", "Coleção")
+    .replace("Enero", "Janeiro")
+    .replace("Movimiento", "Movimento")
+    .replace("Nacida en el Fuego", "Nascida no Fogo")
+    .replace("Video", "Vídeo")
+    .replace("Brindis", "Brinde")
+    .replace("Estilos", "Estilos");
+};
 
 // Sección — PROOF · NOW. Réplica de la slide "13 · Galería" del deck
 // (engine.wtf-agency.works): header centrado + masonry de 5 columnas con las
@@ -151,21 +179,24 @@ const GallerySection = () => {
 
       {/* Masonry 5 columnas (CSS columns, como el deck) */}
       <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-1 px-1 pb-16 md:pb-20">
-        {GALLERY.map((it) => (
+        {GALLERY.map((it) => {
+          const label = galleryLabel(it, lang);
+          return (
           <div
             key={it.src}
             className="group relative mb-1 break-inside-avoid overflow-hidden rounded-md transition-opacity duration-300 hover:opacity-90"
           >
             {it.video ? (
-              <LazyVideo src={it.src} label={lang === "en" ? it.labelEn : it.label} />
+              <LazyVideo src={it.src} label={label} />
             ) : (
-              <img src={it.src} alt={lang === "en" ? it.labelEn : it.label} loading="lazy" decoding="async" className="block w-full" />
+              <img src={it.src} alt={label} loading="lazy" decoding="async" className="block w-full" />
             )}
             <div className="absolute inset-0 flex items-end p-2.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span className="font-hud text-[9px] tracking-wide bg-volt text-white px-1.5 py-1 rounded">{lang === "en" ? it.labelEn : it.label}</span>
+              <span className="font-hud text-[9px] tracking-wide bg-volt text-white px-1.5 py-1 rounded">{label}</span>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

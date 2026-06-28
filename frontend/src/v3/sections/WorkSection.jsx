@@ -7,6 +7,7 @@ import { THEMES } from "../theme/palette";
 import Headline from "../ui/Headline";
 import WorkModal from "../ui/WorkModal";
 import { WORKS } from "../data/works";
+import { getWorkText } from "../data/workPt";
 import { useLang } from "../i18n/LangContext";
 
 // Sección 7 — PROOF · THEN. Réplica de la slide "NUESTROS TRABAJOS" del deck
@@ -44,6 +45,21 @@ const COPY = {
       { static: "#1", label: "leading brands" },
     ],
     cta: "View case →",
+  },
+  pt: {
+    kickerPre: "A prova · ",
+    headline: [<>Não é portfólio.</>, <b key="e">É evidência.</b>],
+    intro:
+      "Não falamos sobre o que podemos fazer. Mostramos 15 anos destruindo briefs e construindo marcas.",
+    metrics: [
+      { value: 15, suffix: "", label: "anos" },
+      { value: 300, suffix: "+", label: "campanhas" },
+      { value: 30, suffix: "+", label: "marcas" },
+      { value: 10, suffix: "+", label: "países" },
+      { value: 6, suffix: "", label: "categorias" },
+      { static: "#1", label: "marcas líderes" },
+    ],
+    cta: "Ver case →",
   },
 };
 
@@ -88,7 +104,9 @@ const WorkSection = () => {
         {/* Grilla de fichas (formato deck): thumbnail + categoría + nombre + descripción.
             Al click abre el modal de detalle. */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-9 [grid-auto-flow:dense]">
-          {WORKS.map((w, i) => (
+          {WORKS.map((w, i) => {
+            const localized = getWorkText(w, lang);
+            return (
             <motion.button
               type="button"
               key={w.key}
@@ -120,14 +138,15 @@ const WorkSection = () => {
                 </div>
               </div>
               <div className="mt-3">
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-volt">{lang === "en" ? w.catEn : w.cat}</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-volt">{localized.cat}</span>
                 <h3 className={`font-black uppercase tracking-tight leading-tight mt-1 ${w.feat ? "text-lg md:text-2xl" : "text-base md:text-lg"}`}>
                   {w.name}
                 </h3>
-                <p className="text-xs md:text-sm font-normal opacity-55 leading-snug mt-1">{lang === "en" ? w.capEn : w.cap}</p>
+                <p className="text-xs md:text-sm font-normal opacity-55 leading-snug mt-1">{localized.cap}</p>
               </div>
             </motion.button>
-          ))}
+            );
+          })}
         </div>
       </div>
 

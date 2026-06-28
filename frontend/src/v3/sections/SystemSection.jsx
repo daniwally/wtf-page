@@ -25,6 +25,12 @@ const COPY = {
       "WTF integrates strategy, creativity, production, technology, data and artificial intelligence into one operating model built to accelerate brand communication without losing depth, judgment or consistency.",
     verbs: ["Think", "Create", "Produce", "Move", "Learn"],
   },
+  pt: {
+    kicker: "Não é uma ferramenta. É o sistema.",
+    definition:
+      "A WTF integra estratégia, criatividade, produção, tecnologia, dados e inteligência artificial em um modelo operacional criado para acelerar a comunicação das marcas sem perder profundidade, critério ou consistência.",
+    verbs: ["Pensar", "Criar", "Produzir", "Mover", "Aprender"],
+  },
 };
 
 const SystemSection = () => {

@@ -29,16 +29,26 @@ const COPY = {
     cta: "Let's talk",
     subject: "I want to talk about my brand",
   },
+  pt: {
+    statement: [
+      <>O que vem agora para a sua marca?</>,
+      <b key="s" className="text-volt">
+        Vamos colocar isso em movimento.
+      </b>,
+    ],
+    cta: "Vamos conversar",
+    subject: "Quero conversar sobre a minha marca",
+  },
 };
 
 const PAISES = [
-  { pais: "Argentina", hq: true },
-  { pais: "Chile" },
-  { pais: "Perú" },
-  { pais: "Ecuador" },
-  { pais: "Paraguay" },
-  { pais: "USA" },
-  { pais: "España" },
+  { es: "Argentina", en: "Argentina", pt: "Argentina", hq: true },
+  { es: "Chile", en: "Chile", pt: "Chile" },
+  { es: "Perú", en: "Peru", pt: "Peru" },
+  { es: "Ecuador", en: "Ecuador", pt: "Equador" },
+  { es: "Paraguay", en: "Paraguay", pt: "Paraguai" },
+  { es: "USA", en: "USA", pt: "EUA" },
+  { es: "España", en: "Spain", pt: "Espanha" },
 ];
 
 const WAVE = "/assets/hero/closing-wave.jpg"; // ola oceánica (cierre)
@@ -93,12 +103,12 @@ const ContactSection = () => {
         <div className="container mx-auto px-6 md:px-12 pb-10 md:pb-14 flex flex-wrap items-center justify-center md:justify-between gap-3">
           {PAISES.map((p) => (
             <span
-              key={p.pais}
+              key={p.es}
               className={`inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold ${
                 p.hq ? "bg-volt text-[#0A0A0C]" : "border border-white/30 text-white"
               }`}
             >
-              {p.pais}
+              {p[lang]}
               {p.hq && <span className="text-[10px] font-bold">HQ</span>}
             </span>
           ))}

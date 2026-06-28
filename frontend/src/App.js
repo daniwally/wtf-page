@@ -19,6 +19,7 @@ function App() {
               {/* v3 = versión principal */}
               <Route path="/" element={<V3Page />} />
               <Route path="/en/" element={<V3Page />} />
+              <Route path="/pt/" element={<V3Page />} />
               <Route path="/v3" element={<V3Page />} />
               {/* respaldos (no se borran archivos: la película la edita otro chat) */}
               <Route path="/pelicula" element={<LandingPage />} />

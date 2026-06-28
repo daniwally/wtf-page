@@ -17,7 +17,7 @@ const CHROME =
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
 // Cada idioma tiene una URL indexable y su propio HTML, canonical y metadata.
-const ROUTES = ["/", "/en/"];
+const ROUTES = ["/", "/en/", "/pt/"];
 
 const MIME = {
   ".html": "text/html",
@@ -125,7 +125,7 @@ async function main() {
           );
         },
         { timeout: 60000 },
-        route.startsWith("/en") ? "en" : "es"
+        route.startsWith("/en") ? "en" : route.startsWith("/pt") ? "pt-BR" : "es"
       );
 
       // Respiro para que se asienten los reveals iniciales

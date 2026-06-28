@@ -29,6 +29,14 @@ const COPY = {
     bajadaEmph: "think, create, move and learn",
     bajadaPost: " faster.",
   },
+  pt: {
+    eyebrow: "Battle Tested Creativity Since 2010",
+    titleA: "Não fazemos campanhas.",
+    titleB: "Construímos sistemas que movem marcas.",
+    bajadaPre: "Combinamos estratégia sênior, criatividade, produção, dados e IA para ",
+    bajadaEmph: "pensar, criar, mover e aprender",
+    bajadaPost: " mais rápido.",
+  },
 };
 
 // v3 Opening: el mensaje aparece desde el primer segundo sobre el video de marca.

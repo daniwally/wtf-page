@@ -7,13 +7,17 @@ import { useLang } from "../i18n/LangContext";
 const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png"; // lockup WTF+Brief (igual al home)
 
 const NAV_ITEMS = [
-  { es: "Engine", en: "Engine", href: "v3-engine" },
-  { es: "Servicios", en: "Services", href: "v3-soluciones" },
-  { es: "Trabajo", en: "Work", href: "v3-trabajo" },
-  { es: "Contacto", en: "Contact", href: "v3-contacto" },
+  { es: "Engine", en: "Engine", pt: "Engine", href: "v3-engine" },
+  { es: "Servicios", en: "Services", pt: "Serviços", href: "v3-soluciones" },
+  { es: "Trabajo", en: "Work", pt: "Trabalho", href: "v3-trabajo" },
+  { es: "Contacto", en: "Contact", pt: "Contato", href: "v3-contacto" },
 ];
 
-const CTA = { es: "Activemos el sistema.", en: "Let's activate the system." };
+const CTA = {
+  es: "Activemos el sistema.",
+  en: "Let's activate the system.",
+  pt: "Ativar o sistema.",
+};
 
 // luminancia simple (0 negro → 1 blanco) para decidir oscuro/claro
 const lum = (hex) => {
@@ -140,6 +144,16 @@ const MonksNav = () => {
               className={`uppercase transition-opacity ${lang === "en" ? "opacity-100" : "opacity-40 hover:opacity-100"}`}
             >
               EN
+            </button>
+            <span aria-hidden="true" className="opacity-30">/</span>
+            <button
+              type="button"
+              onClick={() => setLang("pt")}
+              aria-pressed={lang === "pt"}
+              aria-label="Ver o site em português"
+              className={`uppercase transition-opacity ${lang === "pt" ? "opacity-100" : "opacity-40 hover:opacity-100"}`}
+            >
+              PT
             </button>
           </div>
           <a

@@ -38,6 +38,18 @@ const COPY = {
       { n: "05", title: "Learn", en: "Learn", desc: "From delivery to evolution. Every output leaves information, every campaign leaves signals, and every signal improves the system that builds what's next." },
     ],
   },
+  pt: {
+    headline: [<>Não é workflow.</>, <b key="g">É momentum.</b>],
+    subPre: "Um sistema modular que conecta pensamento estratégico, criatividade aplicada,",
+    subPost: "produção acelerada, distribuição inteligente e aprendizado contínuo.",
+    steps: [
+      { n: "01", title: "Pensar", en: "Think", desc: "Do caos à direção. Lemos o brief, o negócio, a cultura, a audiência e o contexto para encontrar o ponto exato de onde uma marca pode se mover." },
+      { n: "02", title: "Criar", en: "Create", desc: "Da ideia à plataforma. Criamos conceitos que não morrem em uma peça: nascem para expandir, adaptar e construir valor ao longo do tempo." },
+      { n: "03", title: "Produzir", en: "Produce", desc: "Da peça ao ecossistema. Criamos conteúdo modular, escalável e consistente, combinando craft criativo, produção real e inteligência artificial." },
+      { n: "04", title: "Mover", en: "Move", desc: "Do conteúdo ao impacto. Ativamos canais, audiências, mídia, social, retail, e-commerce e influência para que a criatividade circule, conecte e mova a marca." },
+      { n: "05", title: "Aprender", en: "Learn", desc: "Da entrega à evolução. Cada output deixa informação, cada campanha deixa sinais e cada sinal melhora o sistema que constrói o próximo passo." },
+    ],
+  },
 };
 
 const OrchestrateSection = () => {

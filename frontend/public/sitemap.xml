@@ -8,6 +8,7 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.wtf-agency.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.wtf-agency.com/en/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.wtf-agency.com/pt/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.wtf-agency.com/" />
   </url>
   <url>
@@ -17,6 +18,17 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.wtf-agency.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.wtf-agency.com/en/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.wtf-agency.com/pt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.wtf-agency.com/" />
+  </url>
+  <url>
+    <loc>https://www.wtf-agency.com/pt/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.wtf-agency.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wtf-agency.com/en/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.wtf-agency.com/pt/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.wtf-agency.com/" />
   </url>
 </urlset>

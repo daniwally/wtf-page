@@ -61,6 +61,30 @@ const COPY = {
       "Brands can no longer rely on isolated campaigns, slow processes and structures built for another pace. Today they need systems that think, produce, adapt, move and learn every day.",
     sign: "What comes next cannot run on yesterday's model.",
   },
+  pt: {
+    kicker: "O problema",
+    before: (
+      <>
+        O mundo já não
+        <br />
+        <span className="font-bold">espera campanhas.</span>
+      </>
+    ),
+    after: (
+      <>
+        <span className="font-thin">
+          As marcas precisam
+          <br />
+          de sistemas que
+        </span>
+        <br />
+        <span className="font-bold">pensem, produzam e aprendam.</span>
+      </>
+    ),
+    insight:
+      "As marcas não podem mais depender de campanhas isoladas, processos lentos e estruturas pensadas para outro ritmo. Hoje precisam de sistemas capazes de pensar, produzir, adaptar, mover e aprender todos os dias.",
+    sign: "O que vem pela frente não opera com o modelo de antes.",
+  },
 };
 
 // Sección 2 — THE SHIFT. Compuesta como un díptico "de esto → a esto":

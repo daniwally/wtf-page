@@ -17,6 +17,10 @@ const COPY = {
     headline: [<>15 years operating brands.</>, <b key="c">Now turned into a system.</b>],
     subline: "WTF started as a creative agency and evolved into an operating model: strategy, creativity, production and speed in one place.",
   },
+  pt: {
+    headline: [<>15 anos operando marcas.</>, <b key="c">Agora transformados em sistema.</b>],
+    subline: "A WTF nasceu como agência criativa e evoluiu para um modelo operacional: estratégia, criatividade, produção e velocidade em um só lugar.",
+  },
 };
 
 // Sección de clientes. Replica EXACTO el slide del deck (engine.wtf-agency.works):

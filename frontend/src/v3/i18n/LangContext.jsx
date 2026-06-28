@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-// i18n liviano para la web v3. Estado de idioma ('es' | 'en') con persistencia en
-// localStorage. Cada sección define su copy bilingüe (COPY[lang]) y lo consume con
+// i18n liviano para la web v3. Estado de idioma ('es' | 'en' | 'pt') con persistencia en
+// localStorage. Cada sección define su copy localizado (COPY[lang]) y lo consume con
 // useLang(). Default ES (idioma original del sitio).
 const LangContext = createContext({ lang: "es", setLang: () => {} });
 
@@ -24,6 +24,13 @@ const SEO = {
       "WTF Agency combines senior strategy, creativity, production, data and AI into systems that help regional brands move faster.",
     locale: "en_US",
   },
+  pt: {
+    path: "/pt/",
+    title: "WTF Agency | Agência criativa, estratégia e IA",
+    description:
+      "A WTF Agency combina estratégia sênior, criatividade, produção, dados e IA em sistemas que ajudam marcas regionais a avançar mais rápido.",
+    locale: "pt_BR",
+  },
 };
 
 const SCHEMA_COPY = {
@@ -43,9 +50,21 @@ const SCHEMA_COPY = {
     audience: "Brands, CMOs, marketing directors and founders",
     imageAlt: "WTF Agency — Battle Tested Creativity",
   },
+  pt: {
+    organization:
+      "Agência criativa AI-first que integra estratégia, criatividade, produção, dados e inteligência artificial em sistemas para marcas.",
+    service: "Sistemas criativos para marcas",
+    serviceType: "Estratégia, criatividade, produção, dados e inteligência artificial",
+    audience: "Marcas, CMOs, diretores de marketing e founders",
+    imageAlt: "WTF Agency — Battle Tested Creativity",
+  },
 };
 
-const langFromPath = (pathname) => (pathname.startsWith("/en") ? "en" : "es");
+const langFromPath = (pathname) => {
+  if (pathname.startsWith("/en")) return "en";
+  if (pathname.startsWith("/pt")) return "pt";
+  return "es";
+};
 
 export const LangProvider = ({ children }) => {
   const location = useLocation();
@@ -53,7 +72,7 @@ export const LangProvider = ({ children }) => {
   const [lang, setLangState] = useState(() => langFromPath(location.pathname));
 
   const setLang = useCallback((next) => {
-    if (next !== "es" && next !== "en") return;
+    if (next !== "es" && next !== "en" && next !== "pt") return;
     setLangState(next);
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
@@ -76,7 +95,8 @@ export const LangProvider = ({ children }) => {
     if (typeof document === "undefined") return;
     const seo = SEO[lang];
     const pageUrl = `${SITE_URL}${seo.path}`;
-    document.documentElement.lang = lang;
+    const htmlLang = lang === "pt" ? "pt-BR" : lang;
+    document.documentElement.lang = htmlLang;
     document.title = seo.title;
 
     const setMeta = (selector, value) => {
@@ -93,7 +113,14 @@ export const LangProvider = ({ children }) => {
     setMeta('meta[property="og:description"]', seo.description);
     setMeta('meta[property="og:url"]', pageUrl);
     setMeta('meta[property="og:locale"]', seo.locale);
-    setMeta('meta[property="og:locale:alternate"]', lang === "es" ? "en_US" : "es_AR");
+    const alternateLocales = {
+      es: ["en_US", "pt_BR"],
+      en: ["es_AR", "pt_BR"],
+      pt: ["es_AR", "en_US"],
+    };
+    document.querySelectorAll('meta[property="og:locale:alternate"]').forEach((el, index) => {
+      el.setAttribute("content", alternateLocales[lang][index] || alternateLocales[lang][0]);
+    });
     setMeta('meta[property="og:image:alt"]', SCHEMA_COPY[lang].imageAlt);
     setMeta('meta[name="twitter:title"]', seo.title);
     setMeta('meta[name="twitter:description"]', seo.description);
@@ -118,7 +145,7 @@ export const LangProvider = ({ children }) => {
           webPage.url = pageUrl;
           webPage.name = seo.title;
           webPage.description = seo.description;
-          webPage.inLanguage = lang;
+          webPage.inLanguage = htmlLang;
         }
         if (service) {
           service.name = SCHEMA_COPY[lang].service;
