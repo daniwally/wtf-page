@@ -151,14 +151,11 @@ const GallerySection = () => {
 
       {/* Masonry 5 columnas (CSS columns, como el deck) */}
       <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-1 px-1 pb-16 md:pb-20">
-        {GALLERY.map((it, index) => (
+        {GALLERY.map((it) => (
           <div
             key={it.src}
             className="group relative mb-1 break-inside-avoid overflow-hidden rounded-md transition-opacity duration-300 hover:opacity-90"
           >
-            <span className="pointer-events-none absolute left-2 top-2 z-10 font-hud text-[28px] md:text-[40px] font-bold leading-none tracking-[-0.08em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.9)]">
-              {String(index + 1).padStart(2, "0")}
-            </span>
             {it.video ? (
               <LazyVideo src={it.src} label={lang === "en" ? it.labelEn : it.label} />
             ) : (
