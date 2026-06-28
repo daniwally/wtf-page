@@ -123,6 +123,18 @@ const ContactModal = ({ open, onClose }) => {
     event.preventDefault();
     setStatus("submitting");
     const formData = new FormData(event.currentTarget);
+    const email = String(formData.get("email") || "");
+    const company = String(formData.get("company") || "");
+    const honeypot = String(formData.get("website") || "");
+    if (honeypot) {
+      setStatus("success");
+      return;
+    }
+    formData.set("_replyto", email);
+    formData.set(
+      "_subject",
+      company ? `Nuevo contacto WTF Agency · ${company}` : "Nuevo contacto WTF Agency"
+    );
     formData.append("language", lang === "pt" ? "pt-BR" : lang);
     formData.append("source", window.location.href);
 
@@ -158,12 +170,13 @@ const ContactModal = ({ open, onClose }) => {
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"
-            className="relative my-auto w-full max-w-3xl overflow-hidden rounded-2xl border border-white/15 bg-[#0A0A0C] text-white shadow-2xl"
+            className="relative my-auto w-full max-w-3xl overflow-hidden rounded-2xl border border-white/15 bg-[#0A0A0C]/78 text-white shadow-[0_30px_120px_rgba(0,0,0,0.72)] backdrop-blur-2xl"
             initial={{ opacity: 0, y: 28, scale: 0.985 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 18, scale: 0.99 }}
             transition={{ duration: 0.45, ease: EASE }}
           >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(255,255,255,0.10),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_46%)]" />
             <div className="absolute inset-x-0 top-0 h-1 bg-volt" />
             <button
               type="button"
@@ -178,7 +191,7 @@ const ContactModal = ({ open, onClose }) => {
             {status === "success" ? (
               <div
                 role="status"
-                className="flex min-h-[430px] flex-col items-center justify-center px-7 py-16 text-center md:px-14"
+                className="relative flex min-h-[430px] flex-col items-center justify-center px-7 py-16 text-center md:px-14"
               >
                 <img
                   src={LOGO_LOCKUP}
@@ -199,7 +212,7 @@ const ContactModal = ({ open, onClose }) => {
                 </button>
               </div>
             ) : (
-              <div className="px-6 pb-7 pt-10 md:px-12 md:pb-10 md:pt-12">
+              <div className="relative px-6 pb-7 pt-10 md:px-12 md:pb-10 md:pt-12">
                 <div className="flex items-center gap-4">
                   <img
                     src={LOGO_LOCKUP}
@@ -217,13 +230,20 @@ const ContactModal = ({ open, onClose }) => {
                 <p className="mt-4 text-base font-light text-white/55 md:text-lg">{c.intro}</p>
 
                 <form ref={formRef} onSubmit={handleSubmit} className="mt-8">
-                  <input type="hidden" name="_subject" value="Nuevo contacto desde WTF Agency" />
                   <input
                     type="text"
                     name="_gotcha"
                     tabIndex="-1"
                     autoComplete="off"
                     className="hidden"
+                    aria-hidden="true"
+                  />
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex="-1"
+                    autoComplete="off"
+                    className="pointer-events-none absolute -left-[9999px] h-px w-px opacity-0"
                     aria-hidden="true"
                   />
 
