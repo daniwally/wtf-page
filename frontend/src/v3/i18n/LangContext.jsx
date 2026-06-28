@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const LangContext = createContext({ lang: "es", setLang: () => {} });
 
 const STORAGE_KEY = "wtf-lang";
-const SITE_URL = "https://testwebsite.wtf-agency.works";
+const SITE_URL = "https://www.wtf-agency.com";
 
 const SEO = {
   es: {

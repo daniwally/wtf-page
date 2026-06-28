@@ -6,4 +6,4 @@ Disallow: /v2
 Disallow: /v3
 Disallow: /pelicula
 
-Sitemap: https://testwebsite.wtf-agency.works/sitemap.xml
+Sitemap: https://www.wtf-agency.com/sitemap.xml
