@@ -61,6 +61,8 @@ const MonksNav = () => {
           <img
             src={LOGO_LOCKUP}
             alt="WTF · Brief Destroyers"
+            width="720"
+            height="363"
             className="h-12 md:h-14 w-auto"
             style={{ filter: darkBg ? "none" : "brightness(0)" }}
           />

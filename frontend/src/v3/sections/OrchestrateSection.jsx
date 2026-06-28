@@ -47,7 +47,7 @@ const OrchestrateSection = () => {
   <ThemeSection theme={THEMES.night} id="v3-model" className="overflow-hidden flex flex-col justify-center">
     {/* Fondo: la mujer con antiparras (mood del hero), bien oscurecido */}
     <div className="absolute inset-0 z-0">
-      <img src={MODEL_BG} alt="" aria-hidden className="h-full w-full object-cover object-center" />
+      <img src={MODEL_BG} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
       <div className="absolute inset-0 bg-[#0A0A0C]/28" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/65 via-[#0A0A0C]/8 to-[#0A0A0C]/38" />
     </div>

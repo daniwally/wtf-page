@@ -6,35 +6,37 @@
         <meta name="theme-color" content="#0A0A0C" />
 
         <!-- Primary -->
-        <title>WTF Agency — The Brief Destroyers</title>
-        <meta name="description" content="Battle Tested Creativity desde 2010. Operamos marcas regionales con Infinity Engine: nuestro sistema operativo creativo AI-first, estrategia y producción a escala." />
-        <meta name="keywords" content="agencia creativa, inteligencia artificial, AI-first, branding, contenido, marcas regionales, Latinoamérica, sistema operativo creativo, WTF Agency, Infinity Engine, producción, performance creativo" />
+        <title>WTF Agency | Agencia creativa, estrategia e IA</title>
+        <meta name="description" content="WTF Agency integra estrategia senior, creatividad, producción, data e IA en sistemas que ayudan a marcas regionales a moverse más rápido." />
         <meta name="author" content="WTF Agency" />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1, max-snippet:-1" />
+        <meta name="color-scheme" content="dark light" />
         <link rel="canonical" href="https://testwebsite.wtf-agency.works/" />
 
-        <!-- hreflang (ES default, EN alterno en la misma URL vía toggle) -->
+        <!-- Idiomas indexables en URLs propias -->
         <link rel="alternate" hreflang="es" href="https://testwebsite.wtf-agency.works/" />
-        <link rel="alternate" hreflang="en" href="https://testwebsite.wtf-agency.works/" />
+        <link rel="alternate" hreflang="en" href="https://testwebsite.wtf-agency.works/en/" />
         <link rel="alternate" hreflang="x-default" href="https://testwebsite.wtf-agency.works/" />
 
         <!-- Open Graph -->
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="WTF Agency" />
-        <meta property="og:title" content="WTF Agency — The Brief Destroyers" />
-        <meta property="og:description" content="Battle Tested Creativity desde 2010. Operamos marcas regionales con Infinity Engine: nuestro sistema operativo creativo AI-first." />
+        <meta property="og:title" content="WTF Agency | Agencia creativa, estrategia e IA" />
+        <meta property="og:description" content="Estrategia senior, creatividad, producción, data e IA operando como un solo sistema para mover marcas." />
         <meta property="og:url" content="https://testwebsite.wtf-agency.works/" />
         <meta property="og:image" content="https://testwebsite.wtf-agency.works/og-image.jpg" />
+        <meta property="og:image:secure_url" content="https://testwebsite.wtf-agency.works/og-image.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="WTF Agency — Battle Tested Creativity" />
-        <meta property="og:locale" content="es_ES" />
+        <meta property="og:locale" content="es_AR" />
         <meta property="og:locale:alternate" content="en_US" />
 
         <!-- Twitter / X -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="WTF Agency — The Brief Destroyers" />
-        <meta name="twitter:description" content="Battle Tested Creativity desde 2010. Marcas regionales operadas con Infinity Engine, nuestro sistema operativo creativo AI-first." />
+        <meta name="twitter:title" content="WTF Agency | Agencia creativa, estrategia e IA" />
+        <meta name="twitter:description" content="Estrategia senior, creatividad, producción, data e IA operando como un solo sistema para mover marcas." />
         <meta name="twitter:image" content="https://testwebsite.wtf-agency.works/og-image.jpg" />
         <meta name="twitter:image:alt" content="WTF Agency — Battle Tested Creativity" />
 
@@ -51,42 +53,75 @@
 
         <!-- Fuentes vía <link> (no @import: no bloquea el parseo del CSS) -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" />
-        <!-- Preload del logo lockup (candidato a LCP, above the fold) -->
+        <!-- Preloads above the fold -->
+        <link rel="preload" as="image" href="/assets/hero/moto-poster.jpg" fetchpriority="high" />
         <link rel="preload" as="image" href="/assets/logos/logo-wtf-lockup.png" />
 
-        <!-- Datos estructurados: Organization -->
-        <script type="application/ld+json">
+        <!-- Entidad, sitio, página y servicio principal -->
+        <script id="structured-data" type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "WTF Agency",
-            "alternateName": "The Brief Destroyers",
-            "url": "https://testwebsite.wtf-agency.works/",
-            "logo": "https://testwebsite.wtf-agency.works/favicon.png",
-            "image": "https://testwebsite.wtf-agency.works/og-image.jpg",
-            "description": "Battle Tested Creativity desde 2010. Operamos marcas regionales con Infinity Engine, nuestro sistema operativo creativo AI-first.",
-            "slogan": "Battle Tested Creativity. AI First. Human Always.",
-            "foundingDate": "2010",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "email": "hello@wtf-agency.com",
-                "availableLanguage": ["es", "en"]
-            },
-            "knowsAbout": ["Creatividad", "Inteligencia Artificial", "Branding", "Contenido AI-first", "Producción", "Performance creativo"],
-            "areaServed": ["Argentina", "Chile", "Perú", "Ecuador", "Paraguay", "USA", "España"]
-        }
-        </script>
-
-        <!-- Datos estructurados: WebSite -->
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "WTF Agency",
-            "url": "https://testwebsite.wtf-agency.works/",
-            "inLanguage": ["es", "en"],
-            "publisher": { "@type": "Organization", "name": "WTF Agency" }
+            "@graph": [
+                {
+                    "@type": ["Organization", "ProfessionalService"],
+                    "@id": "https://testwebsite.wtf-agency.works/#organization",
+                    "name": "WTF Agency",
+                    "alternateName": "The Brief Destroyers",
+                    "url": "https://testwebsite.wtf-agency.works/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://testwebsite.wtf-agency.works/favicon.png",
+                        "width": 512,
+                        "height": 512
+                    },
+                    "image": "https://testwebsite.wtf-agency.works/og-image.jpg",
+                    "description": "Agencia creativa AI-first que integra estrategia, creatividad, producción, data e inteligencia artificial en sistemas para marcas.",
+                    "slogan": "Battle Tested Creativity. AI First. Human Always.",
+                    "foundingDate": "2010",
+                    "email": "hello@wtf-agency.com",
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "contactType": "sales",
+                        "email": "hello@wtf-agency.com",
+                        "availableLanguage": ["es", "en"]
+                    },
+                    "knowsAbout": ["Estrategia de marca", "Creatividad", "Inteligencia artificial", "Branding", "Producción de contenido", "Performance creativo"],
+                    "areaServed": ["Argentina", "Chile", "Perú", "Ecuador", "Paraguay", "Estados Unidos", "España"]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://testwebsite.wtf-agency.works/#website",
+                    "name": "WTF Agency",
+                    "url": "https://testwebsite.wtf-agency.works/",
+                    "inLanguage": ["es", "en"],
+                    "publisher": { "@id": "https://testwebsite.wtf-agency.works/#organization" }
+                },
+                {
+                    "@type": "WebPage",
+                    "@id": "https://testwebsite.wtf-agency.works/#webpage",
+                    "url": "https://testwebsite.wtf-agency.works/",
+                    "name": "WTF Agency | Agencia creativa, estrategia e IA",
+                    "description": "Estrategia senior, creatividad, producción, data e IA operando como un solo sistema para mover marcas.",
+                    "inLanguage": "es",
+                    "isPartOf": { "@id": "https://testwebsite.wtf-agency.works/#website" },
+                    "about": { "@id": "https://testwebsite.wtf-agency.works/#organization" },
+                    "primaryImageOfPage": {
+                        "@type": "ImageObject",
+                        "url": "https://testwebsite.wtf-agency.works/og-image.jpg",
+                        "width": 1200,
+                        "height": 630
+                    }
+                },
+                {
+                    "@type": "Service",
+                    "@id": "https://testwebsite.wtf-agency.works/#creative-systems",
+                    "name": "Sistemas creativos para marcas",
+                    "serviceType": "Estrategia, creatividad, producción, data e inteligencia artificial",
+                    "provider": { "@id": "https://testwebsite.wtf-agency.works/#organization" },
+                    "audience": { "@type": "BusinessAudience", "audienceType": "Marcas, CMOs, directores de marketing y founders" },
+                    "areaServed": ["Latinoamérica", "Estados Unidos", "España"]
+                }
+            ]
         }
         </script>
     </head>

@@ -64,7 +64,7 @@ const SolutionsSection = () => {
     <ThemeSection theme={THEMES.night} id="v3-soluciones" pad="py-12 md:py-16" className="overflow-hidden flex flex-col justify-center">
       {/* Fondo: figura en salto + swirl rosa (movimiento), oscurecido para leer oscuro como el resto */}
       <div className="absolute inset-0 z-0">
-        <img src={SOL_BG} alt="" aria-hidden className="h-full w-full object-cover object-center" />
+        <img src={SOL_BG} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-[#0A0A0C]/62" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/55 via-[#0A0A0C]/45 to-[#0A0A0C]/85" />
       </div>

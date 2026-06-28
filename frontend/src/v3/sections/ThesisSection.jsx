@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
 import { useLang } from "../i18n/LangContext";
+import ViewportVideo from "../ui/ViewportVideo";
 
 // Expo.out — easing premium (estilo "Modern Dark Cinema").
 const EXPO = [0.16, 1, 0.3, 1];
@@ -100,14 +101,9 @@ const ThesisSection = () => {
     >
       {/* Fondo: el perro (video de marca), con scrim para que el texto lea */}
       <div className="absolute inset-0 z-0">
-        <video
+        <ViewportVideo
           src={FALL_VIDEO}
           poster={FALL_POSTER}
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-hidden
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-[#0A0A0C]/65" />
@@ -153,14 +149,12 @@ const ThesisSection = () => {
           />
 
           {/* Ahora (dominante, bold, blanco) */}
-          <motion.p
+          <motion.h2
             variants={fade}
-            role="heading"
-            aria-level={2}
             className="text-center md:text-left font-normal uppercase tracking-[0.01em] leading-[1.15] text-white text-[clamp(20px,2.64vw,31px)]"
           >
             {c.after}
-          </motion.p>
+          </motion.h2>
         </div>
       </motion.div>
 

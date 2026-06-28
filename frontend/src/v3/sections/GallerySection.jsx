@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeUp } from "../../sections/shared";
 import Counter from "../../components/motion/Counter";
@@ -32,16 +32,21 @@ const COPY = {
   },
 };
 
-// Video lazy: solo carga (preload metadata) y reproduce cuando entra al viewport;
-// pausa al salir. Evita que los ~30 videos remotos arranquen todos al montar.
+// Video lazy: no asigna el src hasta entrar al viewport y pausa al salir. Así la
+// galería no abre decenas de conexiones remotas durante la carga inicial.
 const LazyVideo = ({ src, label }) => {
   const ref = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) el.play().catch(() => {});
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          if (el.currentSrc) el.play().catch(() => {});
+        }
         else el.pause();
       },
       { rootMargin: "100px 0px", threshold: 0.1 }
@@ -49,8 +54,22 @@ const LazyVideo = ({ src, label }) => {
     io.observe(el);
     return () => io.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (shouldLoad) ref.current?.play().catch(() => {});
+  }, [shouldLoad]);
+
   return (
-    <video ref={ref} src={src} muted loop playsInline preload="metadata" aria-label={label} className="block w-full" />
+    <video
+      ref={ref}
+      src={shouldLoad ? src : undefined}
+      muted
+      loop
+      playsInline
+      preload="none"
+      aria-label={label}
+      className="block w-full"
+    />
   );
 };
 
@@ -86,7 +105,7 @@ const GallerySection = () => {
       {/* Región header con fondo árbol nocturno */}
       <div className="relative pt-24 pb-10 md:pt-28 md:pb-14">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/hero/gallery-bg.jpg" alt="" aria-hidden className="h-full w-full object-cover object-center" />
+          <img src="/assets/hero/gallery-bg.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#0A0A0C]/45" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/25 via-transparent to-[#0A0A0C]" />
         </div>
@@ -140,7 +159,7 @@ const GallerySection = () => {
             {it.video ? (
               <LazyVideo src={it.src} label={lang === "en" ? it.labelEn : it.label} />
             ) : (
-              <img src={it.src} alt={lang === "en" ? it.labelEn : it.label} loading="lazy" className="block w-full" />
+              <img src={it.src} alt={lang === "en" ? it.labelEn : it.label} loading="lazy" decoding="async" className="block w-full" />
             )}
             <div className="absolute inset-0 flex items-end p-2.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               <span className="font-hud text-[9px] tracking-wide bg-volt text-white px-1.5 py-1 rounded">{lang === "en" ? it.labelEn : it.label}</span>

@@ -34,7 +34,7 @@ const SystemSection = () => {
   <ThemeSection theme={THEMES.night} id="v3-engine" className="flex flex-col overflow-hidden">
     {/* Fondo: caballo negro en humo (motivo de marca), con scrim para legibilidad */}
     <div className="absolute inset-0 z-0">
-      <img src={ENGINE_BG} alt="" aria-hidden className="h-full w-full object-cover object-center" />
+      <img src={ENGINE_BG} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
       <div className="absolute inset-0 bg-[#0A0A0C]/45" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/70 via-transparent to-[#0A0A0C]/95" />
     </div>
@@ -50,9 +50,7 @@ const SystemSection = () => {
       </motion.p>
 
       {/* Nombre grande (reveal del OS) */}
-      <motion.p
-        role="heading"
-        aria-level={2}
+      <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -60,7 +58,7 @@ const SystemSection = () => {
         className="font-thin uppercase tracking-[0.02em] leading-[0.95] text-[clamp(46px,9vw,140px)]"
       >
         Infinity <span className="italic font-bold text-volt">Engine</span>
-      </motion.p>
+      </motion.h2>
 
       {/* Firma EN */}
       <motion.p

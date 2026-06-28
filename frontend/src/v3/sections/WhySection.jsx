@@ -51,7 +51,7 @@ const WhySection = () => {
     <ThemeSection theme={THEMES.night} id="v3-why" pad="py-14 md:py-20" className="overflow-hidden flex flex-col justify-center">
       {/* Fondo: la oveja negra entre las blancas, scrim más oscuro a la izquierda (texto) */}
       <div className="absolute inset-0 z-0">
-        <img src={SHEEP} alt="" aria-hidden="true" className="h-full w-full object-cover object-center" />
+        <img src={SHEEP} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-[#0A0A0C]/55" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/90 via-[#0A0A0C]/55 to-[#0A0A0C]/25" />
       </div>

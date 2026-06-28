@@ -45,6 +45,8 @@ const StatementSection = () => {
           src={STATEMENT_BG}
           alt=""
           aria-hidden
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-[#0A0A0C]/50" />
@@ -64,7 +66,7 @@ const StatementSection = () => {
           className="mb-10 md:mb-14 h-px w-20 md:w-28 bg-white/40 origin-center"
         />
 
-        <p className="uppercase tracking-tight leading-[1.05] max-w-6xl">
+        <h2 className="uppercase tracking-tight leading-[1.05] max-w-6xl">
           {/* Setup (hairline) */}
           <motion.span
             variants={lineV}
@@ -86,7 +88,7 @@ const StatementSection = () => {
           >
             #wtfrules
           </motion.span>
-        </p>
+        </h2>
       </motion.div>
     </ThemeSection>
   );

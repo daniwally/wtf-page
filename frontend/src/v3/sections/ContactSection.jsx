@@ -4,6 +4,7 @@ import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
 import Headline from "../ui/Headline";
 import { useLang } from "../i18n/LangContext";
+import ViewportVideo from "../ui/ViewportVideo";
 
 // Copy bilingüe (es | en): se consume con useLang(). El statement de cierre cambia
 // por idioma; el GRACIAS, la firma, los países y el email quedan iguales en ambos.
@@ -52,7 +53,7 @@ const ContactSection = () => {
   const c = COPY[lang];
   const contactHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(c.subject)}`;
   return (
-  <>
+  <footer>
     {/* Slide cierre: olas de fondo */}
     <ThemeSection
       theme={THEMES.night}
@@ -60,7 +61,7 @@ const ContactSection = () => {
       className="overflow-hidden flex flex-col justify-center"
     >
       <div className="absolute inset-0 z-0">
-        <img src={WAVE} alt="" aria-hidden className="h-full w-full object-cover object-center" />
+        <img src={WAVE} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-[#0A0A0C]/55" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/55 via-transparent to-[#0A0A0C]/70" />
       </div>
@@ -106,14 +107,9 @@ const ContactSection = () => {
       className="overflow-hidden flex flex-col justify-center relative"
     >
       <div className="absolute inset-0 z-0">
-        <video
+        <ViewportVideo
           src={DOOR_VIDEO}
           poster={DOOR_POSTER}
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-hidden
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-[#0A0A0C]/55" />
@@ -166,7 +162,7 @@ const ContactSection = () => {
         {CONTACT_EMAIL}
       </a>
     </ThemeSection>
-  </>
+  </footer>
   );
 };
 

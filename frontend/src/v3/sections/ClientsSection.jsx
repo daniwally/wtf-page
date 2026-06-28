@@ -73,7 +73,7 @@ const ClientsSection = () => {
   >
     {/* Fondo: salto al vacío, muy atenuado (como el deck) */}
     <div className="absolute inset-0 z-0">
-      <img src={BG} alt="" aria-hidden="true" className="h-full w-full object-cover object-center" />
+      <img src={BG} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
       <div className="absolute inset-0 bg-[#0A0A0C]/88" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/70 via-[#0A0A0C]/50 to-[#0A0A0C]/90" />
     </div>
@@ -96,6 +96,7 @@ const ClientsSection = () => {
               alt=""
               aria-hidden="true"
               loading="lazy"
+              decoding="async"
               style={{
                 maxHeight: SZ[s].maxHeight,
                 maxWidth: SZ[s].maxWidth,

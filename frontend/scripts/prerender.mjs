@@ -4,7 +4,7 @@
 // Objetivo: que el HTML inicial exponga el contenido (SEO, crawlers, previews,
 // "View Source") en lugar de un <div id="root"> vacío.
 import http from "node:http";
-import { readFile, writeFile, stat } from "node:fs/promises";
+import { mkdir, readFile, writeFile, stat } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -16,9 +16,8 @@ const CHROME =
   process.env.CHROME_PATH ||
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
-// Rutas a prerenderizar. La home (/) es la principal (V3Page). /v3 sirve el mismo
-// HTML vía el SPA-fallback de Vercel, así que con / alcanza para el SEO principal.
-const ROUTES = ["/"];
+// Cada idioma tiene una URL indexable y su propio HTML, canonical y metadata.
+const ROUTES = ["/", "/en/"];
 
 const MIME = {
   ".html": "text/html",
@@ -115,16 +114,18 @@ async function main() {
 
       // Esperar a que React monte y haya contenido real (h1 + secciones)
       await page.waitForFunction(
-        () => {
+        (expectedLang) => {
           const root = document.getElementById("root");
           return (
             root &&
             root.childElementCount > 0 &&
             document.querySelector("h1") &&
+            document.documentElement.lang === expectedLang &&
             document.querySelectorAll("[data-theme-section]").length >= 10
           );
         },
-        { timeout: 60000 }
+        { timeout: 60000 },
+        route.startsWith("/en") ? "en" : "es"
       );
 
       // Respiro para que se asienten los reveals iniciales
@@ -135,6 +136,7 @@ async function main() {
         route === "/"
           ? path.join(BUILD, "index.html")
           : path.join(BUILD, route.replace(/^\//, ""), "index.html");
+      await mkdir(path.dirname(outFile), { recursive: true });
       await writeFile(outFile, html, "utf8");
       console.log(
         `✓ prerendered ${route} -> ${path.relative(BUILD, outFile)} (${(

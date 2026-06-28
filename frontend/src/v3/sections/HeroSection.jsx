@@ -67,6 +67,7 @@ const HeroSection = () => {
           loop
           muted
           playsInline
+          preload="metadata"
           aria-hidden
           className="h-full w-full object-cover object-center"
         />
@@ -114,6 +115,8 @@ const HeroSection = () => {
         <img
           src={LOGO_LOCKUP}
           alt="WTF · Brief Destroyers"
+          width="720"
+          height="363"
           className="h-[7.95rem] md:h-[10.1rem] w-auto opacity-90"
           style={{ filter: "brightness(1.1)" }}
         />
