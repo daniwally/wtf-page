@@ -24,6 +24,7 @@ const COPY = {
     ],
     intro:
       "Siete sistemas que se activan según lo que la marca necesita: construir, sostener, producir, lanzar, escalar, vender y conversar.",
+    principle: "La necesidad define el sistema. No al revés.",
     services: [
       { name: "Brand Platform System", outcome: "Para marcas que necesitan posicionamiento, narrativa y tono que conecte con la cultura." },
       { name: "Always-on Content System", outcome: "Para marcas que necesitan presencia constante sin perder consistencia." },
@@ -43,6 +44,7 @@ const COPY = {
     ],
     intro:
       "Seven systems that activate based on what the brand needs: build, sustain, produce, launch, scale, sell and converse.",
+    principle: "The need defines the system. Not the other way around.",
     services: [
       { name: "Brand Platform System", outcome: "For brands that need positioning, narrative and tone that connects with culture." },
       { name: "Always-on Content System", outcome: "For brands that need constant presence without losing consistency." },
@@ -75,6 +77,12 @@ const SolutionsSection = () => {
         />
         <motion.p {...fadeUp} className="mt-6 max-w-3xl text-lg md:text-xl font-light leading-relaxed opacity-70">
           {c.intro}
+        </motion.p>
+        <motion.p
+          {...fadeUp}
+          className="mt-4 font-hud text-[11px] md:text-xs uppercase tracking-[0.18em] text-white/65"
+        >
+          {c.principle}
         </motion.p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 mt-10">
