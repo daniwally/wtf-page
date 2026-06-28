@@ -78,13 +78,6 @@ const SolutionsSection = () => {
         <motion.p {...fadeUp} className="mt-6 max-w-3xl text-lg md:text-xl font-light leading-relaxed opacity-70">
           {c.intro}
         </motion.p>
-        <motion.p
-          {...fadeUp}
-          className="mt-4 font-hud text-[11px] md:text-xs uppercase tracking-[0.18em] text-white/65"
-        >
-          {c.principle}
-        </motion.p>
-
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 mt-10">
           {c.services.map((s, i) => (
             <Card
@@ -103,6 +96,12 @@ const SolutionsSection = () => {
             </Card>
           ))}
         </div>
+        <motion.p
+          {...fadeUp}
+          className="mt-6 text-center md:text-right font-hud text-[11px] md:text-xs uppercase tracking-[0.18em] text-white/65"
+        >
+          {c.principle}
+        </motion.p>
       </div>
     </ThemeSection>
   );
