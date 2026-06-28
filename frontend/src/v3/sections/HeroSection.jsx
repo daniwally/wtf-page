@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useThemeRegister } from "../theme/ThemeContext";
 import { THEMES } from "../theme/palette";
-import ParticleText from "../ui/ParticleText";
 import { useLang } from "../i18n/LangContext";
 
 const HERO_VIDEO = "/assets/hero/moto.mp4"; // motociclista neón (video del deck)
@@ -15,7 +14,6 @@ const EASE = [0.22, 1, 0.36, 1];
 // ("Battle Tested Creativity Since 2010") queda igual en ambos idiomas (línea de marca).
 const COPY = {
   es: {
-    words: ["NO SOMOS UNA AGENCIA", "SOMOS UN SISTEMA"],
     eyebrow: "Battle Tested Creativity Since 2010",
     titleA: "No hacemos campañas.",
     titleB: "Construimos sistemas que mueven marcas.",
@@ -24,7 +22,6 @@ const COPY = {
     bajadaPost: " más rápido.",
   },
   en: {
-    words: ["WE ARE NOT AN AGENCY", "WE ARE A SYSTEM"],
     eyebrow: "Battle Tested Creativity Since 2010",
     titleA: "We don't make campaigns.",
     titleB: "We build systems that move brands.",
@@ -34,17 +31,12 @@ const COPY = {
   },
 };
 
-// v3 Opening: ParticleTextEffect fiel (Kain0127) re-skineado a WTF — el texto se
-// forma con partículas, ciclando las palabras, sobre fondo oscuro (como la demo).
+// v3 Opening: el mensaje aparece desde el primer segundo sobre el video de marca.
 const HeroSection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
   const ref = useRef(null);
   const register = useThemeRegister();
-  // La intro de partículas corre UNA vez y al terminar se disuelve revelando el
-  // headline tipográfico real (sistema, ya no partículas).
-  const [introDone, setIntroDone] = useState(false);
-  const handleIntroDone = useCallback(() => setIntroDone(true), []);
 
   useEffect(() => {
     register(ref.current, THEMES.night);
@@ -77,24 +69,12 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Intro de partículas (corre 1 vez), se desvanece al terminar */}
-      <ParticleText
-        words={c.words}
-        align="center"
-        holdFrames={[210, 180]} // ~3.5s "NO SOMOS UNA AGENCIA" · ~3s "SOMOS UN SISTEMA"
-        loop={false}
-        onComplete={handleIntroDone}
-        className={`absolute inset-0 z-[1] h-full w-full transition-opacity [transition-duration:1200ms] ${
-          introDone ? "opacity-0" : "opacity-100"
-        }`}
-      />
-
-      {/* Headline tipográfico real — aparece cuando la intro se disuelve */}
+      {/* Headline principal */}
       <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 z-[2] px-[6%] text-center">
         <motion.h1
-          initial={false}
-          animate={{ opacity: introDone ? 1 : 0, y: introDone ? 0 : 14 }}
-          transition={{ duration: 1.1, ease: EASE }}
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.15 }}
           className="uppercase tracking-tight leading-[1.08] text-[clamp(21px,3vw,48px)] text-white"
         >
           <span className="block font-bold">{c.titleA}</span>
@@ -122,12 +102,12 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      {/* Sub: el concepto IA + experiencia, aparece CON el headline (introDone) */}
+      {/* Sub: el concepto IA + experiencia */}
       <div className="absolute left-1/2 -translate-x-1/2 top-[63%] z-10 max-w-[640px] text-center">
         <motion.p
-          initial={false}
-          animate={{ opacity: introDone ? 1 : 0, y: introDone ? 0 : 18 }}
-          transition={{ duration: 0.9, ease: EASE, delay: introDone ? 0.4 : 0 }}
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.35 }}
           className="text-[clamp(16.5px,1.76vw,21px)] font-light leading-[1.7] text-white/60"
         >
           {c.bajadaPre}
