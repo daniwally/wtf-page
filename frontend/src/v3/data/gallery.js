@@ -61,7 +61,6 @@ export const GALLERY = [
   { src: `${G}/shaq-hotsale.jpg`, label: "SHAQ · Hot Sale · 100% AI", labelEn: "SHAQ · Hot Sale · 100% AI", video: false },
   { src: `${G}/higgsfield-06.mp4`, label: "AI · Production · 100% AI", labelEn: "AI · Production · 100% AI", video: true },
   { src: `${G}/shaq-shoe-bw.jpg`, label: "SHAQ · Radiate BW · 100% AI", labelEn: "SHAQ · Radiate BW · 100% AI", video: false },
-  { src: `${G}/comfyui-01.mp4`, label: "AI · ComfyUI · 100% AI", labelEn: "AI · ComfyUI · 100% AI", video: true },
   { src: `${G}/sensus-moscatel.jpg`, label: "Sensus · Moscatel Lifestyle · 100% AI", labelEn: "Sensus · Moscatel Lifestyle · 100% AI", video: false },
   { src: `${G}/diablo-brindis.jpg`, label: "Pisco Diablo · Brindis · 100% AI", labelEn: "Pisco Diablo · Toast · 100% AI", video: false },
   { src: `${G}/sensus-pizza.jpg`, label: "Sensus · Friends · 100% AI", labelEn: "Sensus · Friends · 100% AI", video: false },
