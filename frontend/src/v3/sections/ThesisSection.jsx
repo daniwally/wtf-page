@@ -34,7 +34,7 @@ const COPY = {
     ),
     insight:
       "Las marcas ya no pueden depender de campañas aisladas, procesos lentos y estructuras pensadas para otro ritmo. Hoy necesitan sistemas capaces de pensar, producir, adaptar, mover y aprender todos los días.",
-    sign: "No se trata de hacer más. Se trata de operar mejor.",
+    sign: "Lo que viene no se opera con el modelo de antes.",
   },
   en: {
     kicker: "The problem",
@@ -58,7 +58,7 @@ const COPY = {
     ),
     insight:
       "Brands can no longer rely on isolated campaigns, slow processes and structures built for another pace. Today they need systems that think, produce, adapt, move and learn every day.",
-    sign: "It is not about doing more. It is about operating better.",
+    sign: "What comes next cannot run on yesterday's model.",
   },
 };
 
