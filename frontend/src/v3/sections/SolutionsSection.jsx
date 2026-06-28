@@ -72,7 +72,7 @@ const SolutionsSection = () => {
       <div className="relative z-10 container mx-auto px-6 md:px-12">
         <Headline
           size="section"
-          className="max-w-4xl"
+          className="max-w-4xl !text-[clamp(29px,4.5vw,64px)]"
           lines={c.headline}
         />
         <motion.p {...fadeUp} className="mt-6 max-w-3xl text-lg md:text-xl font-light leading-relaxed opacity-70">
