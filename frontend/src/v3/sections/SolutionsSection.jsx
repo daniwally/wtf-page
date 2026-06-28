@@ -98,7 +98,7 @@ const SolutionsSection = () => {
         </div>
         <motion.p
           {...fadeUp}
-          className="mt-6 text-center md:text-right font-hud text-[11px] md:text-xs uppercase tracking-[0.18em] text-white/65"
+          className="mt-6 text-left font-hud text-[11px] md:text-xs uppercase tracking-[0.18em] text-white/65"
         >
           {c.principle}
         </motion.p>
