@@ -11,6 +11,7 @@ import { X } from "lucide-react";
 import { useLang } from "../i18n/LangContext";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeebkygz";
+const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png";
 const EASE = [0.16, 1, 0.3, 1];
 
 const COPY = {
@@ -143,7 +144,7 @@ const ContactModal = ({ open, onClose }) => {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[10000] flex items-start justify-center overflow-y-auto bg-[#050507]/80 px-4 py-4 backdrop-blur-md md:items-center md:py-8"
+          className="monks-root fixed inset-0 z-[10000] flex items-start justify-center overflow-y-auto bg-[#050507]/80 px-4 py-4 backdrop-blur-md md:py-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -157,7 +158,7 @@ const ContactModal = ({ open, onClose }) => {
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"
-            className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-white/15 bg-[#0A0A0C] text-white shadow-2xl"
+            className="relative my-auto w-full max-w-3xl overflow-hidden rounded-2xl border border-white/15 bg-[#0A0A0C] text-white shadow-2xl"
             initial={{ opacity: 0, y: 28, scale: 0.985 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 18, scale: 0.99 }}
@@ -179,6 +180,11 @@ const ContactModal = ({ open, onClose }) => {
                 role="status"
                 className="flex min-h-[430px] flex-col items-center justify-center px-7 py-16 text-center md:px-14"
               >
+                <img
+                  src={LOGO_LOCKUP}
+                  alt="WTF · Brief Destroyers"
+                  className="mb-8 w-36"
+                />
                 <p className="font-hud text-xs uppercase tracking-[0.3em] text-volt">{c.eyebrow}</p>
                 <h2 id="contact-modal-title" className="mt-5 text-[clamp(38px,7vw,76px)] font-black uppercase leading-none">
                   {c.successTitle}
@@ -194,7 +200,17 @@ const ContactModal = ({ open, onClose }) => {
               </div>
             ) : (
               <div className="px-6 pb-7 pt-10 md:px-12 md:pb-10 md:pt-12">
-                <p className="font-hud text-[11px] uppercase tracking-[0.3em] text-volt">{c.eyebrow}</p>
+                <div className="flex items-center gap-4">
+                  <img
+                    src={LOGO_LOCKUP}
+                    alt="WTF · Brief Destroyers"
+                    className="w-28 shrink-0 md:w-32"
+                  />
+                  <span aria-hidden="true" className="h-px w-8 bg-white/20" />
+                  <p className="font-hud text-[10px] uppercase tracking-[0.28em] text-volt md:text-[11px]">
+                    {c.eyebrow}
+                  </p>
+                </div>
                 <h2 id="contact-modal-title" className="mt-4 max-w-2xl text-[clamp(30px,5vw,58px)] font-thin uppercase leading-[1.02]">
                   {c.title}
                 </h2>
