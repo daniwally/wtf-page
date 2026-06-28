@@ -97,15 +97,25 @@ const WhySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-1 md:gap-8 py-4 border-t border-current/15 md:items-baseline"
+              className="group relative grid grid-cols-1 gap-1 overflow-hidden border-t border-current/15 py-4 transition-colors duration-300 md:grid-cols-[280px_1fr] md:gap-8 md:items-baseline hover:border-[#FF3B30]/70 hover:bg-white/[0.035]"
             >
-              <h3 className="text-lg md:text-2xl font-bold normal-case tracking-tight">
-                <span className="font-mono text-sm text-volt mr-3 align-middle">
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-px w-full origin-left scale-x-0 bg-[#FF3B30] transition-transform duration-500 ease-out group-hover:scale-x-100"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute bottom-0 right-0 h-px w-full origin-right scale-x-0 bg-[#FF3B30]/80 transition-transform duration-500 ease-out group-hover:scale-x-100"
+              />
+              <h3 className="relative text-lg font-bold normal-case tracking-tight transition-transform duration-300 group-hover:translate-x-2 md:text-2xl">
+                <span className="mr-3 align-middle font-mono text-sm text-volt transition-colors duration-300 group-hover:text-[#FF3B30]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {p.label}
               </h3>
-              <p className="text-base md:text-lg font-light opacity-60 leading-snug">{p.desc}</p>
+              <p className="relative text-base font-light leading-snug opacity-60 transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-90 md:text-lg">
+                {p.desc}
+              </p>
             </motion.div>
           ))}
         </div>
