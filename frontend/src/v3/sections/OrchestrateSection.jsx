@@ -75,7 +75,7 @@ const OrchestrateSection = () => {
             className="rounded-2xl md:rounded-3xl p-5 md:p-6 bg-[#0A0A0C]/70 backdrop-blur-md border border-white/10 text-[#F4F1E8] min-h-[200px] flex flex-col"
           >
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs opacity-50">{s.n}</span>
+              <span className="font-mono text-base md:text-lg opacity-50">{s.n}</span>
               <span className="text-[10px] uppercase tracking-[0.2em] text-volt">{s.en}</span>
             </div>
             <div className="mt-10">
