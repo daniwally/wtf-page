@@ -84,7 +84,7 @@ const StatementSection = () => {
           </motion.span>
           <motion.span
             variants={lineV}
-            className="mt-8 md:mt-10 block font-hud text-xs md:text-sm tracking-[0.32em] text-white/55"
+            className="mt-8 md:mt-10 block font-hud text-sm md:text-base tracking-[0.32em] text-white/55"
           >
             #wtfrules
           </motion.span>
