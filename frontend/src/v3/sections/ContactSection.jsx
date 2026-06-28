@@ -5,6 +5,7 @@ import { THEMES } from "../theme/palette";
 import Headline from "../ui/Headline";
 import { useLang } from "../i18n/LangContext";
 import ViewportVideo from "../ui/ViewportVideo";
+import { useContactModal } from "../ui/ContactModal";
 
 // Copy bilingüe (es | en): se consume con useLang(). El statement de cierre cambia
 // por idioma; el GRACIAS, la firma, los países y el email quedan iguales en ambos.
@@ -17,7 +18,6 @@ const COPY = {
       </b>,
     ],
     cta: "Hablemos",
-    subject: "Quiero conversar sobre mi marca",
   },
   en: {
     statement: [
@@ -27,7 +27,6 @@ const COPY = {
       </b>,
     ],
     cta: "Let's talk",
-    subject: "I want to talk about my brand",
   },
   pt: {
     statement: [
@@ -37,7 +36,6 @@ const COPY = {
       </b>,
     ],
     cta: "Vamos conversar",
-    subject: "Quero conversar sobre a minha marca",
   },
 };
 
@@ -61,7 +59,7 @@ const DOOR_POSTER = "/assets/hero/statement-door-poster.jpg";
 const ContactSection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
-  const contactHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(c.subject)}`;
+  const { openContact } = useContactModal();
   return (
   <footer>
     {/* Slide cierre: olas de fondo */}
@@ -89,13 +87,14 @@ const ContactSection = () => {
         >
           #wtfrules
         </motion.p>
-        <motion.a
+        <motion.button
+          type="button"
           {...fadeUp}
-          href={contactHref}
+          onClick={openContact}
           className="mt-8 inline-flex items-center rounded-full border border-white/35 bg-black/15 px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-[#F4F1E8] hover:text-[#0A0A0C]"
         >
           {c.cta}
-        </motion.a>
+        </motion.button>
       </div>
 
       {/* Países distribuidos en el piso */}
@@ -163,12 +162,13 @@ const ContactSection = () => {
         </p>
 
         {/* CTA Hablemos */}
-        <a
-          href={contactHref}
+        <button
+          type="button"
+          onClick={openContact}
           className="mt-10 inline-flex items-center rounded-full bg-[#F4F1E8] px-8 py-3 text-sm font-bold text-[#0A0A0C] transition-colors hover:bg-volt hover:text-[#F4F1E8]"
         >
           {c.cta}
-        </a>
+        </button>
       </motion.div>
 
       {/* hello@ al pie */}

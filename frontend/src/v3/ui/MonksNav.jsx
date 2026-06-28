@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { CONTACT_EMAIL } from "../../sections/shared";
 import { useActiveTheme } from "../theme/ThemeContext";
 import { useLang } from "../i18n/LangContext";
+import { useContactModal } from "./ContactModal";
 
 const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png"; // lockup WTF+Brief (igual al home)
 
@@ -41,6 +41,7 @@ const MonksNav = () => {
   const navigationCleanup = useRef(null);
   const theme = useActiveTheme();
   const { lang, setLang } = useLang();
+  const { openContact } = useContactModal();
   const darkBg = lum(theme.bg) < 0.55; // fondo oscuro → logo/letras claras
 
   useEffect(() => {
@@ -162,13 +163,14 @@ const MonksNav = () => {
               PT
             </button>
           </div>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
+          <button
+            type="button"
+            onClick={openContact}
             className="inline-flex items-center whitespace-nowrap rounded-full px-3 md:px-5 py-2 text-[10px] md:text-xs font-bold transition-colors hover:!bg-[#FF3B30] hover:!text-[#F4F1E8]"
             style={{ backgroundColor: theme.fg, color: theme.bg }}
           >
             {CTA[lang]}
-          </a>
+          </button>
           <a
             href="https://www.instagram.com/wtf.agency/"
             target="_blank"

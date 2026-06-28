@@ -14,6 +14,7 @@ import StatementSection from "./sections/StatementSection"; // Slide manifiesto
 import WorkSection from "./sections/WorkSection"; // Proof · Then
 import GallerySection from "./sections/GallerySection"; // Proof · Now
 import ContactSection from "./sections/ContactSection"; // Closing
+import { ContactModalProvider } from "./ui/ContactModal";
 
 // Versión B "Monks" — estructura Monks (bloques de color que rotan, aire,
 // píldoras, cards) con ADN WTF (crema/negro/volt, Inter en registro bold).
@@ -27,23 +28,25 @@ const V3Page = () => {
 
   return (
     <LangProvider>
-    <ThemeRoot initial={THEMES.night}>
-      <MonksNav />
-      {/* Arco narrativo "sistema operativo creativo": Hero · Problema · Solución ·
-          Cómo funciona · Qué resuelve · Diferencial humano · Credenciales ·
-          Sistemas/servicios · Outputs AI · Casos · Cierre */}
-      <HeroSection />
-      <ThesisSection />
-      <SystemSection />
-      <OrchestrateSection />
-      <WhySection />
-      <StatementSection />
-      <ClientsSection />
-      <SolutionsSection />
-      <GallerySection />
-      <WorkSection />
-      <ContactSection />
-    </ThemeRoot>
+      <ContactModalProvider>
+        <ThemeRoot initial={THEMES.night}>
+          <MonksNav />
+          {/* Arco narrativo "sistema operativo creativo": Hero · Problema · Solución ·
+              Cómo funciona · Qué resuelve · Diferencial humano · Credenciales ·
+              Sistemas/servicios · Outputs AI · Casos · Cierre */}
+          <HeroSection />
+          <ThesisSection />
+          <SystemSection />
+          <OrchestrateSection />
+          <WhySection />
+          <StatementSection />
+          <ClientsSection />
+          <SolutionsSection />
+          <GallerySection />
+          <WorkSection />
+          <ContactSection />
+        </ThemeRoot>
+      </ContactModalProvider>
     </LangProvider>
   );
 };
