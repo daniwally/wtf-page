@@ -57,7 +57,7 @@ const COPY = {
   },
 };
 
-const SHEEP = "/assets/hero/model-momentum-orange.jpg"; // figura en velocidad naranja (qué resuelve)
+const SHEEP = "/assets/hero/why-sheep.jpg"; // oveja negra entre las blancas (los distintos)
 
 const WhySection = () => {
   const { lang } = useLang();
@@ -67,8 +67,8 @@ const WhySection = () => {
       {/* Fondo: la oveja negra entre las blancas, scrim más oscuro a la izquierda (texto) */}
       <div className="absolute inset-0 z-0">
         <img src={SHEEP} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-        <div className="absolute inset-0 bg-[#0A0A0C]/50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/94 via-[#0A0A0C]/70 to-[#0A0A0C]/45" />
+        <div className="absolute inset-0 bg-[#0A0A0C]/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/90 via-[#0A0A0C]/55 to-[#0A0A0C]/25" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
