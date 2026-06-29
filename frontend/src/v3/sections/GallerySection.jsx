@@ -130,8 +130,8 @@ const GallerySection = () => {
       id="v3-galeria"
       className="relative bg-[#0A0A0C] scroll-mt-24 overflow-hidden"
     >
-      {/* Región header con fondo árbol nocturno */}
-      <div className="relative pt-24 pb-10 md:pt-28 md:pb-14">
+      {/* Slide inicial con fondo árbol nocturno */}
+      <div className="relative flex min-h-screen items-center pt-24 pb-16 md:pt-28 md:pb-20">
         <div className="absolute inset-0 z-0">
           <img src="/assets/hero/gallery-bg.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#0A0A0C]/45" />
@@ -177,8 +177,8 @@ const GallerySection = () => {
         </div>
       </div>
 
-      {/* Masonry 5 columnas (CSS columns, como el deck) */}
-      <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-1 px-1 pb-16 md:pb-20">
+      {/* Masonry 5 columnas (CSS columns, como el deck), debajo del slide inicial */}
+      <div className="columns-2 gap-1 px-1 pt-1 pb-16 sm:columns-3 md:columns-4 md:pb-20 lg:columns-5">
         {GALLERY.map((it) => {
           const label = galleryLabel(it, lang);
           return (
