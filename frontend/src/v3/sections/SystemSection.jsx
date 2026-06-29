@@ -161,7 +161,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
       <div className="relative z-10 container mx-auto px-6 md:px-12 pb-4 md:pb-5">
         <motion.p
           {...fadeUp}
-          className="mx-auto max-w-5xl text-left text-[14px] md:text-[17px] font-light uppercase leading-relaxed text-cream"
+          className="mx-auto max-w-5xl text-left text-[14px] md:text-[17px] font-light uppercase leading-relaxed text-cream/82"
         >
           {definition}
         </motion.p>
