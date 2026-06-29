@@ -130,12 +130,12 @@ const GallerySection = () => {
       id="v3-galeria"
       className="relative bg-[#0A0A0C] scroll-mt-24 overflow-hidden"
     >
-      {/* Slide inicial con fondo árbol nocturno */}
+      {/* Slide inicial con fondo motorsport */}
       <div className="relative flex min-h-screen items-center pt-24 pb-16 md:pt-28 md:pb-20">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/hero/proof-now-red-helmet.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-          <div className="absolute inset-0 bg-[#0A0A0C]/24" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/12 via-transparent to-[#0A0A0C]/78" />
+          <img src="/assets/hero/proof-now-red-helmet-v2.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-[#0A0A0C]/45" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/25 via-transparent to-[#0A0A0C]" />
         </div>
         <div className="relative z-10">
 
