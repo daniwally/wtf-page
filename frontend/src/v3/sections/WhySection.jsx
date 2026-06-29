@@ -13,9 +13,8 @@ const COPY = {
   es: {
     kicker: "Qué resuelve",
     headline: [<>Lo que las marcas ganan</>, <b key="o">cuando operan como sistema.</b>],
-    subPre:
-      "Operar como sistema no es una mejora incremental. Es ",
-    subEmph: "otra forma de construir marca",
+    subLine1: "Operar como sistema no es una mejora incremental.",
+    subLine2: "Es otra forma de construir marca.",
     points: [
       { label: "Más velocidad", desc: "Del brief a la primera entrega con mayor agilidad." },
       { label: "Más consistencia", desc: "Una marca más clara en todos sus canales, mercados y formatos." },
@@ -28,9 +27,8 @@ const COPY = {
   en: {
     kicker: "What it solves",
     headline: [<>What brands gain</>, <b key="o">when they operate as a system.</b>],
-    subPre:
-      "Operating as a system is not an incremental upgrade. It is ",
-    subEmph: "another way to build a brand",
+    subLine1: "Operating as a system is not an incremental upgrade.",
+    subLine2: "It is another way to build a brand.",
     points: [
       { label: "More speed", desc: "From brief to first delivery with more agility." },
       { label: "More consistency", desc: "A clearer brand across every channel, market and format." },
@@ -43,9 +41,8 @@ const COPY = {
   pt: {
     kicker: "O que resolve",
     headline: [<>O que as marcas ganham</>, <b key="o">quando operam como sistema.</b>],
-    subPre:
-      "Operar como sistema não é uma melhoria incremental. É ",
-    subEmph: "outra forma de construir marca",
+    subLine1: "Operar como sistema não é uma melhoria incremental.",
+    subLine2: "É outra forma de construir marca.",
     points: [
       { label: "Mais velocidade", desc: "Do brief à primeira entrega com mais agilidade." },
       { label: "Mais consistência", desc: "Uma marca mais clara em todos os canais, mercados e formatos." },
@@ -84,10 +81,10 @@ const WhySection = () => {
 
         <motion.p
           {...fadeUp}
-          className="mt-6 max-w-3xl text-base md:text-lg font-light leading-relaxed text-white/80"
+          className="mt-6 max-w-3xl text-[18px] font-light leading-relaxed text-white/80 md:text-xl"
         >
-          {c.subPre}
-          <span className="text-volt font-bold">{c.subEmph}</span>.
+          <span className="block">{c.subLine1}</span>
+          <span className="block text-volt font-bold">{c.subLine2}</span>
         </motion.p>
 
         <div className="mt-8 max-w-5xl rounded-2xl border border-white/10 bg-[#050507]/58 p-4 shadow-[0_28px_100px_rgba(0,0,0,0.42)] backdrop-blur-md md:rounded-3xl md:p-6">
