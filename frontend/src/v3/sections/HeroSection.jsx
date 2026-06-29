@@ -142,7 +142,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.85, duration: 0.8, ease: EASE }}
-        className="absolute inset-x-0 bottom-14 z-10 overflow-hidden px-6 md:bottom-16 md:px-12"
+        className="absolute inset-x-0 top-[75%] z-10 overflow-hidden px-6 md:top-[76%] md:px-12"
       >
         <p className="mb-3 font-hud text-[9px] uppercase tracking-[0.28em] text-white/28 md:text-[10px]">
           Battle tested with
@@ -157,7 +157,7 @@ const HeroSection = () => {
                 aria-hidden="true"
                 loading="lazy"
                 decoding="async"
-                className="h-5 w-auto shrink-0 object-contain opacity-30 grayscale brightness-0 invert transition-opacity duration-300 hover:opacity-70 md:h-6"
+                className="h-4 w-auto shrink-0 object-contain opacity-26 grayscale brightness-0 invert transition-opacity duration-300 hover:opacity-65 md:h-5"
               />
             ))}
           </div>
