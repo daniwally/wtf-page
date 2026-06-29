@@ -57,10 +57,10 @@ const SystemSection = () => {
 
       {/* Nombre grande (reveal del OS) */}
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9, ease: EASE }}
+        initial={{ opacity: 0, y: 28, scale: 0.985, filter: "blur(8px)" }}
+        whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.7 }}
+        transition={{ duration: 0.95, ease: EASE }}
         className="font-thin uppercase tracking-[0.02em] leading-[0.95] text-[clamp(46px,9vw,140px)]"
       >
         Infinity <span className="italic font-bold text-volt">Engine</span>
