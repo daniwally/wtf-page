@@ -142,9 +142,9 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.85, duration: 0.8, ease: EASE }}
-        className="absolute inset-x-0 top-[75%] z-10 overflow-hidden px-6 md:top-[76%] md:px-12"
+        className="absolute inset-x-0 top-[79%] z-10 overflow-hidden px-6 md:top-[80%] md:px-12"
       >
-        <p className="mb-3 font-hud text-[9px] uppercase tracking-[0.28em] text-white/28 md:text-[10px]">
+        <p className="mb-3 font-hud text-[9px] uppercase tracking-[0.28em] text-white/22 md:text-[10px]">
           Battle tested with
         </p>
         <div className="[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
@@ -157,7 +157,7 @@ const HeroSection = () => {
                 aria-hidden="true"
                 loading="lazy"
                 decoding="async"
-                className="h-4 w-auto shrink-0 object-contain opacity-26 grayscale brightness-0 invert transition-opacity duration-300 hover:opacity-65 md:h-5"
+                className="h-4 w-auto shrink-0 object-contain opacity-[0.16] grayscale brightness-0 invert transition-opacity duration-300 hover:opacity-50 md:h-5"
               />
             ))}
           </div>
