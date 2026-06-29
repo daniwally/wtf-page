@@ -74,12 +74,36 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
       {/* Kicker */}
       <motion.p
         {...fadeUp}
-        className={`font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase mb-6 translate-y-3 ${isRedVariant ? "text-white/80" : "text-volt"}`}
+        className={`font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase ${
+          isRedVariant ? "mb-6 translate-y-3 text-white/80" : "mb-8 text-volt"
+        }`}
       >
         {c.kicker}
       </motion.p>
 
-      <div className="inline-flex flex-col items-stretch">
+      {isRedVariant ? (
+        <div className="inline-flex flex-col items-stretch">
+          {/* Nombre grande (reveal del OS) */}
+          <motion.h2
+            initial={{ opacity: 0, y: 28, scale: 0.985, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.7 }}
+            transition={{ duration: 0.95, ease: EASE }}
+            className="font-thin uppercase tracking-[0.02em] leading-[0.95] text-[clamp(46px,9vw,140px)]"
+          >
+            Infinity <span className="italic font-bold text-volt">Engine</span>
+          </motion.h2>
+
+          {/* Firma EN */}
+          <motion.p
+            {...fadeUp}
+            className="mt-6 text-left font-hud text-[10px] md:text-xs tracking-[0.22em] uppercase opacity-40"
+          >
+            The AI creative operating system for modern brands
+          </motion.p>
+        </div>
+      ) : (
+        <>
         {/* Nombre grande (reveal del OS) */}
         <motion.h2
           initial={{ opacity: 0, y: 28, scale: 0.985, filter: "blur(8px)" }}
@@ -94,11 +118,12 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
         {/* Firma EN */}
         <motion.p
           {...fadeUp}
-          className="mt-6 text-left font-hud text-[10px] md:text-xs tracking-[0.22em] uppercase opacity-40"
+          className="mt-6 font-hud text-[10px] md:text-xs tracking-[0.22em] uppercase opacity-40"
         >
           The AI creative operating system for modern brands
         </motion.p>
-      </div>
+        </>
+      )}
 
       {/* Definición */}
       <motion.p
