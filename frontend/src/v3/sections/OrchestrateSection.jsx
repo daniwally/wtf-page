@@ -11,7 +11,7 @@ import { useLang } from "../i18n/LangContext";
 // (archivo histórico OrchestrateSection.jsx; ahora es "The model")
 // Copy bilingüe (es | en): se consume con useLang(). Los verbos del loop
 // (Think/Make/Move/Learn/Grow) van en inglés en ambos idiomas (etiquetas de marca).
-const MODEL_BG = "/assets/hero/model-momentum-orange.jpg"; // figura en velocidad naranja (momentum)
+const MODEL_BG = "/assets/hero/model-goggles.jpg"; // mujer con antiparras (mood del hero)
 
 const COPY = {
   es: {
@@ -60,8 +60,8 @@ const OrchestrateSection = () => {
     {/* Fondo: la mujer con antiparras (mood del hero), bien oscurecido */}
     <div className="absolute inset-0 z-0">
       <img src={MODEL_BG} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-      <div className="absolute inset-0 bg-[#0A0A0C]/42" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/82 via-[#0A0A0C]/38 to-[#0A0A0C]/55" />
+      <div className="absolute inset-0 bg-[#0A0A0C]/28" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/65 via-[#0A0A0C]/8 to-[#0A0A0C]/38" />
     </div>
 
     <div className="relative z-10 container mx-auto px-6 md:px-12">
