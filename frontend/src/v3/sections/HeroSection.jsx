@@ -157,7 +157,7 @@ const HeroSection = () => {
                 aria-hidden="true"
                 loading="lazy"
                 decoding="async"
-                className="h-4 w-auto shrink-0 object-contain opacity-[0.16] grayscale brightness-0 invert transition-opacity duration-300 hover:opacity-50 md:h-5"
+                className="h-[17px] w-auto shrink-0 object-contain opacity-20 grayscale brightness-0 invert transition-opacity duration-300 hover:opacity-50 md:h-[21px]"
               />
             ))}
           </div>
