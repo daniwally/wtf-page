@@ -17,7 +17,8 @@ const COPY = {
       </>
     ),
     headline: [
-      <>No sumamos una</>,
+      <>No sumamos</>,
+      <>una</>,
       <>herramienta.</>,
       <b key="a">Construimos</b>,
       <b key="b">nuestro propio</b>,
