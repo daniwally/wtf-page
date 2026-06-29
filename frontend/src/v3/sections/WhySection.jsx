@@ -80,7 +80,7 @@ const WhySection = () => {
           {c.kicker}
         </motion.p>
 
-        <Headline size="section" className="max-w-6xl !text-[clamp(27px,4.25vw,61px)]" lines={c.headline} />
+        <Headline size="section" className="max-w-5xl !text-[clamp(19px,3vw,43px)]" lines={c.headline} />
 
         <motion.p
           {...fadeUp}
