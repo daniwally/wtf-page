@@ -132,7 +132,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
       {isRedVariant && (
         <motion.p
           {...fadeUp}
-          className="mt-10 w-full max-w-5xl text-left text-[19px] md:text-[23px] font-light leading-relaxed text-cream"
+          className="mt-10 w-full max-w-5xl text-left text-[17px] md:text-[21px] font-light leading-relaxed text-cream"
         >
           {definition}
         </motion.p>
@@ -161,7 +161,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
       <div className="relative z-10 container mx-auto px-6 md:px-12 pb-8 md:pb-10">
         <motion.p
           {...fadeUp}
-          className="mx-auto max-w-5xl text-left text-[19px] md:text-[23px] font-light leading-relaxed text-cream"
+          className="mx-auto max-w-5xl text-left text-[17px] md:text-[21px] font-light leading-relaxed text-cream"
         >
           {definition}
         </motion.p>
