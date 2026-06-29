@@ -4,11 +4,24 @@ import { ChevronDown } from "lucide-react";
 import { useThemeRegister } from "../theme/ThemeContext";
 import { THEMES } from "../theme/palette";
 import { useLang } from "../i18n/LangContext";
+import { logo } from "../../sections/shared";
 
 const HERO_VIDEO = "/assets/hero/moto.mp4"; // motociclista neón (video del deck)
 const HERO_POSTER = "/assets/hero/moto-poster.jpg";
 const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png"; // lockup WTF+Brief Destroyers (deck)
 const EASE = [0.22, 1, 0.36, 1];
+const HERO_LOGOS = [
+  "honda.png",
+  "ford.png",
+  "samsung.png",
+  "bayer.png",
+  "absolut.png",
+  "chivas.png",
+  "motorola.png",
+  "lenovo.png",
+  "quilmes.png",
+  "arcor.png",
+];
 
 // Copy bilingüe (es | en): se consume con useLang(). El eyebrow del lockup
 // ("Battle Tested Creativity Since 2010") queda igual en ambos idiomas (línea de marca).
@@ -123,6 +136,33 @@ const HeroSection = () => {
           {c.bajadaPost}
         </motion.p>
       </div>
+
+      {/* Logos al pie: señal de trayectoria, bajo volumen */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.85, duration: 0.8, ease: EASE }}
+        className="absolute inset-x-0 bottom-14 z-10 overflow-hidden px-6 md:bottom-16 md:px-12"
+      >
+        <p className="mb-3 font-hud text-[9px] uppercase tracking-[0.28em] text-white/28 md:text-[10px]">
+          Battle tested with
+        </p>
+        <div className="[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="animate-marquee flex w-max items-center gap-12 py-1 md:gap-16">
+            {[...HERO_LOGOS, ...HERO_LOGOS].map((file, i) => (
+              <img
+                key={`${file}-${i}`}
+                src={logo(file)}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                className="h-5 w-auto shrink-0 object-contain opacity-30 grayscale brightness-0 invert transition-opacity duration-300 hover:opacity-70 md:h-6"
+              />
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
       {/* Scroll cue */}
       <motion.div
