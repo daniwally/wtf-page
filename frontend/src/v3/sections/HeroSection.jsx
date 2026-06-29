@@ -144,7 +144,7 @@ const HeroSection = () => {
         transition={{ delay: 0.85, duration: 0.8, ease: EASE }}
         className="absolute inset-x-0 top-[79%] z-10 overflow-hidden px-6 md:top-[80%] md:px-12"
       >
-        <p className="mb-3 font-hud text-[9px] uppercase tracking-[0.28em] text-white/22 md:text-[10px]">
+        <p className="mb-5 font-hud text-[9px] uppercase tracking-[0.28em] text-white/22 md:mb-6 md:text-[10px]">
           Battle tested with
         </p>
         <div className="[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
