@@ -84,14 +84,14 @@ const ClientsSection = () => {
 
     <div className="container mx-auto px-6 md:px-12 relative z-10">
       <Headline size="section" className="!text-[clamp(27px,4.25vw,61px)]" lines={c.headline} />
-      <motion.p {...fadeUp} className="mt-6 text-lg md:text-xl font-light opacity-65">
+      <motion.p {...fadeUp} className="mt-5 text-lg md:text-xl font-light opacity-65">
         {c.subline}
       </motion.p>
 
       {/* Grilla idéntica al deck: 6 cols, gap 0, celdas 70px, sizes por logo */}
       <motion.div
         {...fadeUp}
-        className="mt-12 md:mt-16 grid grid-cols-3 md:grid-cols-6 gap-0"
+        className="mt-8 md:mt-10 grid grid-cols-3 md:grid-cols-6 gap-0"
       >
         {CLIENTS.map(({ f, s = "d", k }) => (
           <div key={f} className="flex items-center justify-center px-4 py-[22px] min-h-[70px]">
