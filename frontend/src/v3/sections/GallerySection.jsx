@@ -131,16 +131,16 @@ const GallerySection = () => {
       className="relative bg-[#0A0A0C] scroll-mt-24 overflow-hidden"
     >
       {/* Slide inicial con fondo motorsport */}
-      <div className="relative flex min-h-screen items-center pt-24 pb-40 md:pt-28 md:pb-44">
+      <div className="relative min-h-screen pt-24 pb-10 md:pt-28 md:pb-14">
         <div className="absolute inset-0 z-0">
           <img src="/assets/hero/proof-now-red-helmet-v2.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#0A0A0C]/45" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/25 via-transparent to-[#0A0A0C]" />
         </div>
-        <div className="relative z-10">
+        <div className="relative z-10 flex min-h-[calc(100vh-8.5rem)] w-full flex-col justify-between">
 
       {/* Header (mismo layout que "La prueba · Then") */}
-      <div className="container mx-auto px-6 md:px-12 mb-10 md:mb-14">
+      <div className="container mx-auto px-6 pt-[12vh] md:px-12 md:pt-[14vh]">
         <motion.p
           {...fadeUp}
           className="font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase opacity-50 mb-6"
@@ -158,8 +158,8 @@ const GallerySection = () => {
         </div>
       </div>
 
-      {/* Barra de números (datos de "El sistema" del deck), anclada al pie del slide */}
-      <div className="absolute inset-x-0 bottom-10 z-10 container mx-auto px-6 md:bottom-14 md:px-12">
+      {/* Barra de números (datos de "El sistema" del deck), más cerca del pie del slide */}
+      <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 border-y border-current/15 py-8">
           {METRICS.map((m, i) => (
             <div key={m.key} className="text-center px-1">
