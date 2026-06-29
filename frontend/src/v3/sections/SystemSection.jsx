@@ -75,7 +75,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
       <motion.p
         {...fadeUp}
         className={`font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase ${
-          isRedVariant ? "mb-6 translate-y-3 text-white/80" : "mb-8 text-volt"
+          isRedVariant ? "mb-6 translate-y-3 text-white/80" : "mb-8 w-full max-w-[min(88vw,1120px)] text-left text-volt"
         }`}
       >
         {c.kicker}
@@ -118,7 +118,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
         {/* Firma EN */}
         <motion.p
           {...fadeUp}
-          className="mt-6 font-hud text-[10px] md:text-xs tracking-[0.22em] uppercase opacity-40"
+          className="mt-6 w-full max-w-[min(88vw,1120px)] text-right font-hud text-[10px] md:text-xs tracking-[0.22em] uppercase opacity-40"
         >
           The AI creative operating system for modern brands
         </motion.p>
