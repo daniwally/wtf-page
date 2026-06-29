@@ -23,7 +23,7 @@ const COPY = {
       <b key="b">nuestro propio</b>,
       <b key="c">sistema operativo.</b>,
     ],
-    subline: "La inteligencia, el oficio y la velocidad operando marcas como un solo sistema.",
+    subline: ["La inteligencia, el oficio y la velocidad operando", "marcas como un solo sistema."],
     metrics: ["herramientas IA", "más rápido", "a primera entrega", "sin límites creativos"],
   },
   en: {
@@ -166,7 +166,13 @@ const GallerySection = () => {
             {...fadeUp}
             className="max-w-xl text-left text-base font-light leading-relaxed opacity-60 md:text-lg"
           >
-            {c.subline}
+            {Array.isArray(c.subline)
+              ? c.subline.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))
+              : c.subline}
           </motion.p>
         </div>
       </div>
