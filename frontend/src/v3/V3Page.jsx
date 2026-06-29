@@ -36,7 +36,8 @@ const V3Page = () => {
               Sistemas/servicios · Outputs AI · Casos · Cierre */}
           <HeroSection />
           <ThesisSection />
-          <SystemSection />
+          <SystemSection variant="horse" id="v3-engine" />
+          <SystemSection variant="red" id="v3-engine-red" />
           <OrchestrateSection />
           <WhySection />
           <StatementSection />

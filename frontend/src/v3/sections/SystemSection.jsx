@@ -4,7 +4,8 @@ import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
 import { useLang } from "../i18n/LangContext";
 
-const ENGINE_BG = "/assets/hero/engine-red-helmet.jpg"; // casco rojo retro motorsport (prueba Infinity Engine)
+const ENGINE_HORSE_BG = "/assets/hero/engine-horse.jpg"; // caballo negro en humo (motivo de marca WTF)
+const ENGINE_RED_BG = "/assets/hero/engine-red-helmet.jpg"; // casco rojo retro motorsport (prueba Infinity Engine)
 const EASE = [0.22, 1, 0.36, 1];
 
 // Sección 3 — INFINITY ENGINE. El reveal del sistema operativo creativo de WTF:
@@ -33,17 +34,38 @@ const COPY = {
   },
 };
 
-const SystemSection = () => {
+const BG_VARIANTS = {
+  horse: {
+    src: ENGINE_HORSE_BG,
+    scrims: (
+      <>
+        <div className="absolute inset-0 bg-[#0A0A0C]/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/70 via-transparent to-[#0A0A0C]/95" />
+      </>
+    ),
+  },
+  red: {
+    src: ENGINE_RED_BG,
+    scrims: (
+      <>
+        <div className="absolute inset-0 bg-[#0A0A0C]/66" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/82 via-[#0A0A0C]/52 to-[#0A0A0C]/96" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/60 via-transparent to-[#0A0A0C]/72" />
+      </>
+    ),
+  },
+};
+
+const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
   const { lang } = useLang();
   const c = COPY[lang];
+  const bg = BG_VARIANTS[variant] || BG_VARIANTS.horse;
   return (
-  <ThemeSection theme={THEMES.night} id="v3-engine" className="flex flex-col overflow-hidden">
+  <ThemeSection theme={THEMES.night} id={id} className="flex flex-col overflow-hidden">
     {/* Fondo: caballo negro en humo (motivo de marca), con scrim para legibilidad */}
     <div className="absolute inset-0 z-0">
-      <img src={ENGINE_BG} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-      <div className="absolute inset-0 bg-[#0A0A0C]/66" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/82 via-[#0A0A0C]/52 to-[#0A0A0C]/96" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/60 via-transparent to-[#0A0A0C]/72" />
+      <img src={bg.src} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
+      {bg.scrims}
     </div>
 
     {/* Bloque centrado */}
