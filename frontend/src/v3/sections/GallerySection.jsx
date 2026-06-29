@@ -160,11 +160,11 @@ const GallerySection = () => {
         >
           {c.kicker}
         </motion.p>
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div className="flex max-w-4xl flex-col gap-6">
           <Headline size="section" className="!text-[clamp(24px,3.7vw,53px)]" lines={c.headline} />
           <motion.p
             {...fadeUp}
-            className="text-base md:text-lg font-light max-w-md opacity-60 md:text-right"
+            className="max-w-xl text-left text-base font-light leading-relaxed opacity-60 md:text-lg"
           >
             {c.subline}
           </motion.p>
