@@ -108,7 +108,7 @@ const WhySection = () => {
                 aria-hidden="true"
                 className="absolute bottom-0 right-0 h-px w-full origin-right scale-x-0 bg-[#FF3B30]/80 transition-transform duration-500 ease-out group-hover:scale-x-100"
               />
-              <h3 className="relative text-lg font-bold normal-case tracking-tight transition-transform duration-300 group-hover:translate-x-2 md:text-2xl">
+              <h3 className="relative text-lg font-semibold normal-case tracking-tight transition-transform duration-300 group-hover:translate-x-2 md:text-2xl">
                 <span className="mr-3 align-middle font-mono text-sm text-volt transition-colors duration-300 group-hover:text-[#FF3B30]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
