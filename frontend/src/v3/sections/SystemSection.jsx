@@ -97,7 +97,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
           {/* Firma EN */}
           <motion.p
             {...fadeUp}
-            className="mt-6 text-left font-hud text-[10px] md:text-xs tracking-[0.22em] uppercase opacity-40"
+            className="mt-6 text-left font-hud text-xs md:text-[14px] tracking-[0.22em] uppercase opacity-40"
           >
             The AI creative operating system for modern brands
           </motion.p>
