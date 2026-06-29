@@ -60,6 +60,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
   const { lang } = useLang();
   const c = COPY[lang];
   const bg = BG_VARIANTS[variant] || BG_VARIANTS.horse;
+  const isRedVariant = variant === "red";
   return (
   <ThemeSection theme={THEMES.night} id={id} className="flex flex-col overflow-hidden">
     {/* Fondo: caballo negro en humo (motivo de marca), con scrim para legibilidad */}
@@ -73,7 +74,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
       {/* Kicker */}
       <motion.p
         {...fadeUp}
-        className="font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase text-volt mb-8"
+        className={`font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase mb-8 ${isRedVariant ? "text-white/80" : "text-volt"}`}
       >
         {c.kicker}
       </motion.p>
