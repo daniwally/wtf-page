@@ -57,16 +57,16 @@ const COPY = {
   },
 };
 
-const SHEEP = "/assets/hero/why-sheep.jpg"; // oveja negra entre las blancas (los distintos)
+const CHESS = "/assets/hero/why-chess.jpg"; // ejército de ajedrez explotando: estrategia en movimiento
 
 const WhySection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
   return (
     <ThemeSection theme={THEMES.night} id="v3-why" pad="py-14 md:py-20" className="overflow-hidden flex flex-col justify-center">
-      {/* Fondo: la oveja negra entre las blancas, scrim más oscuro a la izquierda (texto) */}
+      {/* Fondo: ajedrez explotando, scrim más oscuro a la izquierda (texto) */}
       <div className="absolute inset-0 z-0">
-        <img src={SHEEP} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
+        <img src={CHESS} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-[#0A0A0C]/26" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C] via-[#0A0A0C]/68 to-[#0A0A0C]/10" />
         <div className="absolute inset-y-0 left-0 w-[68%] bg-gradient-to-r from-[#0A0A0C]/95 via-[#0A0A0C]/70 to-transparent" />
