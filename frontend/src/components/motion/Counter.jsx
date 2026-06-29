@@ -8,10 +8,11 @@ const Counter = ({
   prefix = "",
   duration = 1.4,
   static: staticNode,
+  inViewMargin = "-15% 0px",
   className = "",
 }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-15% 0px" });
+  const inView = useInView(ref, { once: true, margin: inViewMargin });
   const reduced = useReducedMotion();
   const mv = useMotionValue(0);
   const rounded = useTransform(mv, (v) => Math.round(v));
