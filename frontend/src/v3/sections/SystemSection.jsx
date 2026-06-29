@@ -4,7 +4,7 @@ import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
 import { useLang } from "../i18n/LangContext";
 
-const ENGINE_BG = "/assets/hero/engine-horse.jpg"; // caballo negro en humo (motivo de marca WTF)
+const ENGINE_BG = "/assets/hero/engine-red-helmet.jpg"; // casco rojo retro motorsport (prueba Infinity Engine)
 const EASE = [0.22, 1, 0.36, 1];
 
 // Sección 3 — INFINITY ENGINE. El reveal del sistema operativo creativo de WTF:
@@ -41,8 +41,9 @@ const SystemSection = () => {
     {/* Fondo: caballo negro en humo (motivo de marca), con scrim para legibilidad */}
     <div className="absolute inset-0 z-0">
       <img src={ENGINE_BG} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-      <div className="absolute inset-0 bg-[#0A0A0C]/45" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/70 via-transparent to-[#0A0A0C]/95" />
+      <div className="absolute inset-0 bg-[#0A0A0C]/66" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/82 via-[#0A0A0C]/52 to-[#0A0A0C]/96" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/60 via-transparent to-[#0A0A0C]/72" />
     </div>
 
     {/* Bloque centrado */}
