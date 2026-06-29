@@ -132,7 +132,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
       {isRedVariant && (
         <motion.p
           {...fadeUp}
-          className="mt-10 w-full max-w-5xl text-left text-[17px] md:text-[21px] font-light leading-relaxed text-cream"
+          className="mt-10 w-full max-w-5xl text-right text-[17px] md:text-[21px] font-light leading-relaxed text-cream"
         >
           {definition}
         </motion.p>
