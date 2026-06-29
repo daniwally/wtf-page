@@ -131,7 +131,7 @@ const GallerySection = () => {
       className="relative bg-[#0A0A0C] scroll-mt-24 overflow-hidden"
     >
       {/* Slide inicial con fondo motorsport */}
-      <div className="relative flex min-h-screen items-center pt-24 pb-16 md:pt-28 md:pb-20">
+      <div className="relative flex min-h-screen items-center pt-24 pb-40 md:pt-28 md:pb-44">
         <div className="absolute inset-0 z-0">
           <img src="/assets/hero/proof-now-red-helmet-v2.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#0A0A0C]/45" />
@@ -158,8 +158,8 @@ const GallerySection = () => {
         </div>
       </div>
 
-      {/* Barra de números (datos de "El sistema" del deck) */}
-      <div className="container mx-auto px-6 md:px-12">
+      {/* Barra de números (datos de "El sistema" del deck), anclada al pie del slide */}
+      <div className="absolute inset-x-0 bottom-10 z-10 container mx-auto px-6 md:bottom-14 md:px-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 border-y border-current/15 py-8">
           {METRICS.map((m, i) => (
             <div key={m.key} className="text-center px-1">
