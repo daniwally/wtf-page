@@ -158,7 +158,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
         </div>
       </div>
     ) : (
-      <div className="absolute inset-x-0 bottom-5 md:bottom-8 z-10 container mx-auto px-6 md:px-12">
+      <div className="absolute inset-x-0 bottom-8 md:bottom-12 z-10 container mx-auto px-6 md:px-12">
         <p
           className="mx-auto max-w-5xl text-center text-[13px] md:text-[16px] font-light uppercase leading-relaxed text-cream/42"
         >
