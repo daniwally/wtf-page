@@ -139,16 +139,8 @@ const GallerySection = () => {
       {/* Slide inicial con fondo motorsport */}
       <div className="relative min-h-screen pt-24 pb-10 md:pt-28 md:pb-14">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/hero/proof-now-red-helmet-v2.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
+          <img src="/assets/hero/proof-now-chica.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#0A0A0C]/8" />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(255, 175, 135, 0.95) 0%, rgba(255, 175, 135, 0.35) 35%, rgba(255, 175, 135, 0.1) 65%, rgba(255, 175, 135, 0.1) 100%)",
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/10 via-transparent to-[#0A0A0C]/82" />
         </div>
         <div className="relative z-10 flex min-h-[calc(100vh-8.5rem)] w-full flex-col justify-between">
 
