@@ -67,8 +67,9 @@ const WhySection = () => {
       {/* Fondo: la oveja negra entre las blancas, scrim más oscuro a la izquierda (texto) */}
       <div className="absolute inset-0 z-0">
         <img src={SHEEP} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-        <div className="absolute inset-0 bg-[#0A0A0C]/42" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/88 via-[#0A0A0C]/45 to-[#0A0A0C]/12" />
+        <div className="absolute inset-0 bg-[#0A0A0C]/26" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C] via-[#0A0A0C]/68 to-[#0A0A0C]/10" />
+        <div className="absolute inset-y-0 left-0 w-[68%] bg-gradient-to-r from-[#0A0A0C]/95 via-[#0A0A0C]/70 to-transparent" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -89,7 +90,7 @@ const WhySection = () => {
           <span className="text-volt font-bold">{c.subEmph}</span>.
         </motion.p>
 
-        <div className="mt-8 max-w-5xl">
+        <div className="mt-8 max-w-5xl rounded-2xl border border-white/10 bg-[#050507]/58 p-4 shadow-[0_28px_100px_rgba(0,0,0,0.42)] backdrop-blur-md md:rounded-3xl md:p-6">
           {c.points.map((p, i) => (
             <motion.div
               key={p.label}
@@ -97,7 +98,7 @@ const WhySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="group relative grid grid-cols-1 gap-1 overflow-hidden border-t border-current/15 py-4 transition-colors duration-300 md:grid-cols-[280px_1fr] md:gap-8 md:items-baseline hover:border-[#FF3B30]/70 hover:bg-white/[0.035]"
+              className="group relative grid grid-cols-1 gap-1 overflow-hidden border-t border-current/15 py-4 transition-colors duration-300 first:border-t-0 md:grid-cols-[280px_1fr] md:gap-8 md:items-baseline hover:border-[#FF3B30]/70 hover:bg-white/[0.045]"
             >
               <span
                 aria-hidden="true"
