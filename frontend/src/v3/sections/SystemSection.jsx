@@ -74,7 +74,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
       {/* Kicker */}
       <motion.p
         {...fadeUp}
-        className={`font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase mb-8 ${isRedVariant ? "text-white/80" : "text-volt"}`}
+        className={`font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase mb-6 translate-y-3 ${isRedVariant ? "text-white/80" : "text-volt"}`}
       >
         {c.kicker}
       </motion.p>
