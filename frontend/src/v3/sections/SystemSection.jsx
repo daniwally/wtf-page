@@ -61,6 +61,10 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
   const c = COPY[lang];
   const bg = BG_VARIANTS[variant] || BG_VARIANTS.horse;
   const isRedVariant = variant === "red";
+  const definition =
+    !isRedVariant && lang === "es"
+      ? c.definition.replace("modelo operativo", "sistema operativo")
+      : c.definition;
   return (
   <ThemeSection theme={THEMES.night} id={id} className="flex flex-col overflow-hidden">
     {/* Fondo: caballo negro en humo (motivo de marca), con scrim para legibilidad */}
@@ -130,7 +134,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
           {...fadeUp}
           className="mt-10 w-full max-w-5xl text-left text-[19px] md:text-[23px] font-light leading-relaxed text-cream"
         >
-          {c.definition}
+          {definition}
         </motion.p>
       )}
     </div>
@@ -159,7 +163,7 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
           {...fadeUp}
           className="mx-auto max-w-5xl text-left text-[19px] md:text-[23px] font-light leading-relaxed text-cream"
         >
-          {c.definition}
+          {definition}
         </motion.p>
       </div>
     )}
