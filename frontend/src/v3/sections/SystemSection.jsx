@@ -125,33 +125,44 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
         </>
       )}
 
-      {/* Definición */}
-      <motion.p
-        {...fadeUp}
-        className="mt-10 text-base md:text-lg font-light max-w-2xl opacity-60 leading-relaxed"
-      >
-        {c.definition}
-      </motion.p>
+      {isRedVariant && (
+        <motion.p
+          {...fadeUp}
+          className="mt-10 text-base md:text-lg font-light max-w-2xl opacity-60 leading-relaxed"
+        >
+          {c.definition}
+        </motion.p>
+      )}
     </div>
 
-    {/* Los 5 verbos al pie (tease de The model) */}
-    <div className="relative z-10 container mx-auto px-6 md:px-12 pt-10">
-      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xl md:text-2xl font-bold tracking-tight">
-        {c.verbs.map((v, i) => (
-          <motion.span
-            key={v}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.5 }}
-            className="flex items-center gap-x-4"
-          >
-            {v}
-            {i < c.verbs.length - 1 && <span className="text-volt font-normal">·</span>}
-          </motion.span>
-        ))}
+    {isRedVariant ? (
+      <div className="relative z-10 container mx-auto px-6 md:px-12 pt-10">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xl md:text-2xl font-bold tracking-tight">
+          {c.verbs.map((v, i) => (
+            <motion.span
+              key={v}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="flex items-center gap-x-4"
+            >
+              {v}
+              {i < c.verbs.length - 1 && <span className="text-volt font-normal">·</span>}
+            </motion.span>
+          ))}
+        </div>
       </div>
-    </div>
+    ) : (
+      <div className="relative z-10 container mx-auto px-6 md:px-12 pb-8 md:pb-10">
+        <motion.p
+          {...fadeUp}
+          className="mx-auto max-w-4xl text-center text-sm md:text-base font-light leading-relaxed text-white/55"
+        >
+          {c.definition}
+        </motion.p>
+      </div>
+    )}
   </ThemeSection>
   );
 };
