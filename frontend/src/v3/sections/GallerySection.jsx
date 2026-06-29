@@ -134,9 +134,15 @@ const GallerySection = () => {
       <div className="relative min-h-screen pt-24 pb-10 md:pt-28 md:pb-14">
         <div className="absolute inset-0 z-0">
           <img src="/assets/hero/proof-now-red-helmet-v2.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-          <div className="absolute inset-0 bg-[#0A0A0C]/45" />
-          <div className="absolute inset-y-0 left-0 w-[65%] bg-gradient-to-r from-[#0A0A0C]/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/25 via-transparent to-[#0A0A0C]" />
+          <div className="absolute inset-0 bg-[#0A0A0C]/8" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.08) 35%, rgba(10, 10, 12, 0) 65%, rgba(10, 10, 12, 0) 100%)",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/10 via-transparent to-[#0A0A0C]/82" />
         </div>
         <div className="relative z-10 flex min-h-[calc(100vh-8.5rem)] w-full flex-col justify-between">
 
