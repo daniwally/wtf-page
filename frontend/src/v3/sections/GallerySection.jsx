@@ -16,7 +16,13 @@ const COPY = {
         La prueba · <span className="text-volt">Now</span>
       </>
     ),
-    headline: [<>No sumamos una herramienta.</>, <b key="a">Construimos nuestro propio sistema operativo.</b>],
+    headline: [
+      <>No sumamos una</>,
+      <>herramienta.</>,
+      <b key="a">Construimos</b>,
+      <b key="b">nuestro propio</b>,
+      <b key="c">sistema operativo.</b>,
+    ],
     subline: "La inteligencia, el oficio y la velocidad operando marcas como un solo sistema.",
     metrics: ["herramientas IA", "más rápido", "a primera entrega", "sin límites creativos"],
   },
