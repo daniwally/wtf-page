@@ -81,7 +81,7 @@ const SolutionsSection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
   return (
-    <ThemeSection theme={THEMES.night} id="v3-soluciones" pad="py-12 md:py-16" className="overflow-hidden flex flex-col justify-center">
+    <ThemeSection theme={THEMES.night} id="v3-soluciones" pad="pt-20 pb-12 md:pt-28 md:pb-16" className="overflow-hidden flex flex-col justify-center">
       {/* Fondo: figura en salto + swirl rosa (movimiento), oscurecido para leer oscuro como el resto */}
       <div className="absolute inset-0 z-0">
         <img src={SOL_BG} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
@@ -89,7 +89,7 @@ const SolutionsSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/55 via-[#0A0A0C]/45 to-[#0A0A0C]/85" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 md:px-12">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 md:translate-y-6">
         <Headline
           size="section"
           className="max-w-4xl !text-[clamp(27px,4.15vw,59px)]"
