@@ -65,13 +65,6 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
     !isRedVariant && lang === "es"
       ? c.definition.replace("modelo operativo", "sistema operativo")
       : c.definition;
-  const definitionLines =
-    !isRedVariant && lang === "es"
-      ? [
-          "WTF integra estrategia, creatividad, producción, tecnología, data e inteligencia artificial en un sistema operativo diseñado",
-          "para acelerar la comunicación de las marcas sin perder profundidad, criterio ni consistencia.",
-        ]
-      : [definition];
   return (
   <ThemeSection theme={THEMES.night} id={id} className="flex flex-col overflow-hidden">
     {/* Fondo: caballo negro en humo (motivo de marca), con scrim para legibilidad */}
@@ -168,13 +161,9 @@ const SystemSection = ({ variant = "horse", id = "v3-engine" }) => {
       <div className="relative z-10 container mx-auto px-6 md:px-12 pb-4 md:pb-5">
         <motion.p
           {...fadeUp}
-          className="mx-auto max-w-5xl text-left text-[13px] md:text-[16px] font-light uppercase leading-relaxed text-cream/68"
+          className="mx-auto max-w-5xl text-left text-[13px] md:text-[16px] font-light uppercase leading-relaxed text-cream/52"
         >
-          {definitionLines.map((line) => (
-            <span key={line} className="block">
-              {line}
-            </span>
-          ))}
+          {definition}
         </motion.p>
       </div>
     )}
