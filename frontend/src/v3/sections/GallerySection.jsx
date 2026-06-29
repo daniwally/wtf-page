@@ -135,7 +135,7 @@ const GallerySection = () => {
         <div className="absolute inset-0 z-0">
           <img src="/assets/hero/proof-now-red-helmet-v2.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#0A0A0C]/45" />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#0A0A0C]/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/70 to-[#0A0A0C]/10" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/25 via-transparent to-[#0A0A0C]" />
         </div>
         <div className="relative z-10 flex min-h-[calc(100vh-8.5rem)] w-full flex-col justify-between">
