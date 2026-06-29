@@ -145,7 +145,7 @@ const GallerySection = () => {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(90deg, rgba(10, 10, 12, 0.8) 0%, rgba(10, 10, 12, 0.08) 35%, rgba(10, 10, 12, 0) 65%, rgba(10, 10, 12, 0) 100%)",
+                "linear-gradient(90deg, rgba(80, 8, 4, 0.78) 0%, rgba(80, 8, 4, 0.18) 35%, rgba(80, 8, 4, 0) 65%, rgba(80, 8, 4, 0) 100%)",
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/10 via-transparent to-[#0A0A0C]/82" />
