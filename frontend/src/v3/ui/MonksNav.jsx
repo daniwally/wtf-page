@@ -10,7 +10,7 @@ const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png"; // lockup WTF+Brief (ig
 const NAV_ITEMS = [
   { es: "Engine", en: "Engine", pt: "Engine", href: "v3-engine" },
   { es: "Servicios", en: "Services", pt: "Serviços", href: "v3-soluciones" },
-  { es: "Trabajo", en: "Work", pt: "Trabalho", href: "v3-trabajo" },
+  { es: "Trabajo", en: "Work", pt: "Trabalho", href: "v3-galeria" },
 ];
 
 const CTA = {
