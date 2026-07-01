@@ -9,6 +9,7 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useLang } from "../i18n/LangContext";
+import { trackContactOpen, trackEvent } from "../utils/analytics";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeebkygz";
 const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png";
@@ -130,6 +131,10 @@ const ContactModal = ({ open, onClose }) => {
       setStatus("success");
       return;
     }
+    trackEvent("contact_submit", {
+      event_category: "lead",
+      language: lang,
+    });
     formData.set("_replyto", email);
     formData.set(
       "_subject",
@@ -147,8 +152,16 @@ const ContactModal = ({ open, onClose }) => {
       if (!response.ok) throw new Error("Form submission failed");
       formRef.current?.reset();
       setStatus("success");
+      trackEvent("contact_success", {
+        event_category: "lead",
+        language: lang,
+      });
     } catch {
       setStatus("error");
+      trackEvent("contact_error", {
+        event_category: "lead",
+        language: lang,
+      });
     }
   };
 
@@ -326,7 +339,11 @@ const ContactModal = ({ open, onClose }) => {
 
 export const ContactModalProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
-  const openContact = useCallback(() => setOpen(true), []);
+  const { lang } = useLang();
+  const openContact = useCallback((source = "unknown") => {
+    trackContactOpen(source, lang);
+    setOpen(true);
+  }, [lang]);
   const closeContact = useCallback(() => setOpen(false), []);
 
   return (

@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { useActiveTheme } from "../theme/ThemeContext";
 import { useLang } from "../i18n/LangContext";
 import { useContactModal } from "./ContactModal";
+import { trackEvent } from "../utils/analytics";
 
 const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png"; // lockup WTF+Brief (igual al home)
 
@@ -59,6 +60,12 @@ const MonksNav = () => {
     const target = document.getElementById(id);
     if (!target) return;
 
+    trackEvent("nav_click", {
+      event_category: "navigation",
+      section_id: id,
+      language: lang,
+    });
+
     navigationCleanup.current?.();
     window.history.pushState(null, "", `#${id}`);
 
@@ -81,7 +88,17 @@ const MonksNav = () => {
     align();
     window.requestAnimationFrame(align);
     maxTimer = window.setTimeout(finish, 5000);
-  }, []);
+  }, [lang]);
+
+  const changeLanguage = useCallback((next) => {
+    if (next === lang) return;
+    trackEvent("language_change", {
+      event_category: "engagement",
+      from_language: lang,
+      to_language: next,
+    });
+    setLang(next);
+  }, [lang, setLang]);
 
   return (
     <motion.nav
@@ -134,7 +151,7 @@ const MonksNav = () => {
           <div className="flex items-center gap-1.5 text-xs md:text-sm font-bold uppercase tracking-wide select-none">
             <button
               type="button"
-              onClick={() => setLang("es")}
+              onClick={() => changeLanguage("es")}
               aria-pressed={lang === "es"}
               aria-label="Ver el sitio en español"
               className={`uppercase transition-opacity ${lang === "es" ? "opacity-100" : "opacity-40 hover:opacity-100"}`}
@@ -144,7 +161,7 @@ const MonksNav = () => {
             <span aria-hidden="true" className="opacity-30">/</span>
             <button
               type="button"
-              onClick={() => setLang("en")}
+              onClick={() => changeLanguage("en")}
               aria-pressed={lang === "en"}
               aria-label="View the site in English"
               className={`uppercase transition-opacity ${lang === "en" ? "opacity-100" : "opacity-40 hover:opacity-100"}`}
@@ -154,7 +171,7 @@ const MonksNav = () => {
             <span aria-hidden="true" className="opacity-30">/</span>
             <button
               type="button"
-              onClick={() => setLang("pt")}
+              onClick={() => changeLanguage("pt")}
               aria-pressed={lang === "pt"}
               aria-label="Ver o site em português"
               className={`uppercase transition-opacity ${lang === "pt" ? "opacity-100" : "opacity-40 hover:opacity-100"}`}
@@ -164,7 +181,7 @@ const MonksNav = () => {
           </div>
           <button
             type="button"
-            onClick={openContact}
+            onClick={() => openContact("nav")}
             className="inline-flex items-center whitespace-nowrap rounded-full px-3 md:px-5 py-2 text-[10px] md:text-xs font-bold transition-colors hover:!bg-[#FF3B30] hover:!text-[#F4F1E8]"
             style={{ backgroundColor: theme.fg, color: theme.bg }}
           >
@@ -174,6 +191,11 @@ const MonksNav = () => {
             href="https://www.instagram.com/wtf.agency/"
             target="_blank"
             rel="noreferrer"
+            onClick={() => trackEvent("instagram_click", {
+              event_category: "outbound",
+              source: "nav",
+              language: lang,
+            })}
             aria-label={IG_LABEL[lang]}
             title={IG_LABEL[lang]}
             className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-current/30 transition-colors hover:border-[#FF3B30] hover:bg-[#FF3B30] hover:text-[#F4F1E8]"

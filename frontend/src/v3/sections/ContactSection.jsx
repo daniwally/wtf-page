@@ -6,6 +6,7 @@ import Headline from "../ui/Headline";
 import { useLang } from "../i18n/LangContext";
 import ViewportVideo from "../ui/ViewportVideo";
 import { useContactModal } from "../ui/ContactModal";
+import { trackEvent } from "../utils/analytics";
 
 // Copy bilingüe (es | en): se consume con useLang(). El statement de cierre cambia
 // por idioma; el GRACIAS, la firma, los países y el email quedan iguales en ambos.
@@ -90,7 +91,7 @@ const ContactSection = () => {
         <motion.button
           type="button"
           {...fadeUp}
-          onClick={openContact}
+          onClick={() => openContact("closing")}
           className="mt-8 inline-flex items-center rounded-full border border-white/35 bg-black/15 px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-[#F4F1E8] hover:text-[#0A0A0C]"
         >
           {c.cta}
@@ -164,7 +165,7 @@ const ContactSection = () => {
         {/* CTA Hablemos */}
         <button
           type="button"
-          onClick={openContact}
+          onClick={() => openContact("thanks")}
           className="mt-10 inline-flex items-center rounded-full bg-[#F4F1E8] px-8 py-3 text-sm font-bold text-[#0A0A0C] transition-colors hover:bg-volt hover:text-[#F4F1E8]"
         >
           {c.cta}
@@ -174,6 +175,11 @@ const ContactSection = () => {
       {/* hello@ al pie */}
       <a
         href={`mailto:${CONTACT_EMAIL}`}
+        onClick={() => trackEvent("email_click", {
+          event_category: "lead",
+          source: "footer",
+          language: lang,
+        })}
         className="absolute bottom-0 inset-x-0 z-10 pb-8 md:pb-10 text-center font-hud text-[11px] md:text-sm tracking-[0.24em] uppercase text-white transition-colors hover:text-volt"
       >
         {CONTACT_EMAIL}

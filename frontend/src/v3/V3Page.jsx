@@ -15,6 +15,14 @@ import WorkSection from "./sections/WorkSection"; // Proof · Then
 import GallerySection from "./sections/GallerySection"; // Proof · Now
 import ContactSection from "./sections/ContactSection"; // Closing
 import { ContactModalProvider } from "./ui/ContactModal";
+import { trackEvent } from "./utils/analytics";
+
+const TRACKED_SECTIONS = [
+  { id: "v3-engine", name: "Infinity Engine" },
+  { id: "v3-soluciones", name: "Servicios" },
+  { id: "v3-galeria", name: "La prueba Now" },
+  { id: "v3-contacto", name: "Contacto" },
+];
 
 // Versión B "Monks" — estructura Monks (bloques de color que rotan, aire,
 // píldoras, cards) con ADN WTF (crema/negro/volt, Inter en registro bold).
@@ -24,6 +32,56 @@ const V3Page = () => {
   useEffect(() => {
     document.documentElement.classList.add("v3-snap");
     return () => document.documentElement.classList.remove("v3-snap");
+  }, []);
+
+  useEffect(() => {
+    const seenSections = new Set();
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || seenSections.has(entry.target.id)) return;
+          const section = TRACKED_SECTIONS.find((item) => item.id === entry.target.id);
+          if (!section) return;
+          seenSections.add(entry.target.id);
+          trackEvent("section_view", {
+            event_category: "engagement",
+            section_id: section.id,
+            section_name: section.name,
+          });
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    TRACKED_SECTIONS.forEach(({ id }) => {
+      const element = document.getElementById(id);
+      if (element) sectionObserver.observe(element);
+    });
+
+    const depthMarks = [25, 50, 75, 90];
+    const seenDepths = new Set();
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+      const depth = Math.round((window.scrollY / scrollable) * 100);
+      depthMarks.forEach((mark) => {
+        if (depth >= mark && !seenDepths.has(mark)) {
+          seenDepths.add(mark);
+          trackEvent("scroll_depth", {
+            event_category: "engagement",
+            percent_scrolled: mark,
+          });
+        }
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.requestAnimationFrame(onScroll);
+
+    return () => {
+      sectionObserver.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
