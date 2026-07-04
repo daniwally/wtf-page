@@ -4,7 +4,7 @@ const DECK = "https://engine.wtf-agency.works/wtf-credenciales-slides";
 
 export const WORKS = [
   {
-    key: "motorola", file: "legacy-motorola-thumb.jpg", name: "Motorola", cat: "Tech · Global", catEn: "Tech · Global", feat: true,
+    key: "motorola", file: "legacy-motorola-thumb.webp", name: "Motorola", cat: "Tech · Global", catEn: "Tech · Global", feat: true,
     cap: "Power to Empower. 21 países. 18 nacionalidades. Plataforma global.",
     capEn: "Power to Empower. 21 countries. 18 nationalities. Global platform.",
     tag: "TECH · GLOBAL · 21 PAÍSES", thin: "CONSTRUIMOS PARTE DEL", bold: "ADN GLOBAL DE MOTOROLA",
@@ -14,7 +14,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/moto-detail-1.jpg`, `${DECK}/galeria/moto-detail-2.jpg`, `${DECK}/galeria/moto-detail-3.jpg`],
   },
   {
-    key: "ford-lobo", file: "legacy-ford-lobo-thumb.jpg", name: "Ford F-150 Lobo", cat: "Auto · USA + México", catEn: "Auto · USA + Mexico", feat: true,
+    key: "ford-lobo", file: "legacy-ford-lobo-thumb.webp", name: "Ford F-150 Lobo", cat: "Auto · USA + México", catEn: "Auto · USA + Mexico", feat: true,
     cap: "Superproducción sci-fi. Las leyendas nunca se detienen.",
     capEn: "Sci-fi blockbuster. Legends never stop.",
     tag: "AUTOMOTRIZ · USA + MÉXICO · SUPERPRODUCCIÓN", thin: "LANZAMOS LA FORD F-150 LOBO", bold: "EN USA Y MÉXICO",
@@ -24,7 +24,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/fordlobo-detail-1.jpg`, `${DECK}/galeria/fordlobo-detail-2.jpg`, `${DECK}/galeria/fordlobo-detail-3.jpg`, `${DECK}/galeria/fordlobo-detail-4.jpg`, `${DECK}/galeria/fordlobo-detail-5.jpg`],
   },
   {
-    key: "diablo", file: "legacy-diablo-thumb.jpg", name: "Pisco Diablo", cat: "Spirits · Chile", catEn: "Spirits · Chile", feat: true,
+    key: "diablo", file: "legacy-diablo-thumb.webp", name: "Pisco Diablo", cat: "Spirits · Chile", catEn: "Spirits · Chile", feat: true,
     cap: "Rebranding total. +1500 touchpoints. +8 puntos de share en categoría.",
     capEn: "Full rebranding. +1500 touchpoints. +8 share points in category.",
     tag: "SPIRITS · CHILE · REBRANDING", thin: "RENOVAMOS SU PRESENCIA.", bold: "REFORZAMOS SU LEGADO",
@@ -34,7 +34,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/diablo-detail-1.jpg`, `${DECK}/galeria/diablo-detail-2.jpg`, `${DECK}/galeria/diablo-detail-3.jpg`],
   },
   {
-    key: "absolut-ba", file: "legacy-absolut-thumb.jpg", name: "Absolut Buenos Aires", cat: "Spirits · Argentina", catEn: "Spirits · Argentina", feat: true,
+    key: "absolut-ba", file: "legacy-absolut-thumb.webp", name: "Absolut Buenos Aires", cat: "Spirits · Argentina", catEn: "Spirits · Argentina", feat: true,
     cap: "Ciudad #14 del mundo con botella edición limitada. Campaña 360° con artistas y músicos.",
     capEn: "World's 14th city with a limited-edition bottle. 360° campaign with artists and musicians.",
     tag: "SPIRITS · ARGENTINA · EDICIÓN LIMITADA", thin: "CREAMOS UNA BOTELLA ÚNICA PARA", bold: "ABSOLUT VODKA",
@@ -44,7 +44,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/absba-detail-1.jpg`, `${DECK}/galeria/absba-detail-2.jpg`, `${DECK}/galeria/absba-detail-3.jpg`, `${DECK}/galeria/absba-detail-4.jpg`],
   },
   {
-    key: "absolut-nothing", file: "legacy-absolut-nothing-thumb.jpg", name: "Absolut Nothing", cat: "Spirits · Argentina", catEn: "Spirits · Argentina", feat: false,
+    key: "absolut-nothing", file: "legacy-absolut-nothing-thumb.webp", name: "Absolut Nothing", cat: "Spirits · Argentina", catEn: "Spirits · Argentina", feat: false,
     cap: "La primera botella de vodka sin vodka. Seguridad vial. El brief imposible.",
     capEn: "The first bottle of vodka without vodka. Road safety. The impossible brief.",
     tag: "SPIRITS · SEGURIDAD VIAL · BRIEF IMPOSIBLE", thin: "RESOLVIMOS UN BRIEF", bold: "LITERALMENTE IMPOSIBLE",
@@ -54,7 +54,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/nothing-detail-1.jpg`, `${DECK}/galeria/nothing-detail-2.jpg`, `${DECK}/galeria/nothing-detail-3.jpg`, `${DECK}/galeria/nothing-detail-4.jpg`],
   },
   {
-    key: "absolut-grapefruit", file: "legacy-absgrapefruit-thumb.jpg", name: "Absolut Grapefruit", cat: "Spirits", catEn: "Spirits", feat: false,
+    key: "absolut-grapefruit", file: "legacy-absgrapefruit-thumb.webp", name: "Absolut Grapefruit", cat: "Spirits", catEn: "Spirits", feat: false,
     cap: "Lanzamiento de un nuevo sabor. Hecho con grapefruit natural, sin azúcar añadida.",
     capEn: "Launch of a new flavor. Made with natural grapefruit, no added sugar.",
     tag: "VODKA · LANZAMIENTO", thin: "UN NUEVO SABOR", bold: "PARA DESCUBRIR",
@@ -64,7 +64,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/absgrapefruit-detail-1.jpg`, `${DECK}/galeria/absgrapefruit-detail-2.jpg`, `${DECK}/galeria/absgrapefruit-detail-3.jpg`, `${DECK}/galeria/absgrapefruit-detail-4.jpg`, `${DECK}/galeria/absgrapefruit-detail-5.jpg`],
   },
   {
-    key: "moto-razr", file: "legacy-motorola-razr-thumb.jpg", name: "Motorola Razr", cat: "Tech · LatAm", catEn: "Tech · LatAm", feat: false,
+    key: "moto-razr", file: "legacy-motorola-razr-thumb.webp", name: "Motorola Razr", cat: "Tech · LatAm", catEn: "Tech · LatAm", feat: false,
     cap: "Flip & Move. Campaña 360° regional. TV, TikTok, IG, influencers.",
     capEn: "Flip & Move. Regional 360° campaign. TV, TikTok, IG, influencers.",
     tag: "TECH · LATAM · CAMPAÑA 360°", thin: "LANZAMOS UN", bold: "PLEGABLE INCREÍBLE EN LATAM",
@@ -74,7 +74,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/razr-detail-1.jpg`, `${DECK}/galeria/razr-detail-2.jpg`, `${DECK}/galeria/razr-detail-3.jpg`],
   },
   {
-    key: "kross", file: "legacy-kross-thumb.jpg", name: "Cerveza Kross", cat: "Cerveza · Chile", catEn: "Beer · Chile", feat: false,
+    key: "kross", file: "legacy-kross-thumb.webp", name: "Cerveza Kross", cat: "Cerveza · Chile", catEn: "Beer · Chile", feat: false,
     cap: "Manifiesto de marca de la cerveza craft pionera de Chile. Original y auténtica.",
     capEn: "Brand manifesto for Chile's pioneering craft beer. Original and authentic.",
     tag: "CERVEZA CRAFT · CHILE", thin: "CELEBRAMOS LO ORIGINAL", bold: "Y LO AUTÉNTICO",
@@ -84,7 +84,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/kross-detail-1.jpg`, `${DECK}/galeria/kross-detail-2.jpg`, `${DECK}/galeria/kross-detail-3.jpg`, `${DECK}/galeria/kross-detail-4.jpg`, `${DECK}/galeria/kross-detail-5.jpg`],
   },
   {
-    key: "honda-hrv", file: "legacy-honda-hrv-thumb.jpg", name: "Honda HR-V", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
+    key: "honda-hrv", file: "legacy-honda-hrv-thumb.webp", name: "Honda HR-V", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
     cap: "Lanzamiento simultáneo en 8 países. Concepto emocional que movilizó audiencias.",
     capEn: "Simultaneous launch across 8 countries. Emotional concept that moved audiences.",
     tag: "AUTOMOTRIZ · 8 PAÍSES · LATAM", thin: "LANZAMOS LA HONDA HRV", bold: "EN TODO LATINOAMÉRICA",
@@ -94,7 +94,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/hondahrv-detail-1.jpg`, `${DECK}/galeria/hondahrv-detail-2.jpg`, `${DECK}/galeria/hondahrv-detail-3.jpg`],
   },
   {
-    key: "honda-hrv-moviliza", file: "legacy-hondahrvmoviliza-thumb.jpg", name: "Honda HR-V · Moviliza", cat: "Auto · Lifestyle", catEn: "Auto · Lifestyle", feat: false,
+    key: "honda-hrv-moviliza", file: "legacy-hondahrvmoviliza-thumb.webp", name: "Honda HR-V · Moviliza", cat: "Auto · Lifestyle", catEn: "Auto · Lifestyle", feat: false,
     cap: "No te mueve, te moviliza. Campaña lifestyle joven.",
     capEn: "It doesn't move you, it mobilizes you. Young lifestyle campaign.",
     tag: "HONDA · HR-V · LIFESTYLE", thin: "NO TE MUEVE.", bold: "TE MOVILIZA",
@@ -104,7 +104,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/hondahrvmoviliza-detail-1.jpg`, `${DECK}/galeria/hondahrvmoviliza-detail-2.jpg`, `${DECK}/galeria/hondahrvmoviliza-detail-3.jpg`, `${DECK}/galeria/hondahrvmoviliza-detail-4.jpg`, `${DECK}/galeria/hondahrvmoviliza-detail-5.jpg`],
   },
   {
-    key: "honda-xr", file: "legacy-honda-xr-thumb.jpg", name: "Honda XR300", cat: "Moto · LatAm", catEn: "Moto · LatAm", feat: false,
+    key: "honda-xr", file: "legacy-honda-xr-thumb.webp", name: "Honda XR300", cat: "Moto · LatAm", catEn: "Moto · LatAm", feat: false,
     cap: "Campaña extrema en Latinoamérica. Producción in house.",
     capEn: "Extreme campaign across Latin America. In-house production.",
     tag: "AUTOMOTRIZ · LATAM · CAMPAÑA EXTREMA", thin: "DEMOSTRAMOS UNA", bold: "EVOLUCIÓN RADICAL",
@@ -114,7 +114,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/hondaxr-detail-1.jpg`, `${DECK}/galeria/hondaxr-detail-2.jpg`, `${DECK}/galeria/hondaxr-detail-3.jpg`],
   },
   {
-    key: "honda-fit", file: "legacy-honda-fit-thumb.jpg", name: "Honda Fit", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
+    key: "honda-fit", file: "legacy-honda-fit-thumb.webp", name: "Honda Fit", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
     cap: "El cambio más radical. 2 días de aventura en la tercera generación.",
     capEn: "The most radical change. 2 days of adventure in the third generation.",
     tag: "AUTOMOTRIZ · LANZAMIENTO", thin: "LANZAMOS EL CAMBIO MÁS", bold: "RADICAL DEL HONDA FIT",
@@ -124,7 +124,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/hondafit-detail-1.jpg`, `${DECK}/galeria/hondafit-detail-2.jpg`, `${DECK}/galeria/hondafit-detail-3.jpg`, `${DECK}/galeria/hondafit-detail-4.jpg`],
   },
   {
-    key: "honda-accord", file: "legacy-honda-accord-thumb.jpg", name: "Honda Accord", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
+    key: "honda-accord", file: "legacy-honda-accord-thumb.webp", name: "Honda Accord", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
     cap: "Sistema variable de cilindros. La analogía perfecta.",
     capEn: "Variable cylinder system. The perfect analogy.",
     tag: "AUTOMOTRIZ · SISTEMA VARIABLE", thin: "DEMOSTRAMOS UN", bold: "SISTEMA VARIABLE DE CILINDROS",
@@ -134,7 +134,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/hondaaccord-detail-1.jpg`, `${DECK}/galeria/hondaaccord-detail-2.jpg`, `${DECK}/galeria/hondaaccord-detail-3.jpg`],
   },
   {
-    key: "honda-crv", file: "legacy-honda-crv-thumb.jpg", name: "Honda CR-V", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
+    key: "honda-crv", file: "legacy-honda-crv-thumb.webp", name: "Honda CR-V", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
     cap: "Vive la evolución. Nueva generación de emociones.",
     capEn: "Live the evolution. A new generation of emotions.",
     tag: "AUTOMOTRIZ · NUEVA GENERACIÓN", thin: "VIVE UNA NUEVA", bold: "GENERACIÓN DE EMOCIONES",
@@ -144,7 +144,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/hondacrv-detail-1.jpg`, `${DECK}/galeria/hondacrv-detail-2.jpg`, `${DECK}/galeria/hondacrv-detail-3.jpg`],
   },
   {
-    key: "honda-despiece", file: "legacy-hondadespiece-thumb.jpg", name: "Honda · Despiece", cat: "Auto · Activación", catEn: "Auto · Activation", feat: false,
+    key: "honda-despiece", file: "legacy-hondadespiece-thumb.webp", name: "Honda · Despiece", cat: "Auto · Activación", catEn: "Auto · Activation", feat: false,
     cap: "Un problema convertido en la activación más exitosa de la expo.",
     capEn: "A problem turned into the most successful activation of the expo.",
     tag: "HONDA · ACTIVACIÓN · EXPO", thin: "UN PROBLEMA QUE TERMINA EN", bold: "LA ACTIVACIÓN MÁS EXITOSA",
@@ -154,7 +154,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/hondadespiece-detail-1.jpg`, `${DECK}/galeria/hondadespiece-detail-2.jpg`, `${DECK}/galeria/hondadespiece-detail-3.jpg`, `${DECK}/galeria/hondadespiece-detail-4.jpg`, `${DECK}/galeria/hondadespiece-detail-5.jpg`],
   },
   {
-    key: "honda-cb190r", file: "legacy-cb190r-thumb.jpg", name: "Honda CB190R", cat: "Moto · LatAm", catEn: "Moto · LatAm", feat: false,
+    key: "honda-cb190r", file: "legacy-cb190r-thumb.webp", name: "Honda CB190R", cat: "Moto · LatAm", catEn: "Moto · LatAm", feat: false,
     cap: "Naked urbana. Riding nocturno cinematográfico. Sé rápido.",
     capEn: "Urban naked bike. Cinematic night riding. Be fast.",
     tag: "HONDA · MOTOS · CB190R", thin: "SÉ RÁPIDO.", bold: "NO SOLO LO APARENTES",
@@ -164,7 +164,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/cb190r-detail-1.jpg`, `${DECK}/galeria/cb190r-detail-2.jpg`, `${DECK}/galeria/cb190r-detail-3.jpg`, `${DECK}/galeria/cb190r-detail-4.jpg`, `${DECK}/galeria/cb190r-detail-5.jpg`],
   },
   {
-    key: "ridgeline", file: "legacy-ridgeline-thumb.jpg", name: "Honda Ridgeline", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
+    key: "ridgeline", file: "legacy-ridgeline-thumb.webp", name: "Honda Ridgeline", cat: "Auto · LatAm", catEn: "Auto · LatAm", feat: false,
     cap: "Grande en cualquier territorio. Versatilidad y potencia.",
     capEn: "Big in any territory. Versatility and power.",
     tag: "AUTOMOTRIZ · LANZAMIENTO", thin: "CAMBIAMOS EL ENFOQUE", bold: "PARA LLEGAR MÁS LEJOS",
@@ -174,7 +174,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/ridgeline-detail-1.jpg`, `${DECK}/galeria/ridgeline-detail-2.jpg`, `${DECK}/galeria/ridgeline-detail-3.jpg`],
   },
   {
-    key: "pecador", file: "legacy-capel-thumb.jpg", name: "Pecador", cat: "Spirits · Capel", catEn: "Spirits · Capel", feat: false,
+    key: "pecador", file: "legacy-capel-thumb.webp", name: "Pecador", cat: "Spirits · Capel", catEn: "Spirits · Capel", feat: false,
     cap: "Marca disruptiva de Capel. Skate, calle y actitud para un nuevo target.",
     capEn: "Capel's disruptive brand. Skate, street and attitude for a new target.",
     tag: "SPIRITS · CAPEL · DISRUPTIVO", thin: "UNA MARCA DISRUPTIVA", bold: "CON ACTITUD DE CALLE",
@@ -184,7 +184,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/pecador-detail-1.jpg`, `${DECK}/galeria/pecador-detail-2.jpg`, `${DECK}/galeria/pecador-detail-3.jpg`],
   },
   {
-    key: "hacienda", file: "legacy-hacienda-thumb.jpg", name: "Hacienda La Torre", cat: "Premium · Marca propia", catEn: "Premium · Own brand", feat: false,
+    key: "hacienda", file: "legacy-hacienda-thumb.webp", name: "Hacienda La Torre", cat: "Premium · Marca propia", catEn: "Premium · Own brand", feat: false,
     cap: "Marca premium creada integralmente. 16% del total de ventas.",
     capEn: "Premium brand created end to end. 16% of total sales.",
     tag: "SPIRITS · CHILE · MARCA PREMIUM", thin: "CREAMOS Y POSICIONAMOS", bold: "UNA MARCA PREMIUM",
@@ -194,7 +194,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/hacienda-detail-1.jpg`, `${DECK}/galeria/hacienda-detail-2.jpg`, `${DECK}/galeria/hacienda-detail-3.jpg`, `${DECK}/galeria/hacienda-detail-4.jpg`],
   },
   {
-    key: "cinzano", file: "legacy-cinzano-thumb.jpg", name: "Cinzano", cat: "Spirits · Premium", catEn: "Spirits · Premium", feat: false,
+    key: "cinzano", file: "legacy-cinzano-thumb.webp", name: "Cinzano", cat: "Spirits · Premium", catEn: "Spirits · Premium", feat: false,
     cap: "Masterpiece. Campaña premium para el vermouth icónico.",
     capEn: "Masterpiece. Premium campaign for the iconic vermouth.",
     tag: "SPIRITS · VERMOUTH · MASTERPIECE", thin: "UN VERMOUTH", bold: "QUE ES UNA OBRA MAESTRA",
@@ -204,7 +204,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/cinzano-detail-1.jpg`, `${DECK}/galeria/cinzano-detail-2.jpg`, `${DECK}/galeria/cinzano-detail-3.jpg`],
   },
   {
-    key: "montefraile", file: "legacy-montefraile-thumb.jpg", name: "Monte Fraile", cat: "Vinos · Virtual Set", catEn: "Wines · Virtual Set", feat: false,
+    key: "montefraile", file: "legacy-montefraile-thumb.webp", name: "Monte Fraile", cat: "Vinos · Virtual Set", catEn: "Wines · Virtual Set", feat: false,
     cap: "Virtual set. La cordillera de los Andes como escenario.",
     capEn: "Virtual set. The Andes mountain range as the stage.",
     tag: "SPIRITS · PISCO SUPER PREMIUM", thin: "HAY EXPERIENCIAS QUE", bold: "NO SE PUEDEN EXPRESAR",
@@ -214,7 +214,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/montefraile-detail-1.jpg`, `${DECK}/galeria/montefraile-detail-2.jpg`, `${DECK}/galeria/montefraile-detail-3.jpg`],
   },
   {
-    key: "samsung", file: "legacy-samsung-thumb.jpg", name: "Samsung", cat: "Tech · Viral", catEn: "Tech · Viral", feat: false,
+    key: "samsung", file: "legacy-samsung-thumb.webp", name: "Samsung", cat: "Tech · Viral", catEn: "Tech · Viral", feat: false,
     cap: "Mambo viral. Una conexión que rompió récords.",
     capEn: "Viral mambo. A connection that broke records.",
     tag: "TECH · VIRAL · RÉCORD", thin: "UNA CONEXIÓN QUE", bold: "ROMPIÓ RÉCORDS",
@@ -224,7 +224,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/samsung-detail-1.jpg`, `${DECK}/galeria/samsung-detail-2.jpg`, `${DECK}/galeria/samsung-detail-3.jpg`],
   },
   {
-    key: "quilmes", file: "legacy-quilmes-thumb.jpg", name: "Quilmes", cat: "Cerveza · Impacto", catEn: "Beer · Impact", feat: false,
+    key: "quilmes", file: "legacy-quilmes-thumb.webp", name: "Quilmes", cat: "Cerveza · Impacto", catEn: "Beer · Impact", feat: false,
     cap: "Guía para padres e hijos. Consumo responsable con impacto.",
     capEn: "A guide for parents and children. Responsible drinking with impact.",
     tag: "BEBIDAS · CONSUMO RESPONSABLE", thin: "ENTRE PADRES E HIJOS,", bold: "UNA MEJOR COMUNICACIÓN",
@@ -234,7 +234,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/quilmes-detail-1.jpg`, `${DECK}/galeria/quilmes-detail-2.jpg`, `${DECK}/galeria/quilmes-detail-3.jpg`],
   },
   {
-    key: "bayer-empecid", file: "legacy-bayerempecid-thumb.jpg", name: "Bayer · Empecid", cat: "Pharma · Social", catEn: "Pharma · Social", feat: false,
+    key: "bayer-empecid", file: "legacy-bayerempecid-thumb.webp", name: "Bayer · Empecid", cat: "Pharma · Social", catEn: "Pharma · Social", feat: false,
     cap: "Un problema de salud íntima que decidimos no ocultar. #CuídateSinTabú.",
     capEn: "An intimate health issue we chose not to hide. #CuídateSinTabú.",
     tag: "BAYER · SALUD · #CUÍDATESINTABÚ", thin: "UN PROBLEMA QUE DECIDIMOS", bold: "NO OCULTAR",
@@ -244,7 +244,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/bayerempecid-detail-1.jpg`, `${DECK}/galeria/bayerempecid-detail-2.jpg`, `${DECK}/galeria/bayerempecid-detail-3.jpg`, `${DECK}/galeria/bayerempecid-detail-4.jpg`, `${DECK}/galeria/bayerempecid-detail-5.jpg`],
   },
   {
-    key: "alto-del-carmen", file: "legacy-altodelcarmen-thumb.jpg", name: "Alto del Carmen", cat: "Spirits · Chile", catEn: "Spirits · Chile", feat: false,
+    key: "alto-del-carmen", file: "legacy-altodelcarmen-thumb.webp", name: "Alto del Carmen", cat: "Spirits · Chile", catEn: "Spirits · Chile", feat: false,
     cap: "Cambiamos la marca más importante de pisco. +8 puntos de share.",
     capEn: "We transformed the most important pisco brand. +8 share points.",
     tag: "SPIRITS · CHILE · +8 PTS SHARE", thin: "CAMBIAMOS LA", bold: "MARCA MÁS IMPORTANTE DE PISCO",
@@ -254,7 +254,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/altocarmen-detail-1.jpg`, `${DECK}/galeria/altocarmen-detail-2.jpg`, `${DECK}/galeria/altocarmen-detail-3.jpg`, `${DECK}/galeria/altocarmen-detail-4.jpg`, `${DECK}/galeria/altocarmen-detail-5.jpg`],
   },
   {
-    key: "acblanca", file: "legacy-acblanca-thumb.jpg", name: "Alto del Carmen Blanca", cat: "Spirits · Chile", catEn: "Spirits · Chile", feat: false,
+    key: "acblanca", file: "legacy-acblanca-thumb.webp", name: "Alto del Carmen Blanca", cat: "Spirits · Chile", catEn: "Spirits · Chile", feat: false,
     cap: "Virtual set. Recreamos la cordillera para lanzar la nueva etiqueta.",
     capEn: "Virtual set. We recreated the mountains to launch the new label.",
     tag: "SPIRITS · CHILE · VIRTUAL SET", thin: "USAMOS TECNOLOGÍA DE", bold: "VIRTUAL SET",
@@ -264,7 +264,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/acblanca-detail-1.jpg`, `${DECK}/galeria/acblanca-detail-2.jpg`, `${DECK}/galeria/acblanca-detail-3.jpg`, `${DECK}/galeria/acblanca-detail-4.jpg`, `${DECK}/galeria/acblanca-detail-5.jpg`],
   },
   {
-    key: "cafayate", file: "legacy-cafayate-thumb.jpg", name: "Vinos de Altura", cat: "Vinos · Cafayate", catEn: "Wines · Cafayate", feat: false,
+    key: "cafayate", file: "legacy-cafayate-thumb.webp", name: "Vinos de Altura", cat: "Vinos · Cafayate", catEn: "Wines · Cafayate", feat: false,
     cap: "Campaña 360° para mostrar los vinos de altura.",
     capEn: "360° campaign to showcase high-altitude wines.",
     tag: "VINOS · ARGENTINA · CAMPAÑA 360", thin: "MOSTRAMOS EL VALOR DE LOS", bold: "VINOS DE ALTURA",
@@ -274,7 +274,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/cafayate-detail-1.jpg`, `${DECK}/galeria/cafayate-detail-2.jpg`, `${DECK}/galeria/cafayate-detail-3.jpg`],
   },
   {
-    key: "sensus", file: "legacy-sensus-thumb.jpg", name: "Sensus", cat: "Spirits · 100% AI", catEn: "Spirits · 100% AI", feat: false,
+    key: "sensus", file: "legacy-sensus-thumb.webp", name: "Sensus", cat: "Spirits · 100% AI", catEn: "Spirits · 100% AI", feat: false,
     cap: "Comercial premium de la idea a la publicación en solo 7 días.",
     capEn: "Premium commercial from idea to publication in just 7 days.",
     tag: "ESPUMANTE · COMERCIAL · 7 DÍAS", thin: "DE LA IDEA A LA PUBLICACIÓN", bold: "EN SOLO 7 DÍAS",
@@ -284,7 +284,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/sensus-detail-1.jpg`, `${DECK}/galeria/sensus-detail-2.jpg`, `${DECK}/galeria/sensus-detail-3.jpg`, `${DECK}/galeria/sensus-detail-4.jpg`, `${DECK}/galeria/sensus-detail-5.jpg`],
   },
   {
-    key: "havana", file: "legacy-havana-thumb.jpg", name: "Havana Club", cat: "Spirits · Tech", catEn: "Spirits · Tech", feat: false,
+    key: "havana", file: "legacy-havana-thumb.webp", name: "Havana Club", cat: "Spirits · Tech", catEn: "Spirits · Tech", feat: false,
     cap: "NFC Dock. Desconectar para conectar. Tecnología al servicio de lo auténtico.",
     capEn: "NFC Dock. Disconnect to connect. Technology in service of the authentic.",
     tag: "SPIRITS · ACTIVACIÓN · NFC DOCK", thin: "DESCONECTAMOS PARA", bold: "LOGRAR MOMENTOS ÚNICOS",
@@ -294,7 +294,7 @@ export const WORKS = [
     images: [`${DECK}/galeria/havana-detail-1.jpg`, `${DECK}/galeria/havana-detail-2.jpg`, `${DECK}/galeria/havana-detail-3.jpg`, `${DECK}/galeria/havana-detail-4.jpg`],
   },
   {
-    key: "havana-cubalibre", file: "legacy-havanacola-thumb.jpg", name: "Havana Club · Cuba Libre", cat: "Spirits", catEn: "Spirits", feat: false,
+    key: "havana-cubalibre", file: "legacy-havanacola-thumb.webp", name: "Havana Club · Cuba Libre", cat: "Spirits", catEn: "Spirits", feat: false,
     cap: "Comercial para invitar a probar el clásico Cuba Libre.",
     capEn: "Commercial inviting you to try the classic Cuba Libre.",
     tag: "RON · COMERCIAL", thin: "UN COMERCIAL PARA INVITAR", bold: "AL CLÁSICO CUBA LIBRE",

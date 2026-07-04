@@ -4,7 +4,7 @@ import { THEMES } from "../theme/palette";
 
 // Expo.out — easing premium (ui-ux-pro-max, estilo "Modern Dark Cinema").
 const EXPO = [0.16, 1, 0.3, 1];
-const STATEMENT_BG = "/assets/hero/closing-red.jpg"; // retrato editorial rojo
+const STATEMENT_BG = "/assets/hero/closing-red.webp"; // retrato editorial rojo
 
 // Slide-statement (después de Por qué WTF). Una línea-manifiesto en inglés con
 // reveal RACK-FOCUS (blur→nítido + fade), orquestado desde el PADRE (patrón

@@ -7,7 +7,7 @@ import { useLang } from "../i18n/LangContext";
 import { logo } from "../../sections/shared";
 
 const HERO_VIDEO = "/assets/hero/moto.mp4"; // motociclista neón (video del deck)
-const HERO_POSTER = "/assets/hero/moto-poster.jpg";
+const HERO_POSTER = "/assets/hero/moto-poster.webp";
 const LOGO_LOCKUP = "/assets/logos/logo-wtf-lockup.png"; // lockup WTF+Brief Destroyers (deck)
 const EASE = [0.22, 1, 0.36, 1];
 const HERO_LOGOS = [

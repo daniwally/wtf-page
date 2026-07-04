@@ -4,7 +4,7 @@ import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
 import { useLang } from "../i18n/LangContext";
 
-const ENGINE_HORSE_BG = "/assets/hero/engine-horse.jpg"; // caballo negro en humo (motivo de marca WTF)
+const ENGINE_HORSE_BG = "/assets/hero/engine-horse.webp"; // caballo negro en humo (motivo de marca WTF)
 const EASE = [0.22, 1, 0.36, 1];
 
 // Sección 3 — INFINITY ENGINE. El reveal del sistema operativo creativo de WTF:

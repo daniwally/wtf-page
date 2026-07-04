@@ -9,7 +9,7 @@ import { getWorkText } from "../data/workPt";
 // (imagen grande 3fr + 2 apiladas 2fr → video inline con controles → imágenes extra).
 // Copy bilingüe (es | en): se consume con useLang().
 const DECK = "https://engine.wtf-agency.works/wtf-credenciales-slides";
-const WALL = "/assets/hero/modal-bg.jpg"; // árbol nocturno (fondo de los modales)
+const WALL = "/assets/hero/modal-bg.webp"; // árbol nocturno (fondo de los modales)
 const EXPO = [0.16, 1, 0.3, 1];
 const imgStyle = { width: "100%", height: "100%", objectFit: "cover", display: "block" };
 const COPY = {

@@ -51,7 +51,7 @@ const COPY = {
 
 // Video lazy: no asigna el src hasta entrar al viewport y pausa al salir. Así la
 // galería no abre decenas de conexiones remotas durante la carga inicial.
-const LazyVideo = ({ src, label }) => {
+const LazyVideo = ({ src, label, ratio }) => {
   const ref = useRef(null);
   const [shouldLoad, setShouldLoad] = useState(false);
 
@@ -86,6 +86,7 @@ const LazyVideo = ({ src, label }) => {
       preload="none"
       aria-label={label}
       className="block w-full"
+      style={{ aspectRatio: ratio }}
     />
   );
 };
@@ -140,7 +141,7 @@ const GallerySection = () => {
       {/* Slide inicial con fondo motorsport */}
       <div className="relative min-h-screen pt-24 pb-10 md:pt-28 md:pb-14">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/hero/proof-now-chica.jpg" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
+          <img src="/assets/hero/proof-now-chica.webp" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#0A0A0C]/8" />
         </div>
         <div className="relative z-10 flex min-h-[calc(100vh-8.5rem)] w-full flex-col justify-between">
@@ -197,12 +198,20 @@ const GallerySection = () => {
           return (
           <div
             key={it.src}
-            className="group relative mb-1 break-inside-avoid overflow-hidden rounded-md transition-opacity duration-300 hover:opacity-90"
+            className="group relative mb-1 break-inside-avoid overflow-hidden rounded-md bg-white/[0.04] transition-opacity duration-300 hover:opacity-90"
+            style={{ aspectRatio: it.ratio }}
           >
             {it.video ? (
-              <LazyVideo src={it.src} label={label} />
+              <LazyVideo src={it.src} label={label} ratio={it.ratio} />
             ) : (
-              <img src={it.src} alt={label} loading="lazy" decoding="async" className="block w-full" />
+              <img
+                src={it.src}
+                alt={label}
+                loading="lazy"
+                decoding="async"
+                className="block w-full"
+                style={{ aspectRatio: it.ratio }}
+              />
             )}
             <div className="absolute inset-0 flex items-end p-2.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               <span className="font-hud text-[9px] tracking-wide bg-volt text-white px-1.5 py-1 rounded">{label}</span>

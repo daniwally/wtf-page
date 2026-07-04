@@ -50,9 +50,9 @@ const PAISES = [
   { es: "España", en: "Spain", pt: "Espanha" },
 ];
 
-const WAVE = "/assets/hero/closing-wave.jpg"; // ola oceánica (cierre)
+const WAVE = "/assets/hero/closing-wave.webp"; // ola oceánica (cierre)
 const DOOR_VIDEO = "/assets/hero/statement-door.mp4"; // puerta en el mar (gracias)
-const DOOR_POSTER = "/assets/hero/statement-door-poster.jpg";
+const DOOR_POSTER = "/assets/hero/statement-door-poster.webp";
 
 // Sección 8 — CLOSING. Cierre cinematográfico en DOS slides oscuros: (1) statement
 // + países + CTA sobre las olas; (2) el GRACIAS estilo deck sobre el video de la

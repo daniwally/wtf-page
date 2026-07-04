@@ -14,18 +14,35 @@ function App() {
     <div className="App">
       <MotionConfig reducedMotion="user">
         <BrowserRouter>
-          <Suspense fallback={null}>
-            <Routes>
-              {/* v3 = versión principal */}
-              <Route path="/" element={<V3Page />} />
-              <Route path="/en/" element={<V3Page />} />
-              <Route path="/pt/" element={<V3Page />} />
-              <Route path="/v3" element={<V3Page />} />
-              {/* respaldos (no se borran archivos: la película la edita otro chat) */}
-              <Route path="/pelicula" element={<LandingPage />} />
-              <Route path="/v2" element={<MonksPage />} />
-            </Routes>
-          </Suspense>
+          {/* OJO: el <Suspense> NO puede envolver las rutas prerenderizadas. El HTML
+              SSG es un snapshot de Puppeteer sin los marcadores de boundary que
+              React 19 espera al hidratar un Suspense (<!--$-->), y ese mismatch
+              (error #418) hacía descartar TODO el prerender y re-renderizar en
+              cliente. La home va eager y sin boundary; cada ruta lazy lleva el suyo. */}
+          <Routes>
+            {/* v3 = versión principal */}
+            <Route path="/" element={<V3Page />} />
+            <Route path="/en/" element={<V3Page />} />
+            <Route path="/pt/" element={<V3Page />} />
+            <Route path="/v3" element={<V3Page />} />
+            {/* respaldos (no se borran archivos: la película la edita otro chat) */}
+            <Route
+              path="/pelicula"
+              element={
+                <Suspense fallback={null}>
+                  <LandingPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/v2"
+              element={
+                <Suspense fallback={null}>
+                  <MonksPage />
+                </Suspense>
+              }
+            />
+          </Routes>
         </BrowserRouter>
       </MotionConfig>
     </div>

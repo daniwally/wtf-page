@@ -12,7 +12,7 @@ import { useLang } from "../i18n/LangContext";
 // figura + cards de vidrio oscuro con texto claro.
 // (archivo histórico SolutionsSection.jsx; ahora es "What we do")
 // Copy bilingüe (es | en): se consume con useLang().
-const SOL_BG = "/assets/hero/movement-jump.jpg"; // figura en salto + swirl rosa (movimiento)
+const SOL_BG = "/assets/hero/movement-jump.webp"; // figura en salto + swirl rosa (movimiento)
 
 const COPY = {
   es: {

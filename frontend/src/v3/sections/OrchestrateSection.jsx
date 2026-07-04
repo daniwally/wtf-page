@@ -11,7 +11,7 @@ import { useLang } from "../i18n/LangContext";
 // (archivo histórico OrchestrateSection.jsx; ahora es "The model")
 // Copy bilingüe (es | en): se consume con useLang(). Los verbos del loop
 // (Think/Make/Move/Learn/Grow) van en inglés en ambos idiomas (etiquetas de marca).
-const MODEL_BG = "/assets/hero/model-goggles.jpg"; // mujer con antiparras (mood del hero)
+const MODEL_BG = "/assets/hero/model-goggles.webp"; // mujer con antiparras (mood del hero)
 
 const COPY = {
   es: {

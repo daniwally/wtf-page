@@ -54,7 +54,7 @@ const COPY = {
   },
 };
 
-const CHESS = "/assets/hero/why-chess.jpg"; // ejército de ajedrez explotando: estrategia en movimiento
+const CHESS = "/assets/hero/why-chess.webp"; // ejército de ajedrez explotando: estrategia en movimiento
 
 const WhySection = () => {
   const { lang } = useLang();

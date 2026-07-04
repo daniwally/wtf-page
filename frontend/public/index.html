@@ -53,10 +53,12 @@
         <link rel="preconnect" href="https://engine.wtf-agency.works" crossorigin />
         <link rel="dns-prefetch" href="https://engine.wtf-agency.works" />
 
-        <!-- Fuentes vía <link> (no @import: no bloquea el parseo del CSS) -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+        <!-- Fuentes vía <link> (no @import: no bloquea el parseo del CSS).
+             Solo los estilos que el sitio usa: Inter 100-700+900 upright,
+             itálicas 100/300/400/700, JetBrains Mono 400/500/700. -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,300;1,400;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" />
         <!-- Preloads above the fold -->
-        <link rel="preload" as="image" href="/assets/hero/moto-poster.jpg" fetchpriority="high" />
+        <link rel="preload" as="image" href="/assets/hero/moto-poster.webp" fetchpriority="high" />
         <link rel="preload" as="image" href="/assets/logos/logo-wtf-lockup.png" />
 
         <!-- Google tag (gtag.js) -->

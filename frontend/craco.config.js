@@ -49,6 +49,15 @@ const webpackConfig = {
     },
     configure: (webpackConfig) => {
 
+      // Debug builds legibles (stacks de hidratación con nombres reales):
+      // DISABLE_MINIMIZE=true npm run build:ssg
+      if (process.env.DISABLE_MINIMIZE === "true") {
+        webpackConfig.optimization = {
+          ...webpackConfig.optimization,
+          minimize: false,
+        };
+      }
+
       // Add ignored patterns to reduce watched directories
         webpackConfig.watchOptions = {
           ...webpackConfig.watchOptions,

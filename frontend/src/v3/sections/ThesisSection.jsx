@@ -7,7 +7,7 @@ import ViewportVideo from "../ui/ViewportVideo";
 // Expo.out — easing premium (estilo "Modern Dark Cinema").
 const EXPO = [0.16, 1, 0.3, 1];
 const FALL_VIDEO = "/assets/hero/dog-loop.mp4"; // perro con antiparras (video de marca)
-const FALL_POSTER = "/assets/hero/dog-loop.jpg";
+const FALL_POSTER = "/assets/hero/dog-loop.webp";
 
 // Copy bilingüe (es | en): se consume con useLang(). Las líneas del díptico van como
 // JSX (con sus <span className="font-bold">/<br/>) duplicadas por idioma, misma
@@ -27,10 +27,13 @@ const COPY = {
         <span className="font-thin">
           Las marcas necesitan
           <br />
-          sistemas que
+          sistemas que{" "}
         </span>
-        <br />
-        <span className="font-bold">piensen, produzcan y aprendan.</span>
+        <span className="font-bold">
+          piensen,
+          <br />
+          produzcan y aprendan.
+        </span>
       </>
     ),
     insight:
@@ -51,10 +54,13 @@ const COPY = {
         <span className="font-thin">
           Brands need
           <br />
-          systems that
+          systems that{" "}
         </span>
-        <br />
-        <span className="font-bold">think, produce and learn.</span>
+        <span className="font-bold">
+          think,
+          <br />
+          produce and learn.
+        </span>
       </>
     ),
     insight:
@@ -75,10 +81,13 @@ const COPY = {
         <span className="font-thin">
           As marcas precisam
           <br />
-          de sistemas que
+          de sistemas que{" "}
         </span>
-        <br />
-        <span className="font-bold">pensem, produzam e aprendam.</span>
+        <span className="font-bold">
+          pensem,
+          <br />
+          produzam e aprendam.
+        </span>
       </>
     ),
     insight:
@@ -172,7 +181,8 @@ const ThesisSection = () => {
             className="md:hidden mx-auto h-10 w-[2px] bg-volt origin-center shadow-[0_0_18px_rgba(255,59,48,0.55)]"
           />
 
-          {/* Ahora (dominante, bold, blanco) */}
+          {/* Ahora (dominante, bold, blanco). Quiebres manuales: "sistemas que"
+              va unido a los verbos y ninguna palabra queda huérfana. */}
           <motion.h2
             variants={fade}
             className="text-center md:text-left font-normal uppercase tracking-[0.01em] leading-[1.15] text-white text-[clamp(20px,2.64vw,31px)]"

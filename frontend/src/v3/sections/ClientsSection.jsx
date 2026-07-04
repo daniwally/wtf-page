@@ -5,7 +5,7 @@ import { THEMES } from "../theme/palette";
 import Headline from "../ui/Headline";
 import { useLang } from "../i18n/LangContext";
 
-const BG = "/assets/hero/salto.jpg"; // skydiver (como el deck), bien atenuado
+const BG = "/assets/hero/salto.webp"; // skydiver (como el deck), bien atenuado
 
 // Copy bilingüe (es | en): se consume con useLang().
 const COPY = {
