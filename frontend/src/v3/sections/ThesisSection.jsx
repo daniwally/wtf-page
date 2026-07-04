@@ -27,7 +27,7 @@ const COPY = {
         <span className="font-thin">
           Las marcas necesitan
           <br />
-          sistemas que{" "}
+          {"sistemas que "}
         </span>
         <span className="font-bold">
           piensen,
@@ -54,7 +54,7 @@ const COPY = {
         <span className="font-thin">
           Brands need
           <br />
-          systems that{" "}
+          {"systems that "}
         </span>
         <span className="font-bold">
           think,
@@ -81,7 +81,7 @@ const COPY = {
         <span className="font-thin">
           As marcas precisam
           <br />
-          de sistemas que{" "}
+          {"de sistemas que "}
         </span>
         <span className="font-bold">
           pensem,
