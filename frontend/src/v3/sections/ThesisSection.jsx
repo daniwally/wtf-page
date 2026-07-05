@@ -6,8 +6,10 @@ import ViewportVideo from "../ui/ViewportVideo";
 
 // Expo.out — easing premium (estilo "Modern Dark Cinema").
 const EXPO = [0.16, 1, 0.3, 1];
-const FALL_VIDEO = "/assets/hero/dog-loop.mp4"; // perro con antiparras (video de marca)
-const FALL_POSTER = "/assets/hero/dog-loop.webp";
+// Bulldog frontal con antiparras (Seedance, aprobado 2026-07-05); el anterior
+// era dog-loop.mp4 (perfil), que sigue disponible en assets/hero.
+const FALL_VIDEO = "/assets/hero/problema-dog.mp4";
+const FALL_POSTER = "/assets/hero/problema-dog-poster.webp";
 
 // Copy bilingüe (es | en): se consume con useLang(). Las líneas del díptico van como
 // JSX (con sus <span className="font-bold">/<br/>) duplicadas por idioma, misma
