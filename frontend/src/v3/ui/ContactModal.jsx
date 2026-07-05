@@ -72,11 +72,71 @@ const COPY = {
   },
 };
 
-const ContactModalContext = createContext({ openContact: () => {} });
+// Variante "careers" (Trabajá en WTF): mismo modal y mismo envío Formspree,
+// cambia el subject, el copy y dos campos (especialidad y portfolio en lugar
+// de empresa y cargo).
+const CAREERS_COPY = {
+  es: {
+    eyebrow: "Trabajá en WTF",
+    title: "Vení a destruir briefs con nosotros.",
+    intro: "Contanos quién sos y qué hacés. El resto lo charlamos.",
+    name: "Nombre y apellido",
+    company: "Especialidad (estrategia, creatividad, producción, tecnología...)",
+    role: "Portfolio o LinkedIn (link)",
+    email: "Email",
+    message: "¿Por qué WTF?",
+    placeholder: "Contanos qué hacés, qué te mueve y qué querés construir...",
+    submit: "Enviar",
+    sending: "Enviando...",
+    consent: "Al enviar, aceptás que WTF Agency te contacte por oportunidades de trabajo.",
+    successTitle: "Recibido.",
+    successBody: "Si hay match, te escribimos.",
+    close: "Cerrar",
+    error: "Algo no salió bien. Probá de nuevo.",
+  },
+  en: {
+    eyebrow: "Work at WTF",
+    title: "Come destroy briefs with us.",
+    intro: "Tell us who you are and what you do. We'll talk about the rest.",
+    name: "Full name",
+    company: "Specialty (strategy, creative, production, technology...)",
+    role: "Portfolio or LinkedIn (link)",
+    email: "Email",
+    message: "Why WTF?",
+    placeholder: "Tell us what you do, what moves you and what you want to build...",
+    submit: "Send",
+    sending: "Sending...",
+    consent: "By sending, you agree that WTF Agency may contact you about job opportunities.",
+    successTitle: "Received.",
+    successBody: "If there's a match, we'll write you.",
+    close: "Close",
+    error: "Something went wrong. Please try again.",
+  },
+  pt: {
+    eyebrow: "Trabalhe na WTF",
+    title: "Venha destruir briefs com a gente.",
+    intro: "Conte quem você é e o que faz. O resto a gente conversa.",
+    name: "Nome e sobrenome",
+    company: "Especialidade (estratégia, criatividade, produção, tecnologia...)",
+    role: "Portfólio ou LinkedIn (link)",
+    email: "Email",
+    message: "Por que a WTF?",
+    placeholder: "Conte o que você faz, o que te move e o que quer construir...",
+    submit: "Enviar",
+    sending: "Enviando...",
+    consent: "Ao enviar, você aceita que a WTF Agency entre em contato sobre oportunidades de trabalho.",
+    successTitle: "Recebido.",
+    successBody: "Se rolar match, a gente te escreve.",
+    close: "Fechar",
+    error: "Algo deu errado. Tente novamente.",
+  },
+};
 
-const ContactModal = ({ open, onClose }) => {
+const ContactModalContext = createContext({ openContact: () => {}, openCareers: () => {} });
+
+const ContactModal = ({ open, onClose, variant = "brand" }) => {
   const { lang } = useLang();
-  const c = COPY[lang];
+  const c = (variant === "careers" ? CAREERS_COPY : COPY)[lang];
   const dialogRef = useRef(null);
   const firstInputRef = useRef(null);
   const formRef = useRef(null);
@@ -126,20 +186,28 @@ const ContactModal = ({ open, onClose }) => {
     const formData = new FormData(event.currentTarget);
     const email = String(formData.get("email") || "");
     const company = String(formData.get("company") || "");
+    const applicant = String(formData.get("name") || "");
     const honeypot = String(formData.get("website") || "");
     if (honeypot) {
       setStatus("success");
       return;
     }
-    trackEvent("contact_submit", {
+    trackEvent(variant === "careers" ? "careers_submit" : "contact_submit", {
       event_category: "lead",
       language: lang,
     });
     formData.set("_replyto", email);
     formData.set(
       "_subject",
-      company ? `Nuevo contacto WTF Agency · ${company}` : "Nuevo contacto WTF Agency"
+      variant === "careers"
+        ? applicant
+          ? `Trabajá en WTF · ${applicant}`
+          : "Trabajá en WTF · Nueva postulación"
+        : company
+          ? `Nuevo contacto WTF Agency · ${company}`
+          : "Nuevo contacto WTF Agency"
     );
+    formData.append("form_type", variant === "careers" ? "careers" : "brand");
     formData.append("language", lang === "pt" ? "pt-BR" : lang);
     formData.append("source", window.location.href);
 
@@ -152,13 +220,13 @@ const ContactModal = ({ open, onClose }) => {
       if (!response.ok) throw new Error("Form submission failed");
       formRef.current?.reset();
       setStatus("success");
-      trackEvent("contact_success", {
+      trackEvent(variant === "careers" ? "careers_success" : "contact_success", {
         event_category: "lead",
         language: lang,
       });
     } catch {
       setStatus("error");
-      trackEvent("contact_error", {
+      trackEvent(variant === "careers" ? "careers_error" : "contact_error", {
         event_category: "lead",
         language: lang,
       });
@@ -275,16 +343,16 @@ const ContactModal = ({ open, onClose }) => {
                       {c.company}
                       <input
                         required
-                        name="company"
-                        autoComplete="organization"
+                        name={variant === "careers" ? "specialty" : "company"}
+                        autoComplete={variant === "careers" ? "off" : "organization"}
                         className="mt-2 h-12 w-full rounded-none border-0 border-b border-white/25 bg-transparent px-0 text-base text-white outline-none transition-colors placeholder:text-white/25 focus:border-volt"
                       />
                     </label>
                     <label className="text-sm font-medium text-white/70">
                       {c.role}
                       <input
-                        name="role"
-                        autoComplete="organization-title"
+                        name={variant === "careers" ? "portfolio" : "role"}
+                        autoComplete={variant === "careers" ? "url" : "organization-title"}
                         className="mt-2 h-12 w-full rounded-none border-0 border-b border-white/25 bg-transparent px-0 text-base text-white outline-none transition-colors placeholder:text-white/25 focus:border-volt"
                       />
                     </label>
@@ -339,17 +407,24 @@ const ContactModal = ({ open, onClose }) => {
 
 export const ContactModalProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
+  const [variant, setVariant] = useState("brand");
   const { lang } = useLang();
   const openContact = useCallback((source = "unknown") => {
     trackContactOpen(source, lang);
+    setVariant("brand");
+    setOpen(true);
+  }, [lang]);
+  const openCareers = useCallback((source = "unknown") => {
+    trackEvent("careers_open", { event_category: "lead", source, language: lang });
+    setVariant("careers");
     setOpen(true);
   }, [lang]);
   const closeContact = useCallback(() => setOpen(false), []);
 
   return (
-    <ContactModalContext.Provider value={{ openContact }}>
+    <ContactModalContext.Provider value={{ openContact, openCareers }}>
       {children}
-      <ContactModal open={open} onClose={closeContact} />
+      <ContactModal open={open} onClose={closeContact} variant={variant} />
     </ContactModalContext.Provider>
   );
 };

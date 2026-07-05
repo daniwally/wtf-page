@@ -19,6 +19,12 @@ const CTA = {
   en: "Contact",
   pt: "Contato",
 };
+// Abre el modal de postulaciones (variante careers del ContactModal)
+const CAREERS = {
+  es: "Trabajá en WTF",
+  en: "Work at WTF",
+  pt: "Trabalhe na WTF",
+};
 const IG_LABEL = {
   es: "WTF Agency en Instagram",
   en: "WTF Agency on Instagram",
@@ -41,7 +47,7 @@ const MonksNav = () => {
   const navigationCleanup = useRef(null);
   const theme = useActiveTheme();
   const { lang, setLang } = useLang();
-  const { openContact } = useContactModal();
+  const { openContact, openCareers } = useContactModal();
   const darkBg = lum(theme.bg) < 0.55; // fondo oscuro → logo/letras claras
 
   useEffect(() => {
@@ -145,6 +151,13 @@ const MonksNav = () => {
               {item[lang]}
             </a>
           ))}
+          <button
+            type="button"
+            onClick={() => openCareers("nav")}
+            className="text-sm font-semibold uppercase tracking-wide rounded-full px-3 py-1.5 opacity-80 transition-all hover:opacity-100 hover:bg-[#FF3B30] hover:text-[#F4F1E8]"
+          >
+            {CAREERS[lang]}
+          </button>
         </div>
         <div className="flex items-center gap-2 md:gap-4">
           {/* Selector de idioma (funcional) */}
