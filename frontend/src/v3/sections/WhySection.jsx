@@ -3,7 +3,6 @@ import { fadeUp } from "../../sections/shared";
 import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
 import Headline from "../ui/Headline";
-import ViewportVideo from "../ui/ViewportVideo";
 import { useLang } from "../i18n/LangContext";
 
 // Sección 6 — WHY WTF. Senior thinking. Small-team speed. AI-scale output.
@@ -55,23 +54,18 @@ const COPY = {
   },
 };
 
-// Ajedrez explotando en video (aprobado 2026-07-05); la imagen fija original
-// (why-chess.webp) sigue en assets/hero.
-const CHESS_VIDEO = "/assets/hero/why-chess.mp4";
-const CHESS_POSTER = "/assets/hero/why-chess-poster.webp";
+// Rey negro cayendo (aprobada 2026-07-05); anteriores en assets/hero:
+// why-chess.webp (foto original) y why-chess.mp4 (video probado y descartado).
+const CHESS_IMG = "/assets/hero/why-chess-king.webp";
 
 const WhySection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
   return (
     <ThemeSection theme={THEMES.night} id="v3-why" pad="py-14 md:py-20" className="overflow-hidden flex flex-col justify-center">
-      {/* Fondo: ajedrez explotando (video en loop), scrim más oscuro a la izquierda (texto) */}
+      {/* Fondo: ajedrez explotando (imagen), scrim más oscuro a la izquierda (texto) */}
       <div className="absolute inset-0 z-0">
-        <ViewportVideo
-          src={CHESS_VIDEO}
-          poster={CHESS_POSTER}
-          className="h-full w-full object-cover object-center"
-        />
+        <img src={CHESS_IMG} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-[#0A0A0C]/26" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C] via-[#0A0A0C]/68 to-[#0A0A0C]/10" />
         <div className="absolute inset-y-0 left-0 w-[68%] bg-gradient-to-r from-[#0A0A0C]/95 via-[#0A0A0C]/70 to-transparent" />
@@ -85,14 +79,14 @@ const WhySection = () => {
           {c.kicker}
         </motion.p>
 
-        <Headline size="section" className="max-w-5xl !text-[clamp(19px,3vw,43px)]" lines={c.headline} />
+        <Headline size="section" className="max-w-5xl !text-[clamp(21px,3.4vw,49px)]" lines={c.headline} />
 
         <motion.p
           {...fadeUp}
           className="mt-6 max-w-3xl text-[18px] font-light leading-relaxed text-white/80 md:text-xl"
         >
           <span className="block">{c.subLine1}</span>
-          <span className="block text-volt font-bold">{c.subLine2}</span>
+          <span className="block font-bold text-white">{c.subLine2}</span>
         </motion.p>
 
         <div className="mt-8 rounded-2xl border border-white/10 bg-[#050507]/58 p-4 shadow-[0_28px_100px_rgba(0,0,0,0.42)] backdrop-blur-md md:rounded-3xl md:p-6">
