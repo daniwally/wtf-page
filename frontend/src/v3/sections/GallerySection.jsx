@@ -73,7 +73,11 @@ const LazyVideo = ({ src, label, ratio }) => {
   }, []);
 
   useEffect(() => {
-    if (shouldLoad) ref.current?.play().catch(() => {});
+    if (!shouldLoad || !ref.current) return;
+    // Igual que ViewportVideo: `muted` no sobrevive a la hidratación; sin esto
+    // Chrome rechaza el play() y la celda queda congelada en el primer frame.
+    ref.current.muted = true;
+    ref.current.play().catch(() => {});
   }, [shouldLoad]);
 
   return (

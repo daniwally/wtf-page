@@ -25,6 +25,9 @@ const ViewportVideo = ({ src, poster, className = "", rootMargin = "300px", ...r
 
   useEffect(() => {
     if (!shouldLoad || !ref.current) return;
+    // Tras hidratar, React no re-aplica `muted` sobre el DOM prerenderizado y
+    // Chrome rechaza play() de videos con sonido: silenciar SIEMPRE antes.
+    ref.current.muted = true;
     ref.current.play().catch(() => {});
   }, [shouldLoad]);
 

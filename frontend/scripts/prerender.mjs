@@ -131,7 +131,12 @@ async function main() {
       // Respiro para que se asienten los reveals iniciales
       await new Promise((r) => setTimeout(r, 1500));
 
-      const html = await page.content();
+      let html = await page.content();
+      // React setea `muted` como PROPIEDAD (no atributo), así que el snapshot
+      // sale sin `muted` y Chrome bloquea el autoplay de los videos de fondo
+      // (Safari los deja pasar porque no tienen pista de audio). Todos los
+      // videos del sitio son muted por diseño: se inyecta el atributo acá.
+      html = html.replaceAll("<video ", "<video muted ");
       const outFile =
         route === "/"
           ? path.join(BUILD, "index.html")
