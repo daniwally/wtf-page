@@ -3,6 +3,7 @@ import { fadeUp } from "../../sections/shared";
 import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
 import Headline from "../ui/Headline";
+import ViewportVideo from "../ui/ViewportVideo";
 import { useLang } from "../i18n/LangContext";
 
 // Sección 6 — WHY WTF. Senior thinking. Small-team speed. AI-scale output.
@@ -12,16 +13,16 @@ import { useLang } from "../i18n/LangContext";
 const COPY = {
   es: {
     kicker: "Qué resuelve",
-    headline: [<>Lo que las marcas ganan</>, <b key="o">cuando operan como sistema.</b>],
+    headline: [<>Lo que ganan las marcas</>, <b key="o">cuando operan como sistema.</b>],
     subLine1: "Operar como sistema no es una mejora incremental.",
     subLine2: "Es otra forma de construir marca.",
     points: [
-      { label: "Más velocidad", desc: "Del brief a la primera entrega con mayor agilidad." },
-      { label: "Más consistencia", desc: "Una marca más clara en todos sus canales, mercados y formatos." },
-      { label: "Más adaptación", desc: "Creatividad que se ajusta a audiencias, contextos y necesidades." },
-      { label: "Menos fricción", desc: "Un modelo integrado de estrategia, creatividad, producción y ejecución." },
-      { label: "Mejor presupuesto", desc: "Más inteligencia aplicada a cada output." },
-      { label: "Más aprendizaje", desc: "Un sistema que mejora con cada ciclo, no que termina en la entrega." },
+      { label: "Más velocidad", desc: "Del brief a la primera entrega 10 veces más rápido." },
+      { label: "Más consistencia", desc: "Una marca más clara y eficiente en cada canal y formato." },
+      { label: "Más adaptación", desc: "Una idea se vuelve decenas de versiones por audiencia y contexto, sin volver a producir." },
+      { label: "Menos fricción", desc: "Estrategia, creatividad, producción y ejecución en un solo equipo: cero handoffs." },
+      { label: "Mejor presupuesto", desc: "20+ herramientas de IA aplicadas a cada output: el presupuesto rinde en piezas, no en overhead." },
+      { label: "Más aprendizaje", desc: "Un sistema que mejora y aprende con cada ciclo." },
     ],
   },
   en: {
@@ -30,12 +31,12 @@ const COPY = {
     subLine1: "Operating as a system is not an incremental upgrade.",
     subLine2: "It is another way to build a brand.",
     points: [
-      { label: "More speed", desc: "From brief to first delivery with more agility." },
-      { label: "More consistency", desc: "A clearer brand across every channel, market and format." },
-      { label: "More adaptability", desc: "Creative that adjusts to audiences, contexts and needs." },
-      { label: "Less friction", desc: "An integrated model of strategy, creativity, production and execution." },
-      { label: "Better budget", desc: "More intelligence applied to every output." },
-      { label: "More learning", desc: "A system that improves every cycle, it doesn't end at delivery." },
+      { label: "More speed", desc: "From brief to first delivery 10 times faster." },
+      { label: "More consistency", desc: "A clearer, more efficient brand across every channel and format." },
+      { label: "More adaptability", desc: "One idea becomes dozens of versions per audience and context, without reshooting." },
+      { label: "Less friction", desc: "Strategy, creative, production and execution in one team: zero handoffs." },
+      { label: "Better budget", desc: "20+ AI tools applied to every output: budget goes to pieces, not overhead." },
+      { label: "More learning", desc: "A system that improves and learns with every cycle." },
     ],
   },
   pt: {
@@ -44,26 +45,33 @@ const COPY = {
     subLine1: "Operar como sistema não é uma melhoria incremental.",
     subLine2: "É outra forma de construir marca.",
     points: [
-      { label: "Mais velocidade", desc: "Do brief à primeira entrega com mais agilidade." },
-      { label: "Mais consistência", desc: "Uma marca mais clara em todos os canais, mercados e formatos." },
-      { label: "Mais adaptação", desc: "Criatividade que se ajusta a audiências, contextos e necessidades." },
-      { label: "Menos atrito", desc: "Um modelo integrado de estratégia, criatividade, produção e execução." },
-      { label: "Melhor orçamento", desc: "Mais inteligência aplicada a cada output." },
-      { label: "Mais aprendizado", desc: "Um sistema que melhora a cada ciclo, não termina na entrega." },
+      { label: "Mais velocidade", desc: "Do brief à primeira entrega 10 vezes mais rápido." },
+      { label: "Mais consistência", desc: "Uma marca mais clara e eficiente em cada canal e formato." },
+      { label: "Mais adaptação", desc: "Uma ideia vira dezenas de versões por audiência e contexto, sem produzir de novo." },
+      { label: "Menos atrito", desc: "Estratégia, criatividade, produção e execução em um só time: zero handoffs." },
+      { label: "Melhor orçamento", desc: "20+ ferramentas de IA aplicadas a cada output: o orçamento rende em peças, não em overhead." },
+      { label: "Mais aprendizado", desc: "Um sistema que melhora e aprende a cada ciclo." },
     ],
   },
 };
 
-const CHESS = "/assets/hero/why-chess.webp"; // ejército de ajedrez explotando: estrategia en movimiento
+// Ajedrez explotando en video (aprobado 2026-07-05); la imagen fija original
+// (why-chess.webp) sigue en assets/hero.
+const CHESS_VIDEO = "/assets/hero/why-chess.mp4";
+const CHESS_POSTER = "/assets/hero/why-chess-poster.webp";
 
 const WhySection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
   return (
     <ThemeSection theme={THEMES.night} id="v3-why" pad="py-14 md:py-20" className="overflow-hidden flex flex-col justify-center">
-      {/* Fondo: ajedrez explotando, scrim más oscuro a la izquierda (texto) */}
+      {/* Fondo: ajedrez explotando (video en loop), scrim más oscuro a la izquierda (texto) */}
       <div className="absolute inset-0 z-0">
-        <img src={CHESS} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
+        <ViewportVideo
+          src={CHESS_VIDEO}
+          poster={CHESS_POSTER}
+          className="h-full w-full object-cover object-center"
+        />
         <div className="absolute inset-0 bg-[#0A0A0C]/26" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C] via-[#0A0A0C]/68 to-[#0A0A0C]/10" />
         <div className="absolute inset-y-0 left-0 w-[68%] bg-gradient-to-r from-[#0A0A0C]/95 via-[#0A0A0C]/70 to-transparent" />
@@ -87,7 +95,7 @@ const WhySection = () => {
           <span className="block text-volt font-bold">{c.subLine2}</span>
         </motion.p>
 
-        <div className="mt-8 max-w-5xl rounded-2xl border border-white/10 bg-[#050507]/58 p-4 shadow-[0_28px_100px_rgba(0,0,0,0.42)] backdrop-blur-md md:rounded-3xl md:p-6">
+        <div className="mt-8 rounded-2xl border border-white/10 bg-[#050507]/58 p-4 shadow-[0_28px_100px_rgba(0,0,0,0.42)] backdrop-blur-md md:rounded-3xl md:p-6">
           {c.points.map((p, i) => (
             <motion.div
               key={p.label}
@@ -95,7 +103,7 @@ const WhySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="group relative grid grid-cols-1 gap-1 overflow-hidden border-t border-current/15 py-4 transition-colors duration-300 first:border-t-0 md:grid-cols-[280px_1fr] md:gap-8 md:items-baseline hover:border-[#FF3B30]/70 hover:bg-white/[0.045]"
+              className="group relative grid grid-cols-1 gap-1 overflow-hidden border-t border-current/15 py-4 transition-colors duration-300 first:border-t-0 md:grid-cols-[250px_1fr] md:gap-6 md:items-baseline hover:border-[#FF3B30]/70 hover:bg-white/[0.045]"
             >
               <span
                 aria-hidden="true"
