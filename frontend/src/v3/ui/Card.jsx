@@ -10,10 +10,13 @@ const TONES = {
   voltline: "border border-[#0A0A0C]/15",
 };
 
-const Card = ({ children, tone = "light", className = "", index = 0, ...rest }) => {
+// spotlight=false apaga el glow que sigue al cursor (p. ej. cards que invierten
+// colores en hover vía group-hover en sus children).
+const Card = ({ children, tone = "light", className = "", index = 0, spotlight = true, ...rest }) => {
   const ref = useRef(null);
 
   const onMove = (e) => {
+    if (!spotlight) return;
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
@@ -33,14 +36,16 @@ const Card = ({ children, tone = "light", className = "", index = 0, ...rest }) 
       {...rest}
     >
       {/* Glow que sigue al cursor */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{
-          background:
-            "radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(255,59,48,0.16), transparent 70%)",
-        }}
-      />
+      {spotlight && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{
+            background:
+              "radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(255,59,48,0.16), transparent 70%)",
+          }}
+        />
+      )}
       <div className="relative">{children}</div>
     </motion.div>
   );

@@ -15,9 +15,9 @@ const NAV_ITEMS = [
 ];
 
 const CTA = {
-  es: "Hablemos",
-  en: "Let's talk",
-  pt: "Vamos conversar",
+  es: "Contacto",
+  en: "Contact",
+  pt: "Contato",
 };
 const IG_LABEL = {
   es: "WTF Agency en Instagram",
