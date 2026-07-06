@@ -20,19 +20,19 @@ const COPY = {
     kicker: "No es una herramienta. Es el sistema.",
     words: ["piensa.", "crea.", "produce.", "mueve.", "aprende."],
     definition:
-      "Infinity Engine es nuestro desarrollo insignia: un sistema operativo propio que integra estrategia, creatividad, producción, tecnología, data e inteligencia artificial para acelerar la comunicación de las marcas sin perder profundidad, criterio ni consistencia.",
+      "Un motor propio, nuestro sistema operativo que integra estrategia, creatividad, producción, tecnología, data e inteligencia artificial para acelerar la comunicación de las marcas sin perder profundidad, criterio ni consistencia.",
   },
   en: {
     kicker: "Not a tool. The system.",
     words: ["thinks.", "creates.", "produces.", "moves.", "learns."],
     definition:
-      "Infinity Engine is our flagship build: a proprietary operating system that integrates strategy, creativity, production, technology, data and artificial intelligence to accelerate brand communication without losing depth, judgment or consistency.",
+      "An engine of our own, our operating system integrating strategy, creativity, production, technology, data and artificial intelligence to accelerate brand communication without losing depth, judgment or consistency.",
   },
   pt: {
     kicker: "Não é uma ferramenta. É o sistema.",
     words: ["pensa.", "cria.", "produz.", "move.", "aprende."],
     definition:
-      "O Infinity Engine é o nosso carro-chefe: um sistema operacional próprio que integra estratégia, criatividade, produção, tecnologia, dados e inteligência artificial para acelerar a comunicação das marcas sem perder profundidade, critério ou consistência.",
+      "Um motor próprio, nosso sistema operacional que integra estratégia, criatividade, produção, tecnologia, dados e inteligência artificial para acelerar a comunicação das marcas sem perder profundidade, critério ou consistência.",
   },
 };
 
