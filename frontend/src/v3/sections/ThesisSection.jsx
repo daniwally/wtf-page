@@ -40,7 +40,7 @@ const COPY = {
     ),
     insight:
       "Las marcas ya no pueden depender de campañas aisladas, procesos lentos y estructuras pensadas para otro ritmo. Hoy necesitan sistemas capaces de pensar, producir, adaptar, mover y aprender todos los días.",
-    sign: "Lo que viene no se opera con el modelo de antes.",
+    sign: "Una nueva velocidad exige una nueva arquitectura.",
   },
   en: {
     kicker: "The problem",
@@ -67,7 +67,7 @@ const COPY = {
     ),
     insight:
       "Brands can no longer rely on isolated campaigns, slow processes and structures built for another pace. Today they need systems that think, produce, adapt, move and learn every day.",
-    sign: "What comes next cannot run on yesterday's model.",
+    sign: "A new speed demands a new architecture.",
   },
   pt: {
     kicker: "O problema",
@@ -94,7 +94,7 @@ const COPY = {
     ),
     insight:
       "As marcas não podem mais depender de campanhas isoladas, processos lentos e estruturas pensadas para outro ritmo. Hoje precisam de sistemas capazes de pensar, produzir, adaptar, mover e aprender todos os dias.",
-    sign: "O que vem pela frente não opera com o modelo de antes.",
+    sign: "Uma nova velocidade exige uma nova arquitetura.",
   },
 };
 
