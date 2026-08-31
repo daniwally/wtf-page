@@ -2,32 +2,43 @@ import { motion } from "framer-motion";
 import { fadeUp, logo } from "../../sections/shared";
 import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
-import Headline from "../ui/Headline";
 import { useLang } from "../i18n/LangContext";
 
-const BG = "/assets/hero/salto.webp"; // skydiver (como el deck), bien atenuado
+// PORT LITERAL de la slide "11 · Clientes" del deck (engine.wtf-agency.works).
+// Fondo, velo, tipografías, tamaños de logo y grilla salen del HTML/CSS del deck,
+// no de una interpretación: .clientes, .clientes-title, .clientes-sub, .logos-static.
+const BG = "/assets/hero/clientes-cielo.webp"; // wtf-credenciales-slides/bg-clientes.jpg
+const VEIL =
+  "linear-gradient(180deg, rgba(10,10,12,0.22) 0%, rgba(10,10,12,0.10) 45%, rgba(10,10,12,0.30) 100%)";
+const BONE = "#F4F1E8"; // --bone
+const BONE_DIM = "#C5C2B8"; // --bone-dim
 
-// Copy bilingüe (es | en): se consume con useLang().
 const COPY = {
   es: {
-    headline: [<>15 años operando marcas.</>, <b key="c">Ahora convertidos en sistema.</b>],
-    subline: "WTF nació como agencia creativa y evolucionó hacia un modelo operativo: estrategia, creatividad, producción y velocidad en un mismo lugar.",
+    kicker: "15 años operando marcas · Ahora convertidos en sistema",
+    l1: "No son logos.",
+    l2: "Son años.",
+    sub: "Los años no se pitchean.",
   },
   en: {
-    headline: [<>15 years operating brands.</>, <b key="c">Now turned into a system.</b>],
-    subline: "WTF started as a creative agency and evolved into an operating model: strategy, creativity, production and speed in one place.",
+    kicker: "15 years operating brands · Now turned into a system",
+    l1: "They are not logos.",
+    l2: "They are years.",
+    sub: "Years cannot be pitched.",
   },
   pt: {
-    headline: [<>15 anos operando marcas.</>, <b key="c">Agora transformados em sistema.</b>],
-    subline: "A WTF nasceu como agência criativa e evoluiu para um modelo operacional: estratégia, criatividade, produção e velocidade em um só lugar.",
+    kicker: "15 anos operando marcas · Agora transformados em sistema",
+    l1: "Não são logos.",
+    l2: "São anos.",
+    sub: "Os anos não se pitcheiam.",
   },
 };
 
-// Sección de clientes. Replica EXACTO el slide del deck (engine.wtf-agency.works):
-// mismo orden, mismos tamaños (logo-sm/logo-xs) y scale por logo. El poder de
-// fuego no se recorta. Tamaños del deck: default 44px·90%, sm 28px·60%, xs 24px·55%.
+// Tamaños del deck resueltos por cascada:
+// .logos-static img → 36px / 100% (default) · .logo-cell img.logo-sm → 28px / 60%
+// · .logo-cell img.logo-xs → 24px / 55%. Los scale() inline son los del deck.
 const SZ = {
-  d: { maxHeight: "44px", maxWidth: "90%" },
+  d: { maxHeight: "36px", maxWidth: "100%" },
   sm: { maxHeight: "28px", maxWidth: "60%" },
   xs: { maxHeight: "24px", maxWidth: "55%" },
 };
@@ -69,50 +80,91 @@ const ClientsSection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
   return (
-  <ThemeSection
-    theme={THEMES.night}
-    id="v3-clientes"
-    pad="pt-28 pb-20 md:pt-36 md:pb-28"
-    className="flex flex-col justify-center"
-  >
-    {/* Fondo: salto al vacío, muy atenuado (como el deck) */}
-    <div className="absolute inset-0 z-0">
-      <img src={BG} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-      <div className="absolute inset-0 bg-[#0A0A0C]/88" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/70 via-[#0A0A0C]/50 to-[#0A0A0C]/90" />
-    </div>
+    <ThemeSection
+      theme={THEMES.night}
+      id="v3-clientes"
+      pad="pt-24 pb-[90px]"
+      className="flex flex-col"
+    >
+      {/* .clientes: bg-clientes.jpg, cover, center 30% + ::before (velo liviano) */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={BG}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover"
+          style={{ objectPosition: "center 30%" }}
+        />
+        <div className="absolute inset-0" style={{ background: VEIL }} />
+      </div>
 
-    <div className="container mx-auto px-6 md:px-12 relative z-10">
-      <Headline size="section" className="!text-[clamp(27px,4.25vw,61px)]" lines={c.headline} />
-      <motion.p {...fadeUp} className="mt-5 text-lg md:text-xl font-light opacity-65">
-        {c.subline}
-      </motion.p>
+      {/* padding lateral del deck: 7vw */}
+      <div className="relative z-10 flex flex-1 flex-col px-[7vw]">
+        <motion.p
+          {...fadeUp}
+          className="font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase text-white"
+        >
+          {c.kicker}
+        </motion.p>
 
-      {/* Grilla idéntica al deck: 6 cols, gap 0, celdas 70px, sizes por logo */}
-      <motion.div
-        {...fadeUp}
-        className="mt-8 md:mt-10 grid grid-cols-3 md:grid-cols-6 gap-0"
-      >
-        {CLIENTS.map(({ f, s = "d", k }) => (
-          <div key={f} className="flex items-center justify-center px-4 py-[22px] min-h-[70px]">
-            <img
-              src={logo(f)}
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-              style={{
-                maxHeight: SZ[s].maxHeight,
-                maxWidth: SZ[s].maxWidth,
-                transform: k ? `scale(${k})` : undefined,
-              }}
-              className="w-auto object-contain opacity-[0.55] hover:opacity-100 transition-opacity duration-300"
-            />
-          </div>
-        ))}
-      </motion.div>
-    </div>
-  </ThemeSection>
+        {/* .clientes-title + .display */}
+        <motion.h2
+          {...fadeUp}
+          className="pt-[60px] md:pt-[120px] uppercase antialiased text-[clamp(22px,3.7vw,64px)]"
+          style={{
+            fontWeight: 100,
+            letterSpacing: "0.06em",
+            lineHeight: 1.1,
+            color: BONE,
+            textShadow: "0 2px 30px rgba(0,0,0,0.35)",
+            marginBottom: "12px",
+          }}
+        >
+          {c.l1}
+          <br />
+          <em className="not-italic font-bold text-white">{c.l2}</em>
+        </motion.h2>
+
+        {/* .clientes-sub */}
+        <motion.p
+          {...fadeUp}
+          className="max-w-[550px] text-xl leading-[1.5] mb-[50px]"
+          style={{ color: BONE_DIM }}
+        >
+          {c.sub}
+        </motion.p>
+
+        {/* .logos-static: 8 cols, gap 20px/24px, celdas 44px, entrada 40ms */}
+        <div className="mt-auto grid w-full grid-cols-4 md:grid-cols-8 items-center gap-x-6 gap-y-5">
+          {CLIENTS.map(({ f, s = "d", k }, i) => (
+            <motion.div
+              key={f}
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: i * 0.04, duration: 0.45, ease: "easeOut" }}
+              className="flex min-h-[44px] items-center justify-center"
+            >
+              <img
+                src={logo(f)}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                style={{
+                  maxHeight: SZ[s].maxHeight,
+                  maxWidth: SZ[s].maxWidth,
+                  transform: k ? `scale(${k})` : undefined,
+                }}
+                className="w-auto object-contain opacity-70 transition-opacity duration-300 hover:opacity-100 [filter:brightness(0)_invert(1)]"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </ThemeSection>
   );
 };
 

@@ -2,52 +2,62 @@ import { motion } from "framer-motion";
 import { fadeUp } from "../../sections/shared";
 import ThemeSection from "../theme/ThemeSection";
 import { THEMES } from "../theme/palette";
-import Headline from "../ui/Headline";
 import { useLang } from "../i18n/LangContext";
 
-// Sección 4 — THE MODEL. Clímax cinematográfico: la mujer con antiparras (mood
-// del hero) de fondo, sin el bloque naranja. El framework Think · Make · Move ·
-// Learn · Grow en cards, con las descripciones del brief.
-// (archivo histórico OrchestrateSection.jsx; ahora es "The model")
-// Copy bilingüe (es | en): se consume con useLang(). Los verbos del loop
-// (Think/Make/Move/Learn/Grow) van en inglés en ambos idiomas (etiquetas de marca).
-const MODEL_BG = "/assets/hero/model-goggles.webp"; // mujer con antiparras (mood del hero)
+// PORT LITERAL de la slide "07 · Quiénes somos" del deck (engine.wtf-agency.works):
+// fondo quienes-glass.jpg con sus dos gradientes + el glow rojo del ::after,
+// .quienes-h clamp(22,3.7vw,64) hairline con <em> bold blanco, .quienes-sub y
+// .wtf-pillars: 5 columnas pegadas (gap 0, bordes colapsados con margin -1px),
+// celdas de 220px con número mono rojo, h4 32px y descripción 12px.
+const BG = "/assets/hero/quienes-glass.webp";
+const VEIL_X =
+  "linear-gradient(90deg, rgba(10,10,12,0.86) 0%, rgba(10,10,12,0.62) 45%, rgba(10,10,12,0.25) 100%)";
+const VEIL_Y =
+  "linear-gradient(180deg, rgba(10,10,12,0.45) 0%, transparent 25%, transparent 62%, rgba(10,10,12,0.80) 100%)";
+const GLOW =
+  "radial-gradient(ellipse 40% 50% at 85% 50%, rgba(255,59,48,0.06), transparent 70%)";
+const BONE = "#F4F1E8";
+const BONE_DIM = "#C5C2B8";
+const LINE = "#2C2C36";
 
 const COPY = {
   es: {
-    headline: [<>No es workflow.</>, <b key="g">Es momentum.</b>],
-    subPre: "Un sistema modular que conecta pensamiento estratégico, creatividad aplicada,",
-    subPost: "producción acelerada, distribución inteligente y aprendizaje continuo.",
-    steps: [
-      { n: "01", title: "Pensar", en: "Think", desc: "Del caos a la dirección. Leemos el brief, el negocio, la cultura, la audiencia y el contexto para encontrar el punto exacto desde donde una marca puede moverse." },
-      { n: "02", title: "Crear", en: "Create", desc: "De la idea a la plataforma. Creamos conceptos que no mueren en una pieza: nacen para expandirse, adaptarse y construir valor en el tiempo." },
-      { n: "03", title: "Producir", en: "Produce", desc: "De la pieza al ecosistema. Diseñamos y producimos contenido modular, escalable y consistente, combinando oficio creativo, producción real e inteligencia artificial." },
-      { n: "04", title: "Mover", en: "Move", desc: "Del contenido al impacto. Activamos canales, audiencias, medios, social, retail, e-commerce e influencia para que la creatividad no solo exista, sino que circule, conecte y empuje la marca." },
-      { n: "05", title: "Aprender", en: "Learn", desc: "De la entrega a la evolución. Cada output deja información, cada campaña deja señales y cada señal mejora el sistema que construye lo próximo." },
+    kicker: "No es workflow. Es momentum.",
+    t1: ["NO HACEMOS", "CAMPAÑAS."],
+    t2: ["HACEMOS", "SISTEMAS."],
+    sub: "Construimos nuestro propio sistema operativo. 15 años de calle, estrategia y craft creativo corriendo dentro de una máquina que no para. No automatizamos la creatividad, la armamos para escalar.",
+    pillars: [
+      { t: "PENSAR", d: "Estrategia, insight, concepto. IA para research, análisis de audiencia y mapeo de territorios. La idea sigue naciendo de una cabeza, no de un prompt." },
+      { t: "HACER", d: "Creatividad con oficio y producción AI-first: video cinematográfico, UGC sintético, avatares, brand systems. Calidad de cine, a velocidad de feed." },
+      { t: "MOVER", d: "Distribución inteligente: plataformas, pauta, CRM, always-on, community. Cada pieza nativa de su canal, no adaptada." },
+      { t: "APRENDER", d: "Optimización continua. KPIs en tiempo real. A/B testing. Iteración basada en data, no en ego." },
+      { t: "CRECER", d: "Escala sin perder alma. Multi-marca, multi-mercado, multi-formato. El sistema crece con vos." },
     ],
   },
   en: {
-    headline: [<>It is not workflow.</>, <b key="g">It is momentum.</b>],
-    subPre: "A modular system that connects strategic thinking, applied creativity,",
-    subPost: "accelerated production, intelligent distribution and continuous learning.",
-    steps: [
-      { n: "01", title: "Think", en: "Think", desc: "From chaos to direction. We read the brief, the business, the culture, the audience and the context to find the exact point from where a brand can move." },
-      { n: "02", title: "Create", en: "Create", desc: "From idea to platform. We create concepts that don't die in a single piece: they're born to expand, adapt and build value over time." },
-      { n: "03", title: "Produce", en: "Produce", desc: "From piece to ecosystem. We design and produce modular, scalable and consistent content, combining creative craft, real production and artificial intelligence." },
-      { n: "04", title: "Move", en: "Move", desc: "From content to impact. We activate channels, audiences, media, social, retail, e-commerce and influence so creativity doesn't just exist, but circulates, connects and pushes the brand." },
-      { n: "05", title: "Learn", en: "Learn", desc: "From delivery to evolution. Every output leaves information, every campaign leaves signals, and every signal improves the system that builds what's next." },
+    kicker: "It is not workflow. It is momentum.",
+    t1: ["WE DON'T MAKE", "CAMPAIGNS."],
+    t2: ["WE BUILD", "SYSTEMS."],
+    sub: "We built our own AI operating system. 15 years of street smarts, strategy, and creative craft running inside a machine that never stops. We don't automate creativity, we build it to scale.",
+    pillars: [
+      { t: "THINK", d: "Strategy, insight, concept. AI for research, audience analysis and territory mapping. The idea still comes from a head, not a prompt." },
+      { t: "CREATE", d: "Craft-led creativity and AI-first production: cinematic video, synthetic UGC, avatars, brand systems. Film quality, at feed speed." },
+      { t: "DISTRIBUTE", d: "Smart distribution: platforms, paid media, CRM, always-on, community. Every piece native to its channel, not adapted." },
+      { t: "LEARN", d: "Continuous optimization. Real-time KPIs. A/B testing. Data-driven iteration, not ego-driven." },
+      { t: "GROW", d: "Scale without losing soul. Multi-brand, multi-market, multi-format. The system grows with you." },
     ],
   },
   pt: {
-    headline: [<>Não é workflow.</>, <b key="g">É momentum.</b>],
-    subPre: "Um sistema modular que conecta pensamento estratégico, criatividade aplicada,",
-    subPost: "produção acelerada, distribuição inteligente e aprendizado contínuo.",
-    steps: [
-      { n: "01", title: "Pensar", en: "Think", desc: "Do caos à direção. Lemos o brief, o negócio, a cultura, a audiência e o contexto para encontrar o ponto exato de onde uma marca pode se mover." },
-      { n: "02", title: "Criar", en: "Create", desc: "Da ideia à plataforma. Criamos conceitos que não morrem em uma peça: nascem para expandir, adaptar e construir valor ao longo do tempo." },
-      { n: "03", title: "Produzir", en: "Produce", desc: "Da peça ao ecossistema. Criamos conteúdo modular, escalável e consistente, combinando craft criativo, produção real e inteligência artificial." },
-      { n: "04", title: "Mover", en: "Move", desc: "Do conteúdo ao impacto. Ativamos canais, audiências, mídia, social, retail, e-commerce e influência para que a criatividade circule, conecte e mova a marca." },
-      { n: "05", title: "Aprender", en: "Learn", desc: "Da entrega à evolução. Cada output deixa informação, cada campanha deixa sinais e cada sinal melhora o sistema que constrói o próximo passo." },
+    kicker: "Não é workflow. É momentum.",
+    t1: ["NÃO FAZEMOS", "CAMPANHAS."],
+    t2: ["CONSTRUÍMOS", "SISTEMAS."],
+    sub: "Construímos nosso próprio sistema operacional de IA. 15 anos de rua, estratégia e craft criativo rodando dentro de uma máquina que não para. Não automatizamos a criatividade, a preparamos para escalar.",
+    pillars: [
+      { t: "PENSAR", d: "Estratégia, insight, conceito. IA para pesquisa, análise de audiência e mapeamento de territórios. A ideia continua nascendo de uma cabeça, não de um prompt." },
+      { t: "CRIAR", d: "Criatividade com ofício e produção AI-first: vídeo cinematográfico, UGC sintético, avatares, brand systems. Qualidade de cinema, na velocidade do feed." },
+      { t: "DISTRIBUIR", d: "Distribuição inteligente: plataformas, mídia paga, CRM, always-on, comunidade. Cada peça nativa do seu canal, não adaptada." },
+      { t: "APRENDER", d: "Otimização contínua. KPIs em tempo real. A/B testing. Iteração baseada em dados, não em ego." },
+      { t: "CRESCER", d: "Escalar sem perder alma. Multi-marca, multi-mercado, multi-formato. O sistema cresce com você." },
     ],
   },
 };
@@ -56,64 +66,100 @@ const OrchestrateSection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
   return (
-  <ThemeSection theme={THEMES.night} id="v3-model" className="overflow-hidden flex flex-col justify-center">
-    {/* Fondo: la mujer con antiparras (mood del hero), bien oscurecido */}
-    <div className="absolute inset-0 z-0">
-      <img src={MODEL_BG} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full scale-x-[-1] object-cover object-center" />
-      <div className="absolute inset-0 bg-[#0A0A0C]/28" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/65 via-[#0A0A0C]/8 to-[#0A0A0C]/38" />
-    </div>
-
-    <div className="relative z-10 container mx-auto px-6 md:px-12">
-      <Headline
-        size="section"
-        className="max-w-4xl"
-        lines={c.headline}
-      />
-      <motion.p {...fadeUp} className="mt-6 max-w-2xl text-base md:text-lg font-light leading-relaxed text-white/80">
-        {c.subPre}
-        <br className="hidden md:block" />
-        {c.subPost}
-      </motion.p>
-
-      <div className="mt-14 grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-        {c.steps.map((s, i) => (
-          <motion.div
-            key={s.n}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.5 }}
-            className="group relative flex min-h-[200px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#050507]/76 p-5 text-[#F4F1E8] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#FF3B30]/65 hover:bg-[#050507]/88 hover:shadow-[0_24px_80px_rgba(0,0,0,0.45)] md:rounded-3xl md:p-6"
-          >
-            <span
-              aria-hidden="true"
-              className="absolute left-0 top-0 h-px w-full origin-left scale-x-0 bg-[#FF3B30] transition-transform duration-500 ease-out group-hover:scale-x-100"
-            />
-            <span
-              aria-hidden="true"
-              className="absolute bottom-0 right-0 h-px w-full origin-right scale-x-0 bg-[#FF3B30]/80 transition-transform duration-500 ease-out group-hover:scale-x-100"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,59,48,0.13),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="relative flex items-center justify-between">
-              <span className="font-mono text-base opacity-50 transition-colors duration-300 group-hover:text-[#FF3B30] group-hover:opacity-100 md:text-lg">
-                {s.n}
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-volt transition-colors duration-300 group-hover:text-[#FF3B30]">
-                {s.en}
-              </span>
-            </div>
-            <div className="relative mt-10 transition-transform duration-300 group-hover:translate-y-[-2px]">
-              <p className="text-xl font-black tracking-tight md:text-2xl">{s.title}</p>
-              <p className="mt-1.5 text-xs font-normal leading-snug opacity-60 transition-opacity duration-300 group-hover:opacity-85 md:text-sm">
-                {s.desc}
-              </p>
-            </div>
-          </motion.div>
-        ))}
+    <ThemeSection
+      theme={THEMES.night}
+      id="v3-model"
+      pad="pt-24 pb-[90px]"
+      className="overflow-hidden flex flex-col"
+    >
+      {/* .quienes: quienes-glass.jpg + gradiente horizontal + vertical + glow rojo */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={BG}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0" style={{ background: VEIL_X }} />
+        <div className="absolute inset-0" style={{ background: VEIL_Y }} />
+        <div className="absolute inset-0" style={{ background: GLOW }} />
       </div>
-    </div>
-  </ThemeSection>
+
+      {/* padding lateral del deck: 7vw */}
+      <div className="relative z-10 flex flex-1 flex-col px-[7vw]">
+        <motion.p
+          {...fadeUp}
+          className="font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase text-white"
+        >
+          {c.kicker}
+        </motion.p>
+
+        {/* .quienes-h: flex:1 con align-items flex-end (el aire queda arriba) */}
+        <motion.h2
+          {...fadeUp}
+          className="flex flex-1 items-end uppercase antialiased text-[clamp(22px,3.7vw,64px)]"
+          style={{
+            fontWeight: 100,
+            letterSpacing: "0.06em",
+            lineHeight: 1.2,
+            color: BONE,
+            textShadow: "0 2px 30px rgba(0,0,0,0.35)",
+            marginBottom: "12px",
+          }}
+        >
+          <span className="block pt-10">
+            {c.t1[0]}
+            <br />
+            {c.t1[1]}
+            <br />
+            <em className="not-italic font-bold text-white">
+              {c.t2[0]}
+              <br />
+              {c.t2[1]}
+            </em>
+          </span>
+        </motion.h2>
+
+        {/* .quienes-sub */}
+        <motion.p
+          {...fadeUp}
+          className="max-w-[480px] text-[clamp(13px,1.1vw,16px)] leading-[1.6] mb-7"
+          style={{ color: BONE_DIM }}
+        >
+          {c.sub}
+        </motion.p>
+
+        {/* .wtf-pillars: 5 columnas pegadas, bordes colapsados */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
+          {c.pillars.map((p, i) => (
+            <motion.div
+              key={p.t}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: 0.08 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="relative -mb-px px-[22px] pt-7 pb-8 transition-all duration-300 hover:z-[2] hover:border-[#FF3B30] hover:bg-[rgba(10,10,12,0.6)] lg:mb-0 lg:-mr-px min-h-[220px]"
+              style={{ border: `1px solid ${LINE}`, background: "rgba(10,10,12,0.45)" }}
+            >
+              <div className="mb-4 font-mono text-[10px] tracking-[0.18em] text-volt">
+                {String(i + 1).padStart(2, "0")} ·
+              </div>
+              <h4
+                className="mb-3.5 text-[32px] uppercase leading-none"
+                style={{ color: BONE }}
+              >
+                {p.t}
+              </h4>
+              <p className="text-xs leading-[1.55]" style={{ color: BONE_DIM }}>
+                {p.d}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </ThemeSection>
   );
 };
 

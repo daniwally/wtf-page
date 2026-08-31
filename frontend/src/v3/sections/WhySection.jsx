@@ -11,7 +11,7 @@ import { useLang } from "../i18n/LangContext";
 // ambos idiomas (línea de marca).
 const COPY = {
   es: {
-    kicker: "Qué resuelve",
+    kicker: "Qué resolvemos",
     headline: [<>Lo que ganan las marcas</>, <b key="o">cuando operan como sistema.</b>],
     subLine1: "Operar como sistema no es una mejora incremental.",
     subLine2: "Es otra forma de construir marca.",
@@ -25,7 +25,7 @@ const COPY = {
     ],
   },
   en: {
-    kicker: "What it solves",
+    kicker: "What we solve",
     headline: [<>What brands gain</>, <b key="o">when they operate as a system.</b>],
     subLine1: "Operating as a system is not an incremental upgrade.",
     subLine2: "It is another way to build a brand.",
@@ -39,7 +39,7 @@ const COPY = {
     ],
   },
   pt: {
-    kicker: "O que resolve",
+    kicker: "O que resolvemos",
     headline: [<>O que as marcas ganham</>, <b key="o">quando operam como sistema.</b>],
     subLine1: "Operar como sistema não é uma melhoria incremental.",
     subLine2: "É outra forma de construir marca.",
@@ -54,27 +54,40 @@ const COPY = {
   },
 };
 
-// Rey negro cayendo (aprobada 2026-07-05); anteriores en assets/hero:
-// why-chess.webp (foto original) y why-chess.mp4 (video probado y descartado).
-const CHESS_IMG = "/assets/hero/why-chess-king.webp";
+// Guepardo corriendo sobre el agua (aprobado 2026-07-06): velocidad literal,
+// y el único slide CLARO del tramo (respiro entre Orchestrate y el Statement).
+// Anteriores en assets/hero: why-chess-king.webp, why-chess.webp, why-chess.mp4.
+const CHEETAH_IMG = "/assets/hero/why-cheetah.webp";
 
 const WhySection = () => {
   const { lang } = useLang();
   const c = COPY[lang];
   return (
     <ThemeSection theme={THEMES.night} id="v3-why" pad="py-14 md:py-20" className="overflow-hidden flex flex-col justify-center">
-      {/* Fondo: ajedrez explotando (imagen), scrim más oscuro a la izquierda (texto) */}
-      <div className="absolute inset-0 z-0">
-        <img src={CHESS_IMG} alt="" aria-hidden="true" loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
-        <div className="absolute inset-0 bg-[#0A0A0C]/26" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C] via-[#0A0A0C]/68 to-[#0A0A0C]/10" />
-        <div className="absolute inset-y-0 left-0 w-[68%] bg-gradient-to-r from-[#0A0A0C]/95 via-[#0A0A0C]/70 to-transparent" />
+      {/* Fondo: guepardo sobre el agua. Slide claro: texto en tinta, sin scrims
+          pesados; solo un velo suave arriba-izquierda para el headline. El
+          fondo asienta con settle de escala (1.04→1), transform only. */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <motion.img
+          src={CHEETAH_IMG}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          initial={{ opacity: 0, scale: 1.04 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          className="h-full w-full object-cover object-center"
+        />
+        {/* Velo superior: los textos blancos leen sobre el cielo claro */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/60 via-[#0A0A0C]/15 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-1 flex-col">
         <motion.p
           {...fadeUp}
-          className="font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase text-volt mb-6"
+          className="font-hud text-[11px] md:text-xs tracking-[0.28em] uppercase text-white mb-6"
         >
           {c.kicker}
         </motion.p>
@@ -89,31 +102,24 @@ const WhySection = () => {
           <span className="block font-bold text-white">{c.subLine2}</span>
         </motion.p>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-[#050507]/58 p-4 shadow-[0_28px_100px_rgba(0,0,0,0.42)] backdrop-blur-md md:rounded-3xl md:p-6">
+        {/* 6 cards individuales al PIE: la franja media queda libre para ver
+            al guepardo corriendo (la imagen ES el argumento de velocidad).
+            Cards de vidrio claro con texto en tinta, hover con borde volt. */}
+        <div className="mt-auto grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-3 lg:grid-cols-6">
           {c.points.map((p, i) => (
             <motion.div
               key={p.label}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="group relative grid grid-cols-1 gap-1 overflow-hidden border-t border-current/15 py-4 transition-colors duration-300 first:border-t-0 md:grid-cols-[250px_1fr] md:gap-6 md:items-baseline hover:border-[#FF3B30]/70 hover:bg-white/[0.045]"
+              transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="group rounded-xl border border-[#0A0A0C]/10 bg-white/60 p-3.5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-volt md:rounded-2xl md:p-4"
             >
-              <span
-                aria-hidden="true"
-                className="absolute left-0 top-0 h-px w-full origin-left scale-x-0 bg-[#FF3B30] transition-transform duration-500 ease-out group-hover:scale-x-100"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute bottom-0 right-0 h-px w-full origin-right scale-x-0 bg-[#FF3B30]/80 transition-transform duration-500 ease-out group-hover:scale-x-100"
-              />
-              <h3 className="relative text-lg font-semibold normal-case tracking-tight transition-transform duration-300 group-hover:translate-x-2 md:text-2xl">
-                <span className="mr-3 align-middle font-mono text-sm text-volt transition-colors duration-300 group-hover:text-[#FF3B30]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+              <span className="font-mono text-[11px] text-volt">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-1 text-sm font-bold normal-case leading-tight tracking-tight text-[#0A0A0C] md:text-base">
                 {p.label}
               </h3>
-              <p className="relative text-base font-light leading-snug opacity-60 transition-all duration-300 group-hover:translate-x-2 group-hover:opacity-90 md:text-lg">
+              <p className="mt-1.5 text-[11px] font-normal leading-snug text-[#0A0A0C]/65 md:text-xs">
                 {p.desc}
               </p>
             </motion.div>

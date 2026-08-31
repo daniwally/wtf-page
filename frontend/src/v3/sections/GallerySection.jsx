@@ -145,7 +145,9 @@ const GallerySection = () => {
       {/* Slide inicial con fondo motorsport */}
       <div className="relative min-h-screen pt-24 pb-10 md:pt-28 md:pb-14">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/hero/proof-now-chica.webp" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
+          {/* Dunas con figura de blanco (upscale 4x aura-sr, aprobada 2026-08-31).
+              La anterior era proof-now-chica.webp (casco rojo), sigue en assets. */}
+          <img src="/assets/hero/proof-now-dunas.webp" alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-[#0A0A0C]/8" />
         </div>
         <div className="relative z-10 flex min-h-[calc(100vh-8.5rem)] w-full flex-col justify-between">
